@@ -7,9 +7,9 @@ const projects = [
     title: "Astra AI Tools",
     description: "Free AI tools for students, developers and creators.",
     logo: "assets/images/ai-tools.png",  // ✅ Sahi path
-    url: "https://example.com",
-    status: "Coming Soon",
-    statusClass: "status-coming"
+    url: "https://d3vshivamyadav.github.io/Astra-AI-Tools/",
+    status: "LIVE",
+    statusClass: "status-live"
   },
 //   {
 //     title: "Astra Chatbot",
