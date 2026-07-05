@@ -11,21 +11,21 @@ const projects = [
     status: "Coming Soon",
     statusClass: "status-coming"
   },
-  {
-    title: "Astra Chatbot",
-    description: "AI-powered chatbot for customer support and automation.",
-    logo: "assets/images/chatbot.png",  // ✅ Sahi path
-    url: "https://chatbot.astra.com",
-    status: "BETA",
-    statusClass: "status-beta"
-  },
+//   {
+//     title: "Astra Chatbot",
+//     description: "AI-powered chatbot for customer support and automation.",
+//     logo: "assets/images/chatbot.png",  // ✅ Sahi path
+//     url: "https://chatbot.astra.com",
+//     status: "BETA",
+//     statusClass: "status-beta"
+//   },
   {
     title: "Astra QR Generator",
     description: "Create beautiful QR Codes instantly.",
     logo: "assets/images/qr-generator.png",  // ✅ Sahi path
     url: "https://example.com",
-    status: "LIVE",
-    statusClass: "status-live"
+    status: "COMING SOON",
+    statusClass: "status-coming"
   },
   {
     title: "Astra PDF Tools",
@@ -35,30 +35,30 @@ const projects = [
     status: "COMING SOON",
     statusClass: "status-coming"
   },
-  {
-    title: "Astra Cyber Shield",
-    description: "Cyber Security tools and resources.",
-    logo: "assets/images/cyber-shield.png",  // ✅ Sahi path
-    url: "https://example.com",
-    status: "BETA",
-    statusClass: "status-beta"
-  },
-  {
-    title: "Astra Voice Assistant",
-    description: "Desktop AI Voice Assistant.",
-    logo: "assets/images/voice-assistant.png",  // ✅ Sahi path
-    url: "https://example.com",
-    status: "BETA",
-    statusClass: "status-beta"
-  },
-  {
-    title: "Gram Panchayat Ratepur",
-    description: "Digital platform for Gram Panchayat.",
-    logo: "assets/images/gram-panchayat.png",  // ✅ Sahi path
-    url: "https://example.com",
-    status: "LIVE",
-    statusClass: "status-live"
-  }
+//   {
+//     title: "Astra Cyber Shield",
+//     description: "Cyber Security tools and resources.",
+//     logo: "assets/images/cyber-shield.png",  // ✅ Sahi path
+//     url: "https://example.com",
+//     status: "BETA",
+//     statusClass: "status-beta"
+//   },
+//   {
+//     title: "Astra Voice Assistant",
+//     description: "Desktop AI Voice Assistant.",
+//     logo: "assets/images/voice-assistant.png",  // ✅ Sahi path
+//     url: "https://example.com",
+//     status: "BETA",
+//     statusClass: "status-beta"
+//   },
+//   {
+//     title: "Gram Panchayat",
+//     description: "Digital platform for Gram Panchayat.",
+//     logo: "assets/images/gram-panchayat.png",  // ✅ Sahi path
+//     url: "https://example.com",
+//     status: "LIVE",
+//     statusClass: "status-live"
+//   }
 ];
 
 // ===============================
