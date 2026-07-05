@@ -10,6 +10,18 @@ body {
     background: #f5f7fa;
     color: #1a1a2e;
     line-height: 1.6;
+    padding-top: 70px; /* Navbar ke liye space */
+}
+
+/* ===== HEADER - Sticky Lock ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 /* ===== NAVBAR ===== */
@@ -19,10 +31,16 @@ body {
     align-items: center;
     padding: 14px 32px;
     background: #ffffff;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Logo Link - Home Page ===== */
+.logo-link {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -32,6 +50,11 @@ body {
     font-weight: 700;
     font-size: 20px;
     color: #0f172a;
+    transition: opacity 0.2s;
+}
+
+.logo:hover {
+    opacity: 0.8;
 }
 
 .logo img {
@@ -43,6 +66,7 @@ body {
     letter-spacing: -0.3px;
 }
 
+/* ===== Nav Button ===== */
 .nav-btn {
     display: flex;
     align-items: center;
@@ -55,6 +79,7 @@ body {
     font-weight: 500;
     font-size: 14px;
     transition: all 0.2s;
+    white-space: nowrap;
 }
 
 .nav-btn:hover {
@@ -69,7 +94,7 @@ body {
 /* ===== HERO ===== */
 .hero {
     text-align: center;
-    padding: 64px 24px 48px;
+    padding: 40px 24px 48px;
     background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);
 }
 
@@ -399,8 +424,12 @@ body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 640px) {
+    body {
+        padding-top: 62px;
+    }
+
     .hero {
-        padding: 40px 16px 32px;
+        padding: 30px 16px 32px;
     }
 
     .hero h1 {
@@ -412,11 +441,12 @@ body {
     }
 
     .navbar {
-        padding: 12px 16px;
+        padding: 10px 16px;
     }
 
     .logo {
-        font-size: 17px;
+        font-size: 16px;
+        gap: 8px;
     }
 
     .logo img {
@@ -425,7 +455,7 @@ body {
 
     .nav-btn {
         font-size: 12px;
-        padding: 6px 16px;
+        padding: 6px 14px;
     }
 
     .nav-btn i {
@@ -464,6 +494,10 @@ body {
 
     .search-area {
         padding: 0 16px 32px;
+    }
+
+    #projects {
+        padding: 0 16px 40px;
     }
 }
 
