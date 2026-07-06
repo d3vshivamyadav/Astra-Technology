@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Astra Technology</title>
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Astra Technology Logo">
+                    <span>Astra Technology</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="/#projects" class="nav-btn">
+                    <i class="fa-regular fa-compass"></i> Explore
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= THANK YOU CONTENT ================= -->
+    <section class="page-content">
+        <div class="container" style="text-align: center; padding: 60px 20px; max-width: 600px;">
+            <!-- Success Icon -->
+            <div style="width: 80px; height: 80px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                <i class="fa-solid fa-check" style="font-size: 40px; color: #22c55e;"></i>
+            </div>
+            
+            <h1 style="margin-bottom: 12px; font-size: 36px;">Thank You! 🎉</h1>
+            
+            <p style="font-size: 18px; color: #475569; max-width: 500px; margin: 0 auto;">
+                Your message has been received successfully.
+            </p>
+            
+            <p style="font-size: 15px; color: #64748b; margin-top: 10px;">
+                A confirmation email has been sent to your inbox.
+            </p>
+            
+            <div style="margin-top: 32px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="/" class="hero-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #0f172a;">
+                    <i class="fa-solid fa-home"></i> Home
+                </a>
+                <a href="/#projects" class="hero-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #3b82f6;">
+                    <i class="fa-solid fa-rocket"></i> Explore Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="Astra Technology Logo" class="footer-logo">
+                <h2>Astra Technology</h2>
+            </div>
+            <p class="footer-text">Building useful digital products for everyone.</p>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms &amp; Conditions</a>
+            </div>
+            <div class="social-links">
+                <a href="https://x.com/d3vshivamyadav" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://instagram.com/astratechnology.me" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:d3vshivamyadav@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+            <p class="developer">Designed & Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

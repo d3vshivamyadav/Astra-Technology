@@ -6,23 +6,15 @@ const projects = [
   {
     title: "Astra AI Tools",
     description: "Free AI tools for students, developers and creators.",
-    logo: "assets/images/ai-tools.png",  // ✅ Sahi path
+    logo: "assets/images/ai-tools.png",
     url: "https://d3vshivamyadav.github.io/Astra-AI-Tools/",
     status: "LIVE",
     statusClass: "status-live"
   },
-//   {
-//     title: "Astra Chatbot",
-//     description: "AI-powered chatbot for customer support and automation.",
-//     logo: "assets/images/chatbot.png",  // ✅ Sahi path
-//     url: "https://chatbot.astra.com",
-//     status: "BETA",
-//     statusClass: "status-beta"
-//   },
   {
     title: "Astra QR Generator",
     description: "Create beautiful QR Codes instantly.",
-    logo: "assets/images/qr-generator.png",  // ✅ Sahi path
+    logo: "assets/images/qr-generator.png",
     url: "https://example.com",
     status: "COMING SOON",
     statusClass: "status-coming"
@@ -30,35 +22,11 @@ const projects = [
   {
     title: "Astra PDF Tools",
     description: "Merge, Split and Compress PDF files.",
-    logo: "assets/images/pdf-tools.png",  // ✅ Sahi path
+    logo: "assets/images/pdf-tools.png",
     url: "https://example.com",
     status: "COMING SOON",
     statusClass: "status-coming"
-  },
-//   {
-//     title: "Astra Cyber Shield",
-//     description: "Cyber Security tools and resources.",
-//     logo: "assets/images/cyber-shield.png",  // ✅ Sahi path
-//     url: "https://example.com",
-//     status: "BETA",
-//     statusClass: "status-beta"
-//   },
-//   {
-//     title: "Astra Voice Assistant",
-//     description: "Desktop AI Voice Assistant.",
-//     logo: "assets/images/voice-assistant.png",  // ✅ Sahi path
-//     url: "https://example.com",
-//     status: "BETA",
-//     statusClass: "status-beta"
-//   },
-//   {
-//     title: "Gram Panchayat",
-//     description: "Digital platform for Gram Panchayat.",
-//     logo: "assets/images/gram-panchayat.png",  // ✅ Sahi path
-//     url: "https://example.com",
-//     status: "LIVE",
-//     statusClass: "status-live"
-//   }
+  }
 ];
 
 // ===============================
@@ -134,3 +102,15 @@ document.addEventListener("DOMContentLoaded", function() {
         yearElement.textContent = new Date().getFullYear();
     }
 });
+
+// ===============================
+// Scroll to Top Function
+// ===============================
+
+function scrollToTop(event) {
+    if (event) event.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
