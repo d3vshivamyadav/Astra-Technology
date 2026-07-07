@@ -7,7 +7,7 @@ const projects = [
     title: "Astra AI Tools",
     description: "Free AI tools for students, developers and creators.",
     logo: "assets/images/ai-tools.png",
-    url: "https://d3vshivamyadav.github.io/Astra-AI-Tools/",
+    url: "/ai-tools/",  // ✅ Changed to local path
     status: "LIVE",
     statusClass: "status-live"
   },
