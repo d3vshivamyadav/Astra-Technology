@@ -8,17 +8,26 @@
     <meta name="description" content="Discover 150+ free AI tools for chatting, coding, image generation, video creation, productivity and much more.">
     <meta name="keywords" content="AI tools, free AI, ChatGPT, Gemini, Claude, Copilot, AI assistant">
     <meta name="author" content="Shivam Yadav">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Astra AI Tools - Free AI Tools for Everyone">
+    <meta property="og:description" content="Discover 150+ free AI tools for chatting, coding, image generation, video creation, productivity and much more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://astratechnology.me/ai-tools/">
+    <meta property="og:image" content="https://astratechnology.me/assets/og-image.jpg">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Favicon -->
-    <link rel="icon" href="..ai-tools\assets\logo.png" type="image/png">
+    <link rel="icon" href="assets/ai-tools-logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/ai-tools-logo.png">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
@@ -31,17 +40,20 @@
     ============================================================ -->
     <header>
         <nav class="navbar">
-            <!-- Logo + Name - Home Page Link -->
-            <a href="/" class="logo-link">
+            <a href="/ai-tools/index.html" class="logo-link">
                 <div class="logo">
-                    <img src="assets\ai-tools-logo.png" alt="Astra AI Tools Logo">
+                    <img src="assets/ai-tools-logo.png" alt="Astra AI Tools Logo">
                     <span>Astra AI Tools</span>
                 </div>
             </a>
 
-            <a href="/" class="nav-btn">
-                <i class="fa-regular fa-compass"></i> Astra Technology
-            </a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="/" class="nav-btn">
+                    <i class="fa-regular fa-compass"></i> Astra Technology
+                </a>
+            </div>
         </nav>
     </header>
 
@@ -49,57 +61,70 @@
     HERO SECTION
     ============================================================ -->
     <section class="hero">
-        <div class="hero-bg-logo"></div>
         <div class="hero-content">
             <span class="tag">
-                <i class="fa-regular fa-star"></i> FREE AI TOOLS
+                <i class="fa-regular fa-star"></i> 150+ FREE AI TOOLS
             </span>
             <h1>
-                Discover the Best <span class="gradient">Free AI Tools</span>
+                Discover the Best <br><span class="gradient">Free AI Tools</span>
             </h1>
             <p>
-                Find the best AI tools for chatting, coding, image generation,
-                video creation, productivity and much more.
+                Curated collection of the best AI tools for chatting, coding,<br>
+                image generation, video creation, productivity and more.
             </p>
             <div class="hero-stats">
-                <span><i class="fa-solid fa-robot"></i> 150+ AI Tools</span>
-                <span><i class="fa-solid fa-users"></i> 50+ Categories</span>
+                <span><i class="fa-solid fa-robot"></i> 150+ Tools</span>
+                <span><i class="fa-solid fa-layer-group"></i> 8 Categories</span>
                 <span><i class="fa-solid fa-star"></i> 4.8/5 Rating</span>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    SEARCH SECTION
+    FEATURED AI TOOLS
     ============================================================ -->
-    <section class="search-area">
+    <section class="featured-section">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-crown"></i> Featured AI Tools</h2>
+            <p>Most popular and trusted AI tools handpicked for you</p>
+        </div>
+        <div class="featured-grid" id="featuredContainer">
+            <!-- JavaScript renders featured cards here -->
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SEARCH & FILTERS
+    ============================================================ -->
+    <section class="search-section">
         <div class="search-wrapper">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" id="searchInput" placeholder="Search AI tools by name, company, or category...">
+            <button class="clear-btn" id="clearSearch"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="categories-wrapper">
+            <div class="categories" id="categoryContainer">
+                <button class="category-chip active" data-category="all">All</button>
+                <button class="category-chip" data-category="chat"><i class="fa-regular fa-comment"></i> Chat</button>
+                <button class="category-chip" data-category="coding"><i class="fa-solid fa-code"></i> Coding</button>
+                <button class="category-chip" data-category="image"><i class="fa-regular fa-image"></i> Image</button>
+                <button class="category-chip" data-category="video"><i class="fa-solid fa-video"></i> Video</button>
+                <button class="category-chip" data-category="design"><i class="fa-solid fa-bezier-curve"></i> Design</button>
+                <button class="category-chip" data-category="writing"><i class="fa-solid fa-pen-to-square"></i></i> Writing</button>
+                <button class="category-chip" data-category="productivity"><i class="fa-regular fa-clock"></i> Productivity</button>
+                <button class="category-chip" data-category="audio"><i class="fa-solid fa-music"></i> Audio</button>
+            </div>
         </div>
     </section>
 
     <!-- ============================================================
-    CATEGORY CHIPS
-    ============================================================ -->
-    <section class="categories-wrapper">
-        <div class="categories" id="categoryContainer">
-            <button class="category-chip active" data-category="all">All</button>
-            <button class="category-chip" data-category="chat"><i class="fa-solid fa-comment"></i> Chat</button>
-            <button class="category-chip" data-category="coding"><i class="fa-solid fa-code"></i> Coding</button>
-            <button class="category-chip" data-category="image"><i class="fa-solid fa-image"></i> Image</button>
-            <button class="category-chip" data-category="video"><i class="fa-solid fa-video"></i> Video</button>
-            <button class="category-chip" data-category="design"><i class="fa-solid fa-palette"></i> Design</button>
-            <button class="category-chip" data-category="writing"><i class="fa-solid fa-pen-fancy"></i> Writing</button>
-            <button class="category-chip" data-category="productivity"><i class="fa-solid fa-clock"></i> Productivity</button>
-            <button class="category-chip" data-category="audio"><i class="fa-solid fa-music"></i> Audio</button>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    TOOLS CONTAINER
+    TOOLS GRID
     ============================================================ -->
     <main>
+        <div class="tools-header">
+            <span id="resultCount">Showing all tools</span>
+        </div>
         <div id="toolsContainer">
             <!-- JavaScript renders cards here -->
         </div>
@@ -110,33 +135,55 @@
     ============================================================ -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand">
-                <img src="assets\ai-tools-logo.png" alt="Astra AI Tools Logo" class="footer-logo">
-                <h2>Astra AI Tools</h2>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/ai-tools-logo.png" alt="Astra AI Tools Logo" class="footer-logo">
+                    <h2>Astra AI Tools</h2>
+                    <p class="footer-text">
+                        Free AI tools for students, developers & creators.
+                    </p>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="/">Astra Technology</a>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="footer-text">
-                Free AI tools for students, developers & creators.
-            </p>
-            <div class="social-links">
-                <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
-                <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
+
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © <span id="year"></span> Astra Technology. All Rights Reserved.
+                </p>
+                <p class="developer">
+                    Designed & Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span>
+                </p>
             </div>
-            <p class="copyright">
-                © <span id="year"></span> Astra Technology. All Rights Reserved.
-            </p>
-            <p class="developer">
-                Designed & Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span>
-            </p>
         </div>
     </footer>
 

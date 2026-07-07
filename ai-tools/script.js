@@ -1,5 +1,5 @@
 // ============================================================
-// ASTRA AI TOOLS - COMPLETE SCRIPT WITH SCROLL REVEAL
+// ASTRA AI TOOLS - COMPLETE SCRIPT
 // ============================================================
 
 (function() {
@@ -11,7 +11,7 @@
 
     const tools = [
         // ============================================================
-        // CHAT & CONVERSATION (20+ Tools)
+        // CHAT & CONVERSATION
         // ============================================================
         {
             name: "ChatGPT",
@@ -20,7 +20,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/openai",
-            url: "https://chatgpt.com"
+            url: "https://chatgpt.com",
+            featured: true
         },
         {
             name: "Google Gemini",
@@ -29,7 +30,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/googlegemini",
-            url: "https://gemini.google.com"
+            url: "https://gemini.google.com",
+            featured: true
         },
         {
             name: "Claude",
@@ -38,7 +40,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/anthropic",
-            url: "https://claude.ai"
+            url: "https://claude.ai",
+            featured: true
         },
         {
             name: "DeepSeek",
@@ -47,7 +50,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/deepseek",
-            url: "https://chat.deepseek.com"
+            url: "https://chat.deepseek.com",
+            featured: false
         },
         {
             name: "Mistral AI",
@@ -56,7 +60,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/mistralai",
-            url: "https://mistral.ai"
+            url: "https://mistral.ai",
+            featured: false
         },
         {
             name: "Perplexity AI",
@@ -65,7 +70,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/perplexity",
-            url: "https://www.perplexity.ai"
+            url: "https://www.perplexity.ai",
+            featured: true
         },
         {
             name: "YouChat",
@@ -74,7 +80,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/you",
-            url: "https://you.com"
+            url: "https://you.com",
+            featured: false
         },
         {
             name: "Character AI",
@@ -83,7 +90,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/characterai",
-            url: "https://character.ai"
+            url: "https://character.ai",
+            featured: false
         },
         {
             name: "Poe",
@@ -92,7 +100,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/poe",
-            url: "https://poe.com"
+            url: "https://poe.com",
+            featured: false
         },
         {
             name: "HuggingChat",
@@ -101,7 +110,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/huggingface",
-            url: "https://huggingface.co/chat"
+            url: "https://huggingface.co/chat",
+            featured: false
         },
         {
             name: "Bard AI",
@@ -110,7 +120,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/googlebard",
-            url: "https://bard.google.com"
+            url: "https://bard.google.com",
+            featured: false
         },
         {
             name: "Pi AI",
@@ -119,7 +130,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/inflectionai",
-            url: "https://pi.ai"
+            url: "https://pi.ai",
+            featured: false
         },
         {
             name: "Cohere AI",
@@ -128,7 +140,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/cohere",
-            url: "https://cohere.ai"
+            url: "https://cohere.ai",
+            featured: false
         },
         {
             name: "AI21 Labs",
@@ -137,7 +150,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/ai21",
-            url: "https://ai21.com"
+            url: "https://ai21.com",
+            featured: false
         },
         {
             name: "Kimi AI",
@@ -146,7 +160,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/moonshot",
-            url: "https://kimi.moonshot.cn"
+            url: "https://kimi.moonshot.cn",
+            featured: false
         },
         {
             name: "Qwen AI",
@@ -155,7 +170,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/alibaba",
-            url: "https://qwen.alibaba.com"
+            url: "https://qwen.alibaba.com",
+            featured: false
         },
         {
             name: "Doubao AI",
@@ -164,7 +180,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/bytedance",
-            url: "https://doubao.com"
+            url: "https://doubao.com",
+            featured: false
         },
         {
             name: "MaxAI",
@@ -173,7 +190,8 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/maxai",
-            url: "https://maxai.com"
+            url: "https://maxai.com",
+            featured: false
         },
         {
             name: "Inbox AI",
@@ -182,11 +200,12 @@
             category: "Chat",
             price: "Free",
             logo: "https://cdn.simpleicons.org/inboxai",
-            url: "https://inboxai.com"
+            url: "https://inboxai.com",
+            featured: false
         },
 
         // ============================================================
-        // CODING & DEVELOPMENT (15 Tools)
+        // CODING & DEVELOPMENT
         // ============================================================
         {
             name: "GitHub Copilot",
@@ -195,7 +214,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/github",
-            url: "https://github.com/features/copilot"
+            url: "https://github.com/features/copilot",
+            featured: true
         },
         {
             name: "Tabnine",
@@ -204,7 +224,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/tabnine",
-            url: "https://www.tabnine.com"
+            url: "https://www.tabnine.com",
+            featured: false
         },
         {
             name: "Codeium",
@@ -213,7 +234,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/codeium",
-            url: "https://codeium.com"
+            url: "https://codeium.com",
+            featured: true
         },
         {
             name: "Replit AI",
@@ -222,7 +244,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/replit",
-            url: "https://replit.com"
+            url: "https://replit.com",
+            featured: false
         },
         {
             name: "Cody by Sourcegraph",
@@ -231,7 +254,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/sourcegraph",
-            url: "https://sourcegraph.com/cody"
+            url: "https://sourcegraph.com/cody",
+            featured: false
         },
         {
             name: "Amazon CodeWhisperer",
@@ -240,7 +264,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/amazon",
-            url: "https://aws.amazon.com/codewhisperer"
+            url: "https://aws.amazon.com/codewhisperer",
+            featured: false
         },
         {
             name: "Blackbox AI",
@@ -249,7 +274,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/blackbox",
-            url: "https://blackbox.ai"
+            url: "https://blackbox.ai",
+            featured: false
         },
         {
             name: "Mutable AI",
@@ -258,7 +284,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/mutableai",
-            url: "https://mutable.ai"
+            url: "https://mutable.ai",
+            featured: false
         },
         {
             name: "CodiumAI",
@@ -267,7 +294,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/codium",
-            url: "https://codium.ai"
+            url: "https://codium.ai",
+            featured: false
         },
         {
             name: "DeepCode",
@@ -276,7 +304,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/deepcode",
-            url: "https://deepcode.ai"
+            url: "https://deepcode.ai",
+            featured: false
         },
         {
             name: "CodeGeeX",
@@ -285,7 +314,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/codegeex",
-            url: "https://codegeex.cn"
+            url: "https://codegeex.cn",
+            featured: false
         },
         {
             name: "Bloop AI",
@@ -294,7 +324,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/bloop",
-            url: "https://bloop.ai"
+            url: "https://bloop.ai",
+            featured: false
         },
         {
             name: "AskCodi",
@@ -303,7 +334,8 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/askcodi",
-            url: "https://askcodi.com"
+            url: "https://askcodi.com",
+            featured: false
         },
         {
             name: "Pieces AI",
@@ -312,11 +344,12 @@
             category: "Coding",
             price: "Free",
             logo: "https://cdn.simpleicons.org/pieces",
-            url: "https://pieces.app"
+            url: "https://pieces.app",
+            featured: false
         },
 
         // ============================================================
-        // IMAGE GENERATION (12 Tools)
+        // IMAGE GENERATION
         // ============================================================
         {
             name: "Stable Diffusion",
@@ -325,7 +358,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/stabilityai",
-            url: "https://stability.ai"
+            url: "https://stability.ai",
+            featured: true
         },
         {
             name: "Leonardo AI",
@@ -334,7 +368,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/leonardoai",
-            url: "https://leonardo.ai"
+            url: "https://leonardo.ai",
+            featured: false
         },
         {
             name: "Playground AI",
@@ -343,7 +378,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/playgroundai",
-            url: "https://playgroundai.com"
+            url: "https://playgroundai.com",
+            featured: false
         },
         {
             name: "DreamStudio",
@@ -352,7 +388,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/dreamstudio",
-            url: "https://dreamstudio.ai"
+            url: "https://dreamstudio.ai",
+            featured: false
         },
         {
             name: "Artbreeder",
@@ -361,7 +398,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/artbreeder",
-            url: "https://artbreeder.com"
+            url: "https://artbreeder.com",
+            featured: false
         },
         {
             name: "Craiyon",
@@ -370,7 +408,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/craiyon",
-            url: "https://craiyon.com"
+            url: "https://craiyon.com",
+            featured: false
         },
         {
             name: "Picsart AI",
@@ -379,7 +418,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/picsart",
-            url: "https://picsart.com"
+            url: "https://picsart.com",
+            featured: false
         },
         {
             name: "Clipdrop AI",
@@ -388,7 +428,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/clipdrop",
-            url: "https://clipdrop.co"
+            url: "https://clipdrop.co",
+            featured: false
         },
         {
             name: "DeepAI",
@@ -397,7 +438,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/deepai",
-            url: "https://deepai.org"
+            url: "https://deepai.org",
+            featured: false
         },
         {
             name: "NightCafe",
@@ -406,7 +448,8 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/nightcafe",
-            url: "https://nightcafe.studio"
+            url: "https://nightcafe.studio",
+            featured: false
         },
         {
             name: "Lensa AI",
@@ -415,11 +458,12 @@
             category: "Image",
             price: "Free",
             logo: "https://cdn.simpleicons.org/lensa",
-            url: "https://lensa.ai"
+            url: "https://lensa.ai",
+            featured: false
         },
 
         // ============================================================
-        // VIDEO & ANIMATION (8 Tools)
+        // VIDEO & ANIMATION
         // ============================================================
         {
             name: "Runway ML",
@@ -428,7 +472,8 @@
             category: "Video",
             price: "Free",
             logo: "https://cdn.simpleicons.org/runway",
-            url: "https://runwayml.com"
+            url: "https://runwayml.com",
+            featured: true
         },
         {
             name: "Pika Labs",
@@ -437,7 +482,8 @@
             category: "Video",
             price: "Free",
             logo: "https://cdn.simpleicons.org/pika",
-            url: "https://pika.art"
+            url: "https://pika.art",
+            featured: false
         },
         {
             name: "HeyGen",
@@ -446,7 +492,8 @@
             category: "Video",
             price: "Free",
             logo: "https://cdn.simpleicons.org/heygen",
-            url: "https://heygen.com"
+            url: "https://heygen.com",
+            featured: false
         },
         {
             name: "Clipchamp AI",
@@ -455,7 +502,8 @@
             category: "Video",
             price: "Free",
             logo: "https://cdn.simpleicons.org/microsoft",
-            url: "https://clipchamp.com"
+            url: "https://clipchamp.com",
+            featured: false
         },
         {
             name: "InVideo AI",
@@ -464,7 +512,8 @@
             category: "Video",
             price: "Free",
             logo: "https://cdn.simpleicons.org/invideo",
-            url: "https://invideo.io"
+            url: "https://invideo.io",
+            featured: false
         },
         {
             name: "Lumen5",
@@ -473,7 +522,8 @@
             category: "Video",
             price: "Free",
             logo: "https://cdn.simpleicons.org/lumen5",
-            url: "https://lumen5.com"
+            url: "https://lumen5.com",
+            featured: false
         },
         {
             name: "Fliki AI",
@@ -482,7 +532,8 @@
             category: "Video",
             price: "Free",
             logo: "https://cdn.simpleicons.org/fliki",
-            url: "https://fliki.ai"
+            url: "https://fliki.ai",
+            featured: false
         },
         {
             name: "Synthesia",
@@ -491,11 +542,12 @@
             category: "Video",
             price: "Free",
             logo: "https://cdn.simpleicons.org/synthesia",
-            url: "https://www.synthesia.io"
+            url: "https://www.synthesia.io",
+            featured: false
         },
 
         // ============================================================
-        // DESIGN (10 Tools)
+        // DESIGN
         // ============================================================
         {
             name: "Canva AI",
@@ -504,7 +556,8 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/canva",
-            url: "https://www.canva.com"
+            url: "https://www.canva.com",
+            featured: true
         },
         {
             name: "Figma AI",
@@ -513,7 +566,8 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/figma",
-            url: "https://www.figma.com"
+            url: "https://www.figma.com",
+            featured: true
         },
         {
             name: "Adobe Firefly",
@@ -522,7 +576,8 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/adobe",
-            url: "https://firefly.adobe.com"
+            url: "https://firefly.adobe.com",
+            featured: false
         },
         {
             name: "Designs.ai",
@@ -531,7 +586,8 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/designsai",
-            url: "https://designs.ai"
+            url: "https://designs.ai",
+            featured: false
         },
         {
             name: "Looka",
@@ -540,7 +596,8 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/looka",
-            url: "https://looka.com"
+            url: "https://looka.com",
+            featured: false
         },
         {
             name: "Uizard",
@@ -549,7 +606,8 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/uizard",
-            url: "https://uizard.io"
+            url: "https://uizard.io",
+            featured: false
         },
         {
             name: "Hatchful AI",
@@ -558,7 +616,8 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/shopify",
-            url: "https://hatchful.shopify.com"
+            url: "https://hatchful.shopify.com",
+            featured: false
         },
         {
             name: "LogoAI",
@@ -567,7 +626,8 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/logoai",
-            url: "https://logoai.com"
+            url: "https://logoai.com",
+            featured: false
         },
         {
             name: "Brandmark AI",
@@ -576,11 +636,12 @@
             category: "Design",
             price: "Free",
             logo: "https://cdn.simpleicons.org/brandmark",
-            url: "https://brandmark.io"
+            url: "https://brandmark.io",
+            featured: false
         },
 
         // ============================================================
-        // WRITING & CONTENT (15 Tools)
+        // WRITING & CONTENT
         // ============================================================
         {
             name: "Grammarly",
@@ -589,7 +650,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/grammarly",
-            url: "https://www.grammarly.com"
+            url: "https://www.grammarly.com",
+            featured: true
         },
         {
             name: "Copy.ai",
@@ -598,7 +660,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/copyai",
-            url: "https://www.copy.ai"
+            url: "https://www.copy.ai",
+            featured: false
         },
         {
             name: "QuillBot",
@@ -607,7 +670,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/quillbot",
-            url: "https://quillbot.com"
+            url: "https://quillbot.com",
+            featured: false
         },
         {
             name: "Rytr",
@@ -616,7 +680,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/rytr",
-            url: "https://rytr.me"
+            url: "https://rytr.me",
+            featured: false
         },
         {
             name: "Writesonic",
@@ -625,7 +690,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/writesonic",
-            url: "https://writesonic.com"
+            url: "https://writesonic.com",
+            featured: false
         },
         {
             name: "AI Writer",
@@ -634,7 +700,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/aiwriter",
-            url: "https://ai-writer.com"
+            url: "https://ai-writer.com",
+            featured: false
         },
         {
             name: "ShortlyAI",
@@ -643,7 +710,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/shortlyai",
-            url: "https://shortlyai.com"
+            url: "https://shortlyai.com",
+            featured: false
         },
         {
             name: "Wordtune",
@@ -652,7 +720,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/wordtune",
-            url: "https://wordtune.com"
+            url: "https://wordtune.com",
+            featured: false
         },
         {
             name: "Hemingway Editor",
@@ -661,7 +730,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/hemingway",
-            url: "https://hemingwayapp.com"
+            url: "https://hemingwayapp.com",
+            featured: false
         },
         {
             name: "ProWritingAid",
@@ -670,7 +740,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/prowritingaid",
-            url: "https://prowritingaid.com"
+            url: "https://prowritingaid.com",
+            featured: false
         },
         {
             name: "SudoWrite",
@@ -679,7 +750,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/sudowrite",
-            url: "https://sudowrite.com"
+            url: "https://sudowrite.com",
+            featured: false
         },
         {
             name: "Lex",
@@ -688,7 +760,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/lex",
-            url: "https://lex.page"
+            url: "https://lex.page",
+            featured: false
         },
         {
             name: "HyperWrite AI",
@@ -697,7 +770,8 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/hyperwrite",
-            url: "https://hyperwriteai.com"
+            url: "https://hyperwriteai.com",
+            featured: false
         },
         {
             name: "LongShot AI",
@@ -706,11 +780,12 @@
             category: "Writing",
             price: "Free",
             logo: "https://cdn.simpleicons.org/longshot",
-            url: "https://longshot.ai"
+            url: "https://longshot.ai",
+            featured: false
         },
 
         // ============================================================
-        // PRODUCTIVITY (18 Tools)
+        // PRODUCTIVITY
         // ============================================================
         {
             name: "Notion AI",
@@ -719,7 +794,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/notion",
-            url: "https://www.notion.so"
+            url: "https://www.notion.so",
+            featured: true
         },
         {
             name: "Otter AI",
@@ -728,7 +804,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/otterai",
-            url: "https://otter.ai"
+            url: "https://otter.ai",
+            featured: false
         },
         {
             name: "Mem AI",
@@ -737,7 +814,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/mem",
-            url: "https://mem.ai"
+            url: "https://mem.ai",
+            featured: false
         },
         {
             name: "Fireflies AI",
@@ -746,7 +824,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/firefliesai",
-            url: "https://fireflies.ai"
+            url: "https://fireflies.ai",
+            featured: false
         },
         {
             name: "Tome",
@@ -755,7 +834,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/tome",
-            url: "https://tome.app"
+            url: "https://tome.app",
+            featured: false
         },
         {
             name: "Gamma AI",
@@ -764,7 +844,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/gamma",
-            url: "https://gamma.app"
+            url: "https://gamma.app",
+            featured: false
         },
         {
             name: "Beautiful AI",
@@ -773,7 +854,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/beautifulai",
-            url: "https://beautiful.ai"
+            url: "https://beautiful.ai",
+            featured: false
         },
         {
             name: "Decktopus AI",
@@ -782,7 +864,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/decktopus",
-            url: "https://decktopus.com"
+            url: "https://decktopus.com",
+            featured: false
         },
         {
             name: "Motion AI",
@@ -791,7 +874,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/motion",
-            url: "https://usemotion.com"
+            url: "https://usemotion.com",
+            featured: false
         },
         {
             name: "Reclaim AI",
@@ -800,7 +884,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/reclaimai",
-            url: "https://reclaim.ai"
+            url: "https://reclaim.ai",
+            featured: false
         },
         {
             name: "Trello AI",
@@ -809,7 +894,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/trello",
-            url: "https://trello.com"
+            url: "https://trello.com",
+            featured: false
         },
         {
             name: "Zapier AI",
@@ -818,7 +904,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/zapier",
-            url: "https://zapier.com"
+            url: "https://zapier.com",
+            featured: false
         },
         {
             name: "Airtable AI",
@@ -827,7 +914,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/airtable",
-            url: "https://airtable.com"
+            url: "https://airtable.com",
+            featured: false
         },
         {
             name: "Monday AI",
@@ -836,7 +924,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/monday",
-            url: "https://monday.com"
+            url: "https://monday.com",
+            featured: false
         },
         {
             name: "Asana AI",
@@ -845,7 +934,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/asana",
-            url: "https://asana.com"
+            url: "https://asana.com",
+            featured: false
         },
         {
             name: "ClickUp AI",
@@ -854,7 +944,8 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/clickup",
-            url: "https://clickup.com"
+            url: "https://clickup.com",
+            featured: false
         },
         {
             name: "Fathom AI",
@@ -863,11 +954,12 @@
             category: "Productivity",
             price: "Free",
             logo: "https://cdn.simpleicons.org/fathom",
-            url: "https://fathom.video"
+            url: "https://fathom.video",
+            featured: false
         },
 
         // ============================================================
-        // AUDIO & VOICE (10 Tools)
+        // AUDIO & VOICE
         // ============================================================
         {
             name: "Descript",
@@ -876,7 +968,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/descript",
-            url: "https://www.descript.com"
+            url: "https://www.descript.com",
+            featured: true
         },
         {
             name: "Murf AI",
@@ -885,7 +978,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/murfai",
-            url: "https://murf.ai"
+            url: "https://murf.ai",
+            featured: false
         },
         {
             name: "ElevenLabs",
@@ -894,7 +988,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/elevenlabs",
-            url: "https://elevenlabs.io"
+            url: "https://elevenlabs.io",
+            featured: true
         },
         {
             name: "AssemblyAI",
@@ -903,7 +998,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/assemblyai",
-            url: "https://assemblyai.com"
+            url: "https://assemblyai.com",
+            featured: false
         },
         {
             name: "Play.ht",
@@ -912,7 +1008,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/playht",
-            url: "https://play.ht"
+            url: "https://play.ht",
+            featured: false
         },
         {
             name: "Lovo AI",
@@ -921,7 +1018,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/lovoai",
-            url: "https://lovo.ai"
+            url: "https://lovo.ai",
+            featured: false
         },
         {
             name: "Resemble AI",
@@ -930,7 +1028,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/resembleai",
-            url: "https://resemble.ai"
+            url: "https://resemble.ai",
+            featured: false
         },
         {
             name: "WellSaid Labs",
@@ -939,7 +1038,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/wellsaid",
-            url: "https://wellsaidlabs.com"
+            url: "https://wellsaidlabs.com",
+            featured: false
         },
         {
             name: "Speechify",
@@ -948,7 +1048,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/speechify",
-            url: "https://speechify.com"
+            url: "https://speechify.com",
+            featured: false
         },
         {
             name: "Voicemaker AI",
@@ -957,7 +1058,8 @@
             category: "Audio",
             price: "Free",
             logo: "https://cdn.simpleicons.org/voicemaker",
-            url: "https://voicemaker.in"
+            url: "https://voicemaker.in",
+            featured: false
         }
     ];
 
@@ -966,8 +1068,26 @@
     // ============================================================
 
     const container = document.getElementById("toolsContainer");
+    const featuredContainer = document.getElementById("featuredContainer");
     const searchInput = document.getElementById("searchInput");
+    const clearBtn = document.getElementById("clearSearch");
     const categoryChips = document.querySelectorAll(".category-chip");
+    const resultCount = document.getElementById("resultCount");
+
+    // ============================================================
+    // CATEGORY COLOR MAP
+    // ============================================================
+
+    const categoryColorMap = {
+        'Chat': 'chat',
+        'Coding': 'coding',
+        'Image': 'image',
+        'Video': 'video',
+        'Design': 'design',
+        'Writing': 'writing',
+        'Productivity': 'productivity',
+        'Audio': 'audio'
+    };
 
     // ============================================================
     // STATE
@@ -977,41 +1097,34 @@
     let currentSearch = "";
 
     // ============================================================
-    // SCROLL REVEAL - Intersection Observer
+    // RENDER FEATURED TOOLS
     // ============================================================
 
-    function observeCards() {
-        const cards = document.querySelectorAll('.card');
+    function renderFeatured() {
+        const featuredTools = tools.filter(t => t.featured === true).slice(0, 10);
         
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        // Add delay for staggered effect
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, index * 80);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '50px'
-            });
-            
-            cards.forEach(card => {
-                observer.observe(card);
-            });
-        } else {
-            // Fallback for older browsers
-            cards.forEach(card => {
-                card.classList.add('visible');
-            });
-        }
+        featuredContainer.innerHTML = featuredTools.map(tool => {
+            const colorClass = categoryColorMap[tool.category] || 'chat';
+            return `
+                <div class="featured-card category-color-${colorClass}">
+                    <span class="featured-badge"><i class="fa-solid fa-star"></i> Featured</span>
+                    <div class="logo-box">
+                        <img src="${tool.logo}" alt="${tool.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                        <i class="fa-solid fa-robot fallback-icon" style="display:none;"></i>
+                    </div>
+                    <h3>${tool.name}</h3>
+                    <div class="company">${tool.company}</div>
+                    <p class="desc">${tool.description}</p>
+                    <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="open-btn">
+                        Try Now <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            `;
+        }).join('');
     }
 
     // ============================================================
-    // RENDER FUNCTION
+    // RENDER TOOLS
     // ============================================================
 
     function renderTools() {
@@ -1026,10 +1139,17 @@
             return matchesCategory && matchesSearch;
         });
 
+        // Update result count
+        if (resultCount) {
+            resultCount.textContent = filtered.length === tools.length 
+                ? `Showing all ${tools.length} tools` 
+                : `Showing ${filtered.length} of ${tools.length} tools`;
+        }
+
         if (filtered.length === 0) {
             container.innerHTML = `
                 <div class="empty-state">
-                    <i class="fa-solid fa-search"></i>
+                    <i class="fa-regular fa-face-frown"></i>
                     <h3>No tools found</h3>
                     <p>Try adjusting your search or category filter</p>
                 </div>
@@ -1038,18 +1158,19 @@
         }
 
         container.innerHTML = filtered.map(tool => {
+            const colorClass = categoryColorMap[tool.category] || 'chat';
             return `
-                <div class="card">
+                <div class="tool-card category-color-${colorClass}">
                     <div class="logo-box">
-                        <img src="${tool.logo}" alt="${tool.name}" loading="lazy" onerror="this.classList.add('error')">
-                        <i class="fa-solid fa-robot fallback-icon"></i>
+                        <img src="${tool.logo}" alt="${tool.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                        <i class="fa-solid fa-robot fallback-icon" style="display:none;"></i>
                     </div>
-                    <span class="card-category">${tool.category}</span>
+                    <span class="category-tag ${colorClass}">${tool.category}</span>
                     <h3>${tool.name}</h3>
                     <div class="company">${tool.company}</div>
                     <p class="desc">${tool.description}</p>
                     <div class="card-footer">
-                        <span class="badge free">${tool.price}</span>
+                        <span class="badge">${tool.price}</span>
                         <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="open-btn">
                             Open <i class="fa-solid fa-arrow-right"></i>
                         </a>
@@ -1057,9 +1178,6 @@
                 </div>
             `;
         }).join('');
-
-        // Observe new cards for scroll reveal
-        observeCards();
     }
 
     // ============================================================
@@ -1068,7 +1186,16 @@
 
     searchInput.addEventListener("input", function() {
         currentSearch = this.value.trim();
+        clearBtn.classList.toggle('visible', this.value.length > 0);
         renderTools();
+    });
+
+    clearBtn.addEventListener("click", function() {
+        searchInput.value = "";
+        currentSearch = "";
+        clearBtn.classList.remove('visible');
+        renderTools();
+        searchInput.focus();
     });
 
     // ============================================================
@@ -1094,9 +1221,31 @@
     }
 
     // ============================================================
+    // KEYBOARD SHORTCUT: Ctrl+K / Cmd+K for Search
+    // ============================================================
+
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            searchInput.focus();
+            searchInput.select();
+        }
+        if (e.key === 'Escape') {
+            searchInput.blur();
+            if (searchInput.value) {
+                searchInput.value = "";
+                currentSearch = "";
+                clearBtn.classList.remove('visible');
+                renderTools();
+            }
+        }
+    });
+
+    // ============================================================
     // INITIAL RENDER
     // ============================================================
 
+    renderFeatured();
     renderTools();
 
 })();
