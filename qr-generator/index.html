@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra QR Generator - Create Free QR Codes</title>
+    <meta name="description" content="Generate beautiful QR codes instantly. Customize colors, add logos, and download in high quality.">
+    <meta name="keywords" content="QR Generator, QR Code, Free QR, Custom QR, QR Maker, QR Creator">
+    <meta name="author" content="Shivam Yadav">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Astra QR Generator - Create Free QR Codes">
+    <meta property="og:description" content="Generate beautiful QR codes instantly with customization options.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://astratechnology.me/qr-generator/">
+    <meta property="og:image" content="https://astratechnology.me/assets/og-image.jpg">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/favicon.ico">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+    HEADER / NAVIGATION
+    ============================================================ -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    <img src="assets/qr-generator.png" alt="Astra QR Generator Logo">
+                    <span>Astra QR Generator</span>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="/" class="nav-btn">
+                    <i class="fa-regular fa-compass"></i> Astra Technology
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+    HERO SECTION
+    ============================================================ -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tag">
+                <i class="fa-solid fa-qrcode"></i> FREE QR GENERATOR
+            </span>
+            <h1>
+                Create Stunning <br><span class="gradient">QR Codes</span> Instantly
+            </h1>
+            <p>
+                Generate beautiful, customizable QR codes for URLs, text,<br>
+                contact info, and more. Free and easy to use.
+            </p>
+            <div class="hero-stats">
+                <span><i class="fa-solid fa-qrcode"></i> 50+ QR Types</span>
+                <span><i class="fa-solid fa-palette"></i> Custom Colors</span>
+                <span><i class="fa-solid fa-download"></i> HD Download</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    QR TYPE CATEGORIES
+    ============================================================ -->
+    <section class="categories-section">
+        <div class="categories-wrapper">
+            <button class="category-btn active" data-type="website">
+                <i class="fa-solid fa-globe"></i> Website
+            </button>
+            <button class="category-btn" data-type="social">
+                <i class="fa-solid fa-share-nodes"></i> Social
+            </button>
+            <button class="category-btn" data-type="contact">
+                <i class="fa-solid fa-address-card"></i> Contact
+            </button>
+            <button class="category-btn" data-type="communication">
+                <i class="fa-solid fa-message"></i> Communication
+            </button>
+            <button class="category-btn" data-type="network">
+                <i class="fa-solid fa-wifi"></i> Network
+            </button>
+            <button class="category-btn" data-type="payment">
+                <i class="fa-solid fa-credit-card"></i> Payment
+            </button>
+            <button class="category-btn" data-type="document">
+                <i class="fa-solid fa-file"></i> Document
+            </button>
+            <button class="category-btn" data-type="event">
+                <i class="fa-solid fa-calendar"></i> Event
+            </button>
+            <button class="category-btn" data-type="location">
+                <i class="fa-solid fa-location-dot"></i> Location
+            </button>
+            <button class="category-btn" data-type="text">
+                <i class="fa-solid fa-font"></i> Text
+            </button>
+            <button class="category-btn" data-type="business">
+                <i class="fa-solid fa-briefcase"></i> Business
+            </button>
+            <button class="category-btn" data-type="education">
+                <i class="fa-solid fa-graduation-cap"></i> Education
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    QR GENERATOR
+    ============================================================ -->
+    <section class="generator-section">
+        <div class="generator-container">
+            <div class="generator-grid">
+                <!-- LEFT: QR Code Preview -->
+                <div class="preview-card">
+                    <div class="preview-header">
+                        <h3><i class="fa-regular fa-eye"></i> QR Code Preview</h3>
+                        <span class="preview-badge" id="qrTypeBadge">Website</span>
+                    </div>
+                    <div class="preview-body">
+                        <div id="qrcode"></div>
+                        <p class="preview-hint" id="previewHint">Select a QR type and enter details</p>
+                    </div>
+                    <div class="preview-footer">
+                        <button class="btn-download" id="downloadBtn">
+                            <i class="fa-solid fa-download"></i> PNG
+                        </button>
+                        <button class="btn-download" id="downloadSvgBtn">
+                            <i class="fa-solid fa-download"></i> SVG
+                        </button>
+                        <button class="btn-download" id="copyBtn">
+                            <i class="fa-regular fa-copy"></i> Copy
+                        </button>
+                        <button class="btn-download" id="shareBtn">
+                            <i class="fa-solid fa-share"></i> Share
+                        </button>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Generator Form -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-sliders"></i> Customize Your QR</h3>
+
+                    <form id="qrForm">
+                        <!-- QR Type Selector -->
+                        <div class="form-group">
+                            <label for="qrType">
+                                <i class="fa-solid fa-qrcode"></i> QR Type
+                            </label>
+                            <select id="qrType">
+                                <!-- Website -->
+                                <optgroup label="🌐 Website & Links">
+                                    <option value="url" selected>Website URL</option>
+                                    <option value="blog">Blog URL</option>
+                                    <option value="youtube">YouTube</option>
+                                    <option value="whatsapp">WhatsApp Chat</option>
+                                    <option value="telegram">Telegram Channel</option>
+                                    <option value="googlemaps">Google Maps Location</option>
+                                    <option value="googleform">Google Form</option>
+                                </optgroup>
+                                <!-- Social -->
+                                <optgroup label="📱 Social Media">
+                                    <option value="instagram">Instagram Profile</option>
+                                    <option value="facebook">Facebook Page</option>
+                                    <option value="linkedin">LinkedIn Profile</option>
+                                    <option value="twitter">X (Twitter) Profile</option>
+                                    <option value="github">GitHub Profile</option>
+                                </optgroup>
+                                <!-- Contact -->
+                                <optgroup label="👤 Contact">
+                                    <option value="vcard">vCard (Full Contact)</option>
+                                    <option value="namephone">Name + Phone</option>
+                                    <option value="email">Email Address</option>
+                                    <option value="company">Company Details</option>
+                                </optgroup>
+                                <!-- Communication -->
+                                <optgroup label="📞 Communication">
+                                    <option value="phonecall">Phone Call</option>
+                                    <option value="sms">SMS</option>
+                                    <option value="emailmsg">Email</option>
+                                    <option value="whatsappmsg">WhatsApp Message</option>
+                                </optgroup>
+                                <!-- Network -->
+                                <optgroup label="📶 Network">
+                                    <option value="wifi">Wi-Fi Network</option>
+                                </optgroup>
+                                <!-- Payment -->
+                                <optgroup label="💳 Payments">
+                                    <option value="upi">UPI Payment</option>
+                                    <option value="phonepe">PhonePe</option>
+                                    <option value="gpay">Google Pay</option>
+                                    <option value="paytm">Paytm</option>
+                                    <option value="bank">Bank Account</option>
+                                </optgroup>
+                                <!-- Documents -->
+                                <optgroup label="📄 Documents">
+                                    <option value="pdf">PDF Document</option>
+                                    <option value="resume">Resume</option>
+                                </optgroup>
+                                <!-- Events -->
+                                <optgroup label="📅 Events">
+                                    <option value="calendar">Calendar Event</option>
+                                    <option value="meeting">Meeting Invite</option>
+                                </optgroup>
+                                <!-- Location -->
+                                <optgroup label="📍 Location">
+                                    <option value="gps">GPS Coordinates</option>
+                                </optgroup>
+                                <!-- Text -->
+                                <optgroup label="📝 Text">
+                                    <option value="plaintext">Plain Text</option>
+                                    <option value="coupon">Coupon Code</option>
+                                    <option value="otp">OTP</option>
+                                </optgroup>
+                                <!-- Business -->
+                                <optgroup label="💼 Business">
+                                    <option value="businesscard">Digital Business Card</option>
+                                    <option value="portfolio">Portfolio</option>
+                                    <option value="feedback">Feedback Form</option>
+                                    <option value="menu">Restaurant Menu</option>
+                                </optgroup>
+                                <!-- Education -->
+                                <optgroup label="🎓 Education">
+                                    <option value="classlink">Online Class Link</option>
+                                    <option value="certificate">Certificate Verification</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- Dynamic Fields Container -->
+                        <div id="dynamicFieldsContainer">
+                            <!-- Fields will be generated by JavaScript -->
+                        </div>
+
+                        <!-- QR Size -->
+                        <div class="form-group">
+                            <label for="qrSize">
+                                <i class="fa-regular fa-expand"></i> Size
+                            </label>
+                            <select id="qrSize">
+                                <option value="128">Small (128px)</option>
+                                <option value="256" selected>Medium (256px)</option>
+                                <option value="512">Large (512px)</option>
+                                <option value="1024">Extra Large (1024px)</option>
+                            </select>
+                        </div>
+
+                        <!-- Color Picker -->
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="fgColor">
+                                    <i class="fa-regular fa-circle"></i> Foreground
+                                </label>
+                                <input type="color" id="fgColor" value="#1a73e8">
+                            </div>
+                            <div class="form-group half">
+                                <label for="bgColor">
+                                    <i class="fa-regular fa-circle"></i> Background
+                                </label>
+                                <input type="color" id="bgColor" value="#ffffff">
+                            </div>
+                        </div>
+
+                        <!-- Error Correction -->
+                        <div class="form-group">
+                            <label for="errorCorrection">
+                                <i class="fa-regular fa-shield"></i> Error Correction
+                            </label>
+                            <select id="errorCorrection">
+                                <option value="L">Low (7%)</option>
+                                <option value="M" selected>Medium (15%)</option>
+                                <option value="Q">Quartile (25%)</option>
+                                <option value="H">High (30%)</option>
+                            </select>
+                        </div>
+
+                        <!-- Generate Button -->
+                        <button type="submit" class="btn-generate">
+                            <i class="fa-solid fa-qrcode"></i> Generate QR Code
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FEATURES SECTION
+    ============================================================ -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-crown"></i> Why Choose Astra QR Generator</h2>
+            <p>Powerful features to create the perfect QR codes</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>50+ QR Types</h3>
+                <p>Generate QR codes for websites, contacts, payments, and more</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
+                <h3>Custom Colors</h3>
+                <p>Choose any foreground and background colors</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-download"></i></div>
+                <h3>HD Download</h3>
+                <p>Download QR codes in PNG or SVG format</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-infinity"></i></div>
+                <h3>Unlimited Usage</h3>
+                <p>Generate unlimited QR codes completely free</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-shield"></i></div>
+                <h3>Error Correction</h3>
+                <p>Choose from L, M, Q, H error correction levels</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <h3>Responsive Design</h3>
+                <p>Works perfectly on all devices and screen sizes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/qr-generator.png" alt="Astra QR Generator Logo" class="footer-logo">
+                    <h2>Astra QR Generator</h2>
+                    <p class="footer-text">
+                        Create beautiful, customizable QR codes instantly.
+                    </p>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="/">Astra Technology</a>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © <span id="year"></span> Astra Technology. All Rights Reserved.
+                </p>
+                <p class="developer">
+                    Designed & Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

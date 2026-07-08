@@ -13,11 +13,11 @@ const projects = [
   },
   {
     title: "Astra QR Generator",
-    description: "Create beautiful QR Codes instantly.",
+    description: "Create beautiful QR Codes instantly with customization.",
     logo: "assets/images/qr-generator.png",
-    url: "https://example.com",
-    status: "COMING SOON",
-    statusClass: "status-coming"
+    url: "/qr-generator/",  // ✅ Updated to local path
+    status: "LIVE",
+    statusClass: "status-live"
   },
   {
     title: "Astra PDF Tools",
