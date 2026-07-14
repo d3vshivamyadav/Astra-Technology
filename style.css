@@ -83,6 +83,7 @@ header {
     transition: all 0.2s;
     padding: 6px 12px;
     border-radius: 8px;
+    position: relative;
 }
 
 .nav-link:hover {
@@ -93,6 +94,38 @@ header {
 .nav-link.active {
     color: #3b82f6;
     background: #eff6ff;
+}
+
+/* ===== BLOG LINK - ANIMATED ===== */
+.nav-link.blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #2563EB;
+    font-weight: 600;
+    background: #eff6ff;
+    border-radius: 30px;
+    padding: 6px 16px;
+    transition: all 0.3s ease;
+}
+
+.nav-link.blog-link i {
+    font-size: 14px;
+    transition: transform 0.5s ease;
+}
+
+.nav-link.blog-link:hover {
+    background: #dbeafe;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
+}
+
+.nav-link.blog-link:hover i {
+    transform: rotate(-15deg) scale(1.1);
+}
+
+.nav-link.blog-link::after {
+    display: none;
 }
 
 /* ===== Nav Button ===== */
@@ -175,6 +208,14 @@ header {
     line-height: 1.7;
 }
 
+/* ===== HERO ACTIONS (Buttons) ===== */
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .hero-btn {
     display: inline-flex;
     align-items: center;
@@ -186,7 +227,7 @@ header {
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
 .hero-btn:hover {
@@ -197,11 +238,34 @@ header {
 
 .hero-btn i {
     font-size: 14px;
-    transition: transform 0.2s;
+    transition: transform 0.3s ease;
 }
 
 .hero-btn:hover i {
     transform: translateX(4px);
+}
+
+/* ===== SECONDARY HERO BUTTON (Blog) ===== */
+.hero-btn.secondary {
+    background: transparent;
+    color: #0F172A;
+    border: 2px solid #E2E8F0;
+    box-shadow: none;
+}
+
+.hero-btn.secondary:hover {
+    background: #F8FAFC;
+    border-color: #2563EB;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+}
+
+.hero-btn.secondary i {
+    transition: transform 0.5s ease;
+}
+
+.hero-btn.secondary:hover i {
+    transform: rotate(-15deg) scale(1.1);
 }
 
 /* ===== SEARCH ===== */
@@ -768,7 +832,37 @@ header {
     font-weight: 600;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== Google Form Container ===== */
+.google-form-container {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.google-form-container iframe {
+    display: block;
+    min-height: 700px;
+}
+
+.form-note {
+    text-align: center;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.form-note i {
+    color: #3b82f6;
+    margin-right: 6px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 640px) {
     body {
         padding-top: 62px;
@@ -784,6 +878,16 @@ header {
 
     .hero p {
         font-size: 15px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .navbar {
@@ -802,13 +906,19 @@ header {
     }
 
     .nav-links {
-        gap: 8px;
+        gap: 6px;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nav-link {
         font-size: 12px;
         padding: 4px 8px;
+    }
+
+    .nav-link.blog-link {
+        font-size: 12px;
+        padding: 4px 12px;
     }
 
     .nav-btn {
@@ -908,31 +1018,4 @@ header {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-}
-/* ===== Google Form Container ===== */
-.google-form-container {
-    width: 100%;
-    background: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-}
-
-.google-form-container iframe {
-    display: block;
-    min-height: 700px;
-}
-
-.form-note {
-    text-align: center;
-    font-size: 13px;
-    color: #94a3b8;
-    margin-top: 16px;
-    padding: 8px 16px;
-    background: #f8fafc;
-    border-radius: 8px;
-}
-
-.form-note i {
-    color: #3b82f6;
-    margin-right: 6px;
 }

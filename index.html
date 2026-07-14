@@ -40,134 +40,141 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Stylesheet -->
-
     <link rel="stylesheet" href="style.css">
 
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JNT5QMVXL6');
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-JNT5QMVXL6');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955"
+    crossorigin="anonymous">
 </script>
-
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955"
-     crossorigin="anonymous"></script>
-
-
 
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<header>
-    <nav class="navbar">
-        <!-- Logo + Name - Home Page Link -->
-        <a href="/" class="logo-link">
-            <div class="logo">
-                <img src="assets/logo.png" alt="Astra Technology Logo">
-                <span>Astra Technology</span>
+    <!-- ================= NAVBAR ================= -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo + Name - Home Page Link -->
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Astra Technology Logo">
+                    <span>Astra Technology</span>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/blog/" class="nav-link blog-link">
+                    <i class="fa-regular fa-pen-to-square"></i> Blog
+                </a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="#projects" class="nav-btn">
+                    <i class="fa-regular fa-compass"></i> Explore
+                </a>
             </div>
-        </a>
+        </nav>
+    </header>
 
-        <div class="nav-links">
-            <a href="/about.html" class="nav-link">About</a>
-            <a href="/contact.html" class="nav-link">Contact</a>
-            <a href="#projects" class="nav-btn">
-                <i class="fa-regular fa-compass"></i> Explore
-            </a>
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tag">
+                <i class="fa-regular fa-star"></i> ALL ASTRA PRODUCTS
+            </span>
+            <h1>
+                Build. <span class="gradient">Create.</span><br>
+                Launch. <span class="gradient">Grow.</span>
+            </h1>
+            <p>
+                Discover every Astra website from one simple dashboard.
+                AI Tools, Cyber Security, PDF Tools, QR Generator, Voice Assistant and many more.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="hero-btn">
+                    Explore Websites <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="/blog/" class="hero-btn secondary">
+                    <i class="fa-regular fa-pen-to-square"></i> Read Our Blog
+                </a>
+            </div>
         </div>
-    </nav>
-</header>
+    </section>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-    <div class="hero-content">
-        <span class="tag">
-            <i class="fa-regular fa-star"></i> ALL ASTRA PRODUCTS
-        </span>
-        <h1>
-            Build. <span class="gradient">Create.</span><br>
-            Launch. <span class="gradient">Grow.</span>
-        </h1>
-        <p>
-            Discover every Astra website from one simple dashboard.
-            AI Tools, Cyber Security, PDF Tools, QR Generator, Voice Assistant and many more.
-        </p>
-        <a href="#projects" class="hero-btn">
-            Explore Websites <i class="fa-solid fa-arrow-right"></i>
-        </a>
-    </div>
-</section>
-
-<!-- ================= SEARCH ================= -->
-<section class="search-area">
-    <div class="search-wrapper">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="search" placeholder="Search Astra Website...">
-    </div>
-</section>
-
-<!-- ================= PROJECTS ================= -->
-<section id="projects">
-    <div class="section-header">
-        <h2>Astra Websites</h2>
-        <p class="subtitle">Choose the website you want to use.</p>
-    </div>
-    <div id="cards">
-        <!-- JavaScript automatically creates cards -->
-    </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-brand">
-            <img src="assets/logo.png" alt="Astra Technology Logo" class="footer-logo">
-            <h2>Astra Technology</h2>
+    <!-- ================= SEARCH ================= -->
+    <section class="search-area">
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search" placeholder="Search Astra Website...">
         </div>
+    </section>
 
-        <p class="footer-text">
-            Building useful digital products for everyone.
-        </p>
-
-        <!-- Footer Links -->
-        <div class="footer-links">
-            <a href="/about.html">About</a>
-            <a href="/contact.html">Contact</a>
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms &amp; Conditions</a>
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects">
+        <div class="section-header">
+            <h2>Astra Websites</h2>
+            <p class="subtitle">Choose the website you want to use.</p>
         </div>
-
-        <div class="social-links">
-            <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X">
-                <i class="fa-brands fa-x-twitter"></i>
-            </a>
-            <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
+        <div id="cards">
+            <!-- JavaScript automatically creates cards -->
         </div>
+    </section>
 
-        <p class="copyright">
-            © <span id="year"></span> Astra Technology. All Rights Reserved.
-        </p>
-        <p class="developer">
-            Designed & Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span>
-        </p>
-    </div>
-</footer>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="Astra Technology Logo" class="footer-logo">
+                <h2>Astra Technology</h2>
+            </div>
 
+            <p class="footer-text">
+                Building useful digital products for everyone.
+            </p>
 
-<script src="script.js"></script>
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="/blog/">Blog</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms &amp; Conditions</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <p class="copyright">
+                © <span id="year"></span> Astra Technology. All Rights Reserved.
+            </p>
+            <p class="developer">
+                Designed & Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
 
