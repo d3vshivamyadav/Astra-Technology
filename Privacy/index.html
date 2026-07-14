@@ -12,12 +12,12 @@
     <meta property="og:title" content="Privacy Policy - Astra Technology">
     <meta property="og:description" content="Privacy Policy for Astra Technology. Learn how we collect, use, and protect your data.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://astratechnology.me/privacy.html">
+    <meta property="og:url" content="https://astratechnology.me/Privacy/">
     <meta property="og:image" content="https://astratechnology.me/assets/og-image.jpg">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="apple-touch-icon" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="../assets/favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/favicon.ico">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,21 +28,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
 
-<link rel="stylesheet" href="style.css">
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JNT5QMVXL6');
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-JNT5QMVXL6');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955"
+    crossorigin="anonymous">
 </script>
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955"
-     crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -52,13 +54,16 @@
         <nav class="navbar">
             <a href="/" class="logo-link">
                 <div class="logo">
-                    <img src="assets/logo.png" alt="Astra Technology Logo">
+                    <img src="../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
                     <span>Astra Technology</span>
                 </div>
             </a>
             <div class="nav-links">
-                <a href="/about.html" class="nav-link">About</a>
-                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="/About/" class="nav-link">About</a>
+                <a href="/blog/" class="nav-link blog-link">
+                    <i class="fa-regular fa-pen-to-square"></i> Blog
+                </a>
+                <a href="/Contact/" class="nav-link">Contact</a>
                 <a href="/#projects" class="nav-btn">
                     <i class="fa-regular fa-compass"></i> Explore
                 </a>
@@ -157,15 +162,16 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="assets/logo.png" alt="Astra Technology Logo" class="footer-logo">
+                <img src="../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
                 <h2>Astra Technology</h2>
             </div>
             <p class="footer-text">Building useful digital products for everyone.</p>
             <div class="footer-links">
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/privacy.html">Privacy Policy</a>
-                <a href="/terms.html">Terms &amp; Conditions</a>
+                <a href="/About/">About</a>
+                <a href="/blog/">Blog</a>
+                <a href="/Contact/">Contact</a>
+                <a href="/Privacy/">Privacy Policy</a>
+                <a href="/Terms/">Terms &amp; Conditions</a>
             </div>
             <div class="social-links">
                 <a href="https://x.com/d3vshivamyadav" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
@@ -178,8 +184,7 @@
         </div>
     </footer>
 
-
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 
 </body>
 
