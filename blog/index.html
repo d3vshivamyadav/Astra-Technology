@@ -6,14 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astra Blog - Tech, Cyber Security & Scam Awareness</title>
     <meta name="description" content="Latest news and articles on technology, cyber security, scam awareness, and digital safety.">
-    <meta name="keywords" content="Tech News, Cyber Security, Scam Awareness, Digital Safety, Hindi Blog">
+    <meta name="keywords" content="Tech News, Cyber Security, Scam Awareness, Digital Safety">
     <meta name="author" content="Astra Technology">
     <link rel="canonical" href="https://astratechnology.me/blog/">
-
-    <!-- Alternate Language Links -->
-    <link rel="alternate" hreflang="en" href="https://astratechnology.me/blog/en/">
-    <link rel="alternate" hreflang="hi" href="https://astratechnology.me/blog/hi/">
-    <link rel="alternate" hreflang="x-default" href="https://astratechnology.me/blog/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Astra Blog - Tech, Cyber Security & Scam Awareness">
@@ -60,20 +55,6 @@
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="style.css">
 
-<script>
-    // Auto-detect user language and redirect
-    (function() {
-        const userLang = navigator.language || navigator.userLanguage;
-        const lang = userLang.startsWith('hi') ? 'hi' : 'en';
-        const currentPath = window.location.pathname;
-        
-        // Only redirect if on root blog page
-        if (currentPath === '/blog/' || currentPath === '/blog/index.html') {
-            window.location.href = '/blog/' + lang + '/';
-        }
-    })();
-</script>
-
 </head>
 
 <body>
@@ -100,18 +81,6 @@
             </div>
         </nav>
     </header>
-
-    <!-- ============================================================
-    LANGUAGE SELECTOR - REDIRECT
-    ============================================================ -->
-    <section class="lang-selector">
-        <div class="container">
-            <div class="lang-buttons">
-                <a href="/blog/en/" class="lang-btn active">🇬🇧 English</a>
-                <a href="/blog/hi/" class="lang-btn">🇮🇳 हिन्दी</a>
-            </div>
-        </div>
-    </section>
 
     <!-- ============================================================
     HERO SECTION
@@ -155,21 +124,21 @@
                 <h2><i class="fa-solid fa-fire"></i> Featured Story</h2>
                 <span class="section-badge">Latest</span>
             </div>
-            <div class="featured-card">
+            <div class="featured-card" onclick="window.location.href='otp-scam-alert/'">
                 <div class="featured-image">
                     <img src="assets/featured-1.jpg" alt="Featured Story" loading="lazy" onerror="this.src='../assets/og-image.jpg'">
                     <span class="featured-badge">BREAKING</span>
                 </div>
                 <div class="featured-content">
                     <span class="featured-category"><i class="fa-solid fa-triangle-exclamation"></i> Scam Alert</span>
-                    <h2>नया ऑनलाइन स्कैम: OTP मांगने वालों से सावधान</h2>
+                    <h2>OTP Scam Alert: How Cyber Criminals Are Emptying Bank Accounts</h2>
                     <div class="featured-meta">
-                        <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+                        <span><i class="fa-regular fa-clock"></i> 8 min read</span>
                         <span><i class="fa-regular fa-calendar"></i> July 15, 2026</span>
                         <span><i class="fa-regular fa-eye"></i> 2.5K views</span>
                     </div>
                     <p>Cyber criminals are using new tactics to steal OTP and empty bank accounts. Learn how to identify and protect yourself from this scam.</p>
-                    <a href="/blog/en/otp-scam-alert/" class="read-article-btn">
+                    <a href="otp-scam-alert/" class="read-article-btn" onclick="event.stopPropagation();">
                         Read Full Story <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>

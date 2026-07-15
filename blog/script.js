@@ -1,23 +1,23 @@
 // ============================================================
-// ASTRA BLOG - PREMIUM JAVASCRIPT
+// ASTRA BLOG - COMPLETE SCRIPT
 // ============================================================
 
 (function() {
     'use strict';
 
     // ============================================================
-    // ARTICLES DATA (9:16 Image Ready)
+    // ARTICLES DATA
     // ============================================================
 
     const articles = [
         {
             id: 1,
-            title: 'नया ऑनलाइन स्कैम: OTP मांगने वालों से सावधान',
+            title: 'OTP Scam Alert: How Cyber Criminals Are Emptying Bank Accounts',
             excerpt: 'Cyber criminals are using new tactics to steal OTP and empty bank accounts. Learn how to protect yourself.',
             category: 'Scam Alert',
             type: 'scam',
             date: 'July 15, 2026',
-            readTime: '5 min read',
+            readTime: '8 min read',
             views: '2.5K',
             image: 'assets/article-1.jpg',
             slug: 'otp-scam-alert',
@@ -25,12 +25,12 @@
         },
         {
             id: 2,
-            title: 'साइबर सुरक्षा: अपने फोन को कैसे करें सुरक्षित',
-            excerpt: 'Your phone contains all your personal data. Learn simple tips to keep your device secure from hackers.',
+            title: 'Phone Security Tips: 10 Ways to Keep Your Smartphone Safe (2026 Guide)',
+            excerpt: 'Your phone contains all your personal data. Learn 10 essential tips to keep your device secure from hackers, malware, and data theft.',
             category: 'Cyber Security',
             type: 'cyber',
             date: 'July 13, 2026',
-            readTime: '6 min read',
+            readTime: '8 min read',
             views: '1.8K',
             image: 'assets/article-2.jpg',
             slug: 'phone-security-tips',
@@ -38,20 +38,20 @@
         },
         {
             id: 3,
-            title: 'फर्जी वेबसाइट से कैसे बचें? पहचानें और सावधान रहें',
-            excerpt: 'Fake websites can steal your personal information. Learn how to identify and avoid them.',
-            category: 'Digital Safety',
-            type: 'digital',
-            date: 'July 11, 2026',
-            readTime: '4 min read',
-            views: '3.2K',
+            title: "China's Exports Surge 27% as AI Boom Fuels Global Demand",
+            excerpt: 'China\'s exports surge 27% in 2026 driven by AI boom. Apple sues OpenAI, Singapore court orders Bloomberg to pay defamation damages.',
+            category: 'Technology',
+            type: 'tech',
+            date: 'July 15, 2026',
+            readTime: '6 min read',
+            views: '4.2K',
             image: 'assets/article-3.jpg',
-            slug: 'fake-website-identification',
-            popular: false
+            slug: 'ai-boom-china-exports-2026',
+            popular: true
         },
         {
             id: 4,
-            title: 'स्कैम कॉल्स: कैसे पहचानें और क्या करें',
+            title: 'Scam Calls: How to Identify and What to Do',
             excerpt: 'Fraud calls are becoming common. Learn how to identify scam calls and what to do if you receive one.',
             category: 'Scam Alert',
             type: 'scam',
@@ -64,7 +64,7 @@
         },
         {
             id: 5,
-            title: 'डिजिटल पहचान: अपनी ऑनलाइन आईडी को कैसे सुरक्षित रखें',
+            title: 'Digital Identity: How to Protect Your Online ID',
             excerpt: 'Digital identity theft is common. Learn how to protect your online identity from being compromised.',
             category: 'Digital Safety',
             type: 'digital',
@@ -77,7 +77,7 @@
         },
         {
             id: 6,
-            title: 'टेक्नोलॉजी: AI का उपयोग साइबर सुरक्षा में कैसे हो रहा है',
+            title: 'AI in Cybersecurity: How AI is Helping Protect You',
             excerpt: 'Artificial Intelligence is now being used in cybersecurity. Learn how AI is helping protect you online.',
             category: 'Technology',
             type: 'tech',
@@ -90,7 +90,7 @@
         },
         {
             id: 7,
-            title: 'गाइड: मजबूत पासवर्ड कैसे बनाएं और क्यों जरूरी है',
+            title: 'Guide: How to Create Strong Passwords',
             excerpt: 'Weak passwords can compromise your security. Learn how to create strong passwords and why it matters.',
             category: 'Guides',
             type: 'guide',
@@ -103,7 +103,7 @@
         },
         {
             id: 8,
-            title: 'फिशिंग ईमेल: पहचानें और बचें इस स्कैम से',
+            title: 'Phishing Emails: How to Spot and Avoid Them',
             excerpt: 'Phishing emails are a common way to steal information. Learn how to identify and avoid them.',
             category: 'Scam Alert',
             type: 'scam',
@@ -116,7 +116,7 @@
         },
         {
             id: 9,
-            title: 'टेक्नोलॉजी: 2026 में AI के नए ट्रेंड्स',
+            title: 'AI Trends 2026: What\'s New in Artificial Intelligence',
             excerpt: 'Discover the latest AI trends in 2026 and how they are shaping the future of technology.',
             category: 'Technology',
             type: 'tech',
@@ -129,7 +129,7 @@
         },
         {
             id: 10,
-            title: 'गाइड: टू-फैक्टर ऑथेंटिकेशन क्या है और क्यों जरूरी है',
+            title: 'Two-Factor Authentication: What It Is and Why You Need It',
             excerpt: 'Two-Factor Authentication adds an extra layer of security. Learn what it is and how to set it up.',
             category: 'Guides',
             type: 'guide',
@@ -138,32 +138,6 @@
             views: '2.8K',
             image: 'assets/article-2.jpg',
             slug: '2fa-guide',
-            popular: false
-        },
-        {
-            id: 11,
-            title: 'साइबर सुरक्षा: VPN क्यों जरूरी है और कैसे चुनें',
-            excerpt: 'VPN protects your online privacy. Learn why you need a VPN and how to choose the right one.',
-            category: 'Cyber Security',
-            type: 'cyber',
-            date: 'June 25, 2026',
-            readTime: '5 min read',
-            views: '3.7K',
-            image: 'assets/article-3.jpg',
-            slug: 'vpn-importance-guide',
-            popular: false
-        },
-        {
-            id: 12,
-            title: 'डिजिटल सुरक्षा: सोशल मीडिया पर प्राइवेसी कैसे बनाए रखें',
-            excerpt: 'Your social media privacy is important. Learn how to keep your personal information safe on social media.',
-            category: 'Digital Safety',
-            type: 'digital',
-            date: 'June 23, 2026',
-            readTime: '6 min read',
-            views: '4.2K',
-            image: 'assets/article-4.jpg',
-            slug: 'social-media-privacy',
             popular: false
         }
     ];
@@ -213,14 +187,13 @@
 
         const displayItems = items.slice(0, visibleCount);
 
-        // Use requestAnimationFrame for smooth rendering
         requestAnimationFrame(() => {
             const fragment = document.createDocumentFragment();
 
             displayItems.forEach(article => {
                 const articleEl = document.createElement('article');
                 articleEl.className = 'article-card';
-                articleEl.setAttribute('onclick', `window.location.href='${article.slug}.html'`);
+                articleEl.setAttribute('onclick', `window.location.href='${article.slug}/'`);
 
                 articleEl.innerHTML = `
                     <div class="card-image-wrap">
@@ -235,7 +208,7 @@
                             <span><i class="fa-regular fa-clock"></i> ${article.readTime}</span>
                             <span><i class="fa-regular fa-eye"></i> ${article.views}</span>
                         </div>
-                        <a href="${article.slug}.html" class="read-more">
+                        <a href="${article.slug}/" class="read-more">
                             Read More <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
