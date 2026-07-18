@@ -62,31 +62,31 @@
             slug: 'scam-calls-awareness',
             popular: true
         },
-        {
+       {
             id: 5,
-            title: 'Digital Identity: How to Protect Your Online ID',
-            excerpt: 'Digital identity theft is common. Learn how to protect your online identity from being compromised.',
-            category: 'Digital Safety',
-            type: 'digital',
-            date: 'July 8, 2026',
+            title: "Cricket Live Score & Match Thrills: IPL 2026, India Matches & More",
+            excerpt: 'Cricket is not just a sport in India, it\'s an emotion. Get live cricket scores, IPL 2026 updates, match predictions, and thrilling moments.',
+            category: 'Sports',
+            type: 'sports',
+            date: 'July 18, 2026',
             readTime: '7 min read',
-            views: '1.2K',
-            image: 'assets/article-5.jpg',
-            slug: 'digital-identity-protection',
-            popular: false
+            views: '8.5K',
+            image: 'assets/cricket-1.jpg',
+            slug: 'cricket-live-score-thrills-2026',
+            popular: true
         },
-        {
+            {
             id: 6,
-            title: 'AI in Cybersecurity: How AI is Helping Protect You',
-            excerpt: 'Artificial Intelligence is now being used in cybersecurity. Learn how AI is helping protect you online.',
-            category: 'Technology',
+            title: 'Technology in Cricket: AI, Sensors & IoT Revolutionizing the Game (2026)',
+            excerpt: 'Discover how AI, IoT sensors, and advanced technology are transforming cricket - from AI umpiring to sensor-embedded bats and automated scorecards.',
+            category: 'Sports',
             type: 'tech',
-            date: 'July 6, 2026',
-            readTime: '6 min read',
-            views: '2.3K',
-            image: 'assets/article-6.jpg',
-            slug: 'ai-in-cybersecurity',
-            popular: false
+            date: 'July 18, 2026',
+            readTime: '8 min read',
+            views: '3.2K',
+            image: 'assets/cricket-tech-1.jpg',
+            slug: 'technology-in-cricket-2026',
+            popular: true
         },
         {
             id: 7,
