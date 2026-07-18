@@ -88,17 +88,17 @@
             slug: 'technology-in-cricket-2026',
             popular: true
         },
-        {
+            {
             id: 7,
-            title: 'Guide: How to Create Strong Passwords',
-            excerpt: 'Weak passwords can compromise your security. Learn how to create strong passwords and why it matters.',
-            category: 'Guides',
-            type: 'guide',
-            date: 'July 4, 2026',
-            readTime: '4 min read',
-            views: '3.5K',
-            image: 'assets/article-7.jpg',
-            slug: 'strong-password-guide',
+            title: "सोनम वांगचुक: जलवायु कार्यकर्ता की भूख हड़ताल और अस्पताल में भर्ती",
+            excerpt: 'जलवायु कार्यकर्ता सोनम वांगचुक को भूख हड़ताल के 21वें दिन दिल्ली पुलिस द्वारा सफदरजंग अस्पताल में भर्ती कराया गया। जानें पूरी खबर।',
+            category: 'News',
+            type: 'news',
+            date: 'July 18, 2026',
+            readTime: '6 min read',
+            views: '12.8K',
+            image: 'assets/sonam-wangchuk.jpg',
+            slug: 'sonam-wangchuk-hunger-strike',
             popular: true
         },
         {
