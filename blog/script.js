@@ -1,5 +1,5 @@
 // ============================================================
-// ASTRA BLOG - COMPLETE SCRIPT
+// ASTRA BLOG - COMPLETE SCRIPT WITH LIVE VIEWS
 // ============================================================
 
 (function() {
@@ -26,7 +26,7 @@
         {
             id: 2,
             title: 'Phone Security Tips: 10 Ways to Keep Your Smartphone Safe (2026 Guide)',
-            excerpt: 'Your phone contains all your personal data. Learn 10 essential tips to keep your device secure from hackers, malware, and data theft.',
+            excerpt: 'Your phone contains all your personal data. Learn 10 essential tips to keep your device secure from hackers.',
             category: 'Cyber Security',
             type: 'cyber',
             date: 'July 13, 2026',
@@ -62,7 +62,7 @@
             slug: 'scam-calls-awareness',
             popular: true
         },
-       {
+        {
             id: 5,
             title: "Cricket Live Score & Match Thrills: IPL 2026, India Matches & More",
             excerpt: 'Cricket is not just a sport in India, it\'s an emotion. Get live cricket scores, IPL 2026 updates, match predictions, and thrilling moments.',
@@ -75,10 +75,10 @@
             slug: 'cricket-live-score-thrills-2026',
             popular: true
         },
-            {
+        {
             id: 6,
             title: 'Technology in Cricket: AI, Sensors & IoT Revolutionizing the Game (2026)',
-            excerpt: 'Discover how AI, IoT sensors, and advanced technology are transforming cricket - from AI umpiring to sensor-embedded bats and automated scorecards.',
+            excerpt: 'Discover how AI, IoT sensors, and advanced technology are transforming cricket - from AI umpiring to sensor-embedded bats.',
             category: 'Sports',
             type: 'tech',
             date: 'July 18, 2026',
@@ -88,7 +88,7 @@
             slug: 'technology-in-cricket-2026',
             popular: true
         },
-            {
+        {
             id: 7,
             title: "सोनम वांगचुक: जलवायु कार्यकर्ता की भूख हड़ताल और अस्पताल में भर्ती",
             excerpt: 'जलवायु कार्यकर्ता सोनम वांगचुक को भूख हड़ताल के 21वें दिन दिल्ली पुलिस द्वारा सफदरजंग अस्पताल में भर्ती कराया गया। जानें पूरी खबर।',
@@ -162,6 +162,53 @@
     const postsPerPage = 3;
 
     // ============================================================
+    // VIEWS COUNTER FUNCTION
+    // ============================================================
+
+    function getPageId() {
+        const path = window.location.pathname;
+        return path.replace(/\/$/, '') || '/';
+    }
+
+    function formatNumber(num) {
+        if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+        return num;
+    }
+
+    function updateViewCount() {
+        try {
+            const pageId = getPageId();
+            const storageKey = 'astra_blog_views';
+
+            let viewsData = {};
+            try {
+                viewsData = JSON.parse(localStorage.getItem(storageKey)) || {};
+            } catch (e) {
+                viewsData = {};
+            }
+
+            // Only count unique visitors
+            const sessionKey = 'astra_session_' + pageId;
+            if (!sessionStorage.getItem(sessionKey)) {
+                viewsData[pageId] = (viewsData[pageId] || 0) + 1;
+                sessionStorage.setItem(sessionKey, 'true');
+            }
+
+            localStorage.setItem(storageKey, JSON.stringify(viewsData));
+
+            // Update all view count elements on the page
+            document.querySelectorAll('.view-count-display').forEach(el => {
+                const count = viewsData[pageId] || 0;
+                el.textContent = formatNumber(count);
+            });
+
+        } catch (error) {
+            console.log('View counter error:', error);
+        }
+    }
+
+    // ============================================================
     // RENDER ARTICLES
     // ============================================================
 
@@ -195,6 +242,16 @@
                 articleEl.className = 'article-card';
                 articleEl.setAttribute('onclick', `window.location.href='${article.slug}/'`);
 
+                // Get real view count from localStorage if available
+                let viewDisplay = article.views;
+                try {
+                    const pageId = '/' + article.slug;
+                    const viewsData = JSON.parse(localStorage.getItem('astra_blog_views')) || {};
+                    if (viewsData[pageId]) {
+                        viewDisplay = formatNumber(viewsData[pageId]);
+                    }
+                } catch (e) {}
+
                 articleEl.innerHTML = `
                     <div class="card-image-wrap">
                         <img class="card-image" src="${article.image}" alt="${article.title}" loading="lazy" onerror="this.src='../assets/og-image.jpg'">
@@ -206,7 +263,7 @@
                         <div class="card-meta">
                             <span><i class="fa-regular fa-calendar"></i> ${article.date}</span>
                             <span><i class="fa-regular fa-clock"></i> ${article.readTime}</span>
-                            <span><i class="fa-regular fa-eye"></i> ${article.views}</span>
+                            <span><i class="fa-regular fa-eye"></i> <span class="view-count-display">${viewDisplay}</span></span>
                         </div>
                         <a href="${article.slug}/" class="read-more">
                             Read More <i class="fa-solid fa-arrow-right"></i>
@@ -219,6 +276,9 @@
 
             articlesGrid.innerHTML = '';
             articlesGrid.appendChild(fragment);
+
+            // Update view counts after rendering
+            updateViewCount();
 
             if (items.length > visibleCount) {
                 loadMoreBtn.style.display = 'inline-flex';
@@ -382,6 +442,9 @@
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
         }
+
+        // Update views every 60 seconds for live feel
+        setInterval(updateViewCount, 60000);
     });
 
 })();
