@@ -103,15 +103,15 @@
         },
         {
             id: 8,
-            title: 'Phishing Emails: How to Spot and Avoid Them',
-            excerpt: 'Phishing emails are a common way to steal information. Learn how to identify and avoid them.',
+            title: "India's Digital Payment Scams: UPI, OTP & Phishing Scams to Watch in 2026",
+            excerpt: 'Complete guide to India\'s digital payment scams: UPI fraud, OTP scams, phishing attacks, and how to protect your money in 2026.',
             category: 'Scam Alert',
             type: 'scam',
-            date: 'July 2, 2026',
-            readTime: '5 min read',
-            views: '5.6K',
-            image: 'assets/article-8.jpg',
-            slug: 'phishing-email-scam',
+            date: 'July 19, 2026',
+            readTime: '8 min read',
+            views: '0',
+            image: 'assets/digital-payment-scam.jpg',
+            slug: 'digital-payment-scams-india-2026',
             popular: true
         },
         {
