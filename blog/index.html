@@ -75,6 +75,7 @@
                 <a href="/ai-tools/" class="nav-link"><i class="fas fa-robot"></i><span>AI Tools</span></a>
                 <a href="/qr-generator/" class="nav-link"><i class="fas fa-qrcode"></i><span>QR</span></a>
                 <a href="/blog/" class="nav-link active"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+                <a href="/submit.html" class="nav-link"><i class="fa-regular fa-pen-to-square"></i><span>Write</span></a>
                 <a href="/About/" class="nav-link"><i class="fas fa-info-circle"></i><span>About</span></a>
                 <a href="/Contact/" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a>
                 <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
@@ -116,7 +117,7 @@
     </section>
 
     <!-- ============================================================
-    FEATURED POST
+    FEATURED POST (From Google Sheets)
     ============================================================ -->
     <section class="featured-section">
         <div class="container">
@@ -124,30 +125,14 @@
                 <h2><i class="fa-solid fa-fire"></i> Featured Story</h2>
                 <span class="section-badge">Latest</span>
             </div>
-            <div class="featured-card" onclick="window.location.href='otp-scam-alert/'">
-                <div class="featured-image">
-                    <img src="assets/featured-1.jpg" alt="Featured Story" loading="lazy" onerror="this.src='../assets/og-image.jpg'">
-                    <span class="featured-badge">BREAKING</span>
-                </div>
-                <div class="featured-content">
-                    <span class="featured-category"><i class="fa-solid fa-triangle-exclamation"></i> Scam Alert</span>
-                    <h2>OTP Scam Alert: How Cyber Criminals Are Emptying Bank Accounts</h2>
-                    <div class="featured-meta">
-                        <span><i class="fa-regular fa-clock"></i> 8 min read</span>
-                        <span><i class="fa-regular fa-calendar"></i> July 15, 2026</span>
-                        <span><i class="fa-regular fa-eye"></i> 2.5K views</span>
-                    </div>
-                    <p>Cyber criminals are using new tactics to steal OTP and empty bank accounts. Learn how to identify and protect yourself from this scam.</p>
-                    <a href="otp-scam-alert/" class="read-article-btn" onclick="event.stopPropagation();">
-                        Read Full Story <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
+            <div id="featuredPost">
+                <!-- JavaScript will load featured post from Google Sheets -->
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    LATEST POSTS
+    LATEST POSTS (From Google Sheets)
     ============================================================ -->
     <section class="articles-section">
         <div class="container">
@@ -155,16 +140,16 @@
                 <h2><i class="fa-regular fa-newspaper"></i> Latest Articles</h2>
                 <div class="header-actions">
                     <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="tech">Technology</button>
-                    <button class="filter-btn" data-filter="cyber">Cyber Security</button>
-                    <button class="filter-btn" data-filter="scam">Scam Alerts</button>
-                    <button class="filter-btn" data-filter="digital">Digital Safety</button>
-                    <button class="filter-btn" data-filter="guide">Guides</button>
+                    <button class="filter-btn" data-filter="Technology">Technology</button>
+                    <button class="filter-btn" data-filter="Cyber Security">Cyber Security</button>
+                    <button class="filter-btn" data-filter="Scam Alert">Scam Alert</button>
+                    <button class="filter-btn" data-filter="Digital Safety">Digital Safety</button>
+                    <button class="filter-btn" data-filter="Guides">Guides</button>
                 </div>
             </div>
 
             <div class="articles-grid" id="articlesGrid">
-                <!-- JavaScript will render articles -->
+                <!-- JavaScript will render articles from Google Sheets -->
             </div>
 
             <div class="load-more-wrap">
@@ -199,41 +184,9 @@
     <!-- ============================================================
     FLOATING WRITE BUTTON
     ============================================================ -->
-    <div class="float-write-btn" id="floatWriteBtn" onclick="openWritePopup()">
+    <div class="float-write-btn" onclick="window.location.href='/blog/submit.html'">
         <i class="fa-regular fa-pen-to-square"></i>
         <span class="float-tooltip">Write for us</span>
-    </div>
-
-    <!-- ============================================================
-    WRITE POPUP
-    ============================================================ -->
-    <div class="write-popup-overlay" id="writePopup">
-        <div class="write-popup">
-            <button class="popup-close" onclick="closeWritePopup()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="popup-icon">✍️</div>
-            <h3>Write for Astra Blog</h3>
-            <p>Share your knowledge, stories, and insights with our readers.</p>
-            <div class="popup-features">
-                <div class="popup-feature">
-                    <i class="fa-regular fa-circle-check"></i>
-                    <span>Get published on our platform</span>
-                </div>
-                <div class="popup-feature">
-                    <i class="fa-regular fa-circle-check"></i>
-                    <span>Reach thousands of readers</span>
-                </div>
-                <div class="popup-feature">
-                    <i class="fa-regular fa-circle-check"></i>
-                    <span>Build your portfolio</span>
-                </div>
-            </div>
-            <a href="/blog/submit.html" class="popup-btn">
-                Start Writing <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <p class="popup-note">We'll review your blog within 24-48 hours</p>
-        </div>
     </div>
 
     <!-- ============================================================
@@ -266,7 +219,6 @@
     </footer>
 
     <script src="../script.js"></script>
-    <script src="script.js"></script>
     <style>
         /* ============================================================
    FLOATING WRITE BUTTON
@@ -289,22 +241,12 @@
             font-size: 24px;
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: 999;
-            animation: floatPulse 3s ease-in-out infinite;
+            text-decoration: none;
         }
 
         .float-write-btn:hover {
             transform: scale(1.08);
             box-shadow: 0 12px 48px rgba(59, 130, 246, 0.4);
-        }
-
-        @keyframes floatPulse {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.04);
-            }
         }
 
         .float-write-btn .float-tooltip {
@@ -341,219 +283,6 @@
             transform: translateY(-50%) translateX(-6px);
         }
 
-        /* ============================================================
-   WRITE POPUP
-   ============================================================ */
-        .write-popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(8px);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            animation: overlayFadeIn 0.3s ease;
-        }
-
-        .write-popup-overlay.active {
-            display: flex;
-        }
-
-        @keyframes overlayFadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .write-popup {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 40px 36px;
-            max-width: 440px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            animation: popupSlideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.15);
-        }
-
-        @keyframes popupSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .write-popup .popup-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: #f1f5f9;
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            font-size: 18px;
-            color: #64748b;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .write-popup .popup-close:hover {
-            background: #e2e8f0;
-            transform: rotate(90deg);
-        }
-
-        .write-popup .popup-icon {
-            font-size: 48px;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .write-popup h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 6px;
-        }
-
-        .write-popup p {
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .write-popup .popup-features {
-            text-align: left;
-            margin-bottom: 24px;
-            padding: 0 8px;
-        }
-
-        .write-popup .popup-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 6px 0;
-            color: #0f172a;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .write-popup .popup-feature i {
-            color: #22c55e;
-            font-size: 16px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .write-popup .popup-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 32px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: #ffffff;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .write-popup .popup-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25);
-        }
-
-        .write-popup .popup-note {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-top: 12px;
-        }
-
-        /* ============================================================
-   RESPONSIVE
-   ============================================================ */
-        @media (max-width: 480px) {
-            .float-write-btn {
-                width: 52px;
-                height: 52px;
-                font-size: 20px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .float-write-btn .float-tooltip {
-                display: none;
-            }
-
-            .write-popup {
-                padding: 28px 20px;
-                border-radius: 16px;
-            }
-
-            .write-popup h3 {
-                font-size: 20px;
-            }
-
-            .write-popup .popup-feature {
-                font-size: 13px;
-            }
-
-            .write-popup .popup-btn {
-                font-size: 14px;
-                padding: 10px 24px;
-            }
-        }
-
-        /* ============================================================
-   DARK MODE
-   ============================================================ */
-        [data-theme="dark"] .write-popup {
-            background: #1e293b;
-        }
-
-        [data-theme="dark"] .write-popup h3 {
-            color: #f8fafc;
-        }
-
-        [data-theme="dark"] .write-popup p {
-            color: #94a3b8;
-        }
-
-        [data-theme="dark"] .write-popup .popup-feature {
-            color: #e2e8f0;
-        }
-
-        [data-theme="dark"] .write-popup .popup-close {
-            background: #334155;
-            color: #94a3b8;
-        }
-
-        [data-theme="dark"] .write-popup .popup-close:hover {
-            background: #475569;
-        }
-
         [data-theme="dark"] .float-write-btn .float-tooltip {
             background: #1e293b;
             color: #f8fafc;
@@ -563,39 +292,215 @@
             border-left-color: #1e293b;
         }
 
-        [data-theme="dark"] .write-popup-overlay {
-            background: rgba(0, 0, 0, 0.7);
+        @media (max-width: 480px) {
+            .float-write-btn {
+                width: 52px;
+                height: 52px;
+                font-size: 20px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .float-write-btn .float-tooltip {
+                display: none;
+            }
         }
     </style>
+
+    <!-- ============================================================
+    GOOGLE SHEETS INTEGRATION - FETCH APPROVED BLOGS
+    ============================================================ -->
     <script>
         // ============================================================
-        // FLOATING WRITE BUTTON - POPUP FUNCTIONALITY
+        // CONFIGURATION
         // ============================================================
 
-        function openWritePopup() {
-            document.getElementById('writePopup').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyC967rpKmazaOFnT9RUrw7yxccGuWXG6RsfeajZe_YYsP2l4-Lc_hBYvSf6xqsFQv/exec';
 
-        function closeWritePopup() {
-            document.getElementById('writePopup').classList.remove('active');
-            document.body.style.overflow = '';
-        }
+        // ============================================================
+        // LOAD APPROVED BLOGS FROM GOOGLE SHEETS
+        // ============================================================
 
-        // Close popup on overlay click
-        document.addEventListener('click', function(e) {
-            const popup = document.getElementById('writePopup');
-            if (e.target === popup) {
-                closeWritePopup();
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            loadApprovedBlogs();
         });
 
-        // Close popup on ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeWritePopup();
+        async function loadApprovedBlogs() {
+            try {
+                const response = await fetch(APPS_SCRIPT_URL);
+                const data = await response.json();
+
+                if (!data.success) {
+                    console.error('Failed to load blogs:', data.message);
+                    return;
+                }
+
+                const submissions = data.submissions || [];
+                // Only show approved blogs
+                const approvedBlogs = submissions.filter(s => s.Status === 'Approved');
+
+                // Render featured post
+                renderFeaturedPost(approvedBlogs);
+
+                // Render articles
+                renderArticles(approvedBlogs);
+
+            } catch (error) {
+                console.error('Error loading blogs:', error);
+                document.getElementById('featuredPost').innerHTML = `
+                    <div style="text-align:center;padding:40px;color:#ef4444;">
+                        <i class="fa-solid fa-circle-exclamation" style="font-size:32px;display:block;margin-bottom:12px;"></i>
+                        <p>Failed to load posts. Please refresh.</p>
+                    </div>
+                `;
             }
-        });
+        }
+
+        // ============================================================
+        // RENDER FEATURED POST
+        // ============================================================
+
+        function renderFeaturedPost(blogs) {
+            const container = document.getElementById('featuredPost');
+            
+            if (blogs.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align:center;padding:40px;color:#94a3b8;">
+                        <i class="fa-regular fa-newspaper" style="font-size:32px;display:block;margin-bottom:12px;"></i>
+                        <p>No featured posts yet. Submit your blog today!</p>
+                        <a href="/blog/submit.html" style="display:inline-block;margin-top:12px;padding:8px 24px;background:#3b82f6;color:#fff;border-radius:8px;text-decoration:none;">
+                            Write for us
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Get the latest approved blog (last one in array)
+            const latest = blogs[blogs.length - 1];
+
+            container.innerHTML = `
+                <div class="featured-card" onclick="window.location.href='#article-${(latest['Blog Title'] || 'post').replace(/\s+/g, '-')}'">
+                    <div class="featured-image">
+                        <img src="${latest['Image URL'] || '../assets/og-image.jpg'}" alt="${latest['Blog Title'] || 'Featured Post'}" loading="lazy" onerror="this.src='../assets/og-image.jpg'">
+                        <span class="featured-badge">⭐ FEATURED</span>
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-category"><i class="fa-solid fa-tag"></i> ${latest['Category'] || 'General'}</span>
+                        <h2>${latest['Blog Title'] || 'Untitled'}</h2>
+                        <div class="featured-meta">
+                            <span><i class="fa-regular fa-user"></i> ${latest['Author Name'] || 'Anonymous'}</span>
+                            <span><i class="fa-regular fa-calendar"></i> ${latest['Timestamp'] || new Date().toLocaleDateString()}</span>
+                        </div>
+                        <p>${(latest['Blog Content'] || '').substring(0, 150)}${(latest['Blog Content'] || '').length > 150 ? '...' : ''}</p>
+                        <a href="#article-${(latest['Blog Title'] || 'post').replace(/\s+/g, '-')}" class="read-article-btn" onclick="event.stopPropagation(); showFullBlog('${(latest['Blog Title'] || '').replace(/\s+/g, '-')}')">
+                            Read Full Story <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ============================================================
+        // RENDER ARTICLES
+        // ============================================================
+
+        function renderArticles(blogs) {
+            const grid = document.getElementById('articlesGrid');
+
+            if (blogs.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:40px;color:#94a3b8;">
+                        <i class="fa-regular fa-newspaper" style="font-size:32px;display:block;margin-bottom:12px;"></i>
+                        <p>No approved articles yet. Submit your blog today!</p>
+                        <a href="/blog/submit.html" style="display:inline-block;margin-top:12px;padding:8px 24px;background:#3b82f6;color:#fff;border-radius:8px;text-decoration:none;">
+                            Write for us
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Show all blogs (latest first)
+            const displayBlogs = blogs.slice(-6).reverse();
+
+            grid.innerHTML = displayBlogs.map((blog, index) => {
+                const slug = (blog['Blog Title'] || 'post-' + index).replace(/\s+/g, '-');
+                return `
+                    <article class="article-card" onclick="showFullBlog('${slug}')">
+                        <div class="card-image-wrap">
+                            <img class="card-image" src="${blog['Image URL'] || '../assets/og-image.jpg'}" alt="${blog['Blog Title'] || 'Article'}" loading="lazy" onerror="this.src='../assets/og-image.jpg'">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">${blog['Category'] || 'General'}</span>
+                            <h3 class="card-title">${blog['Blog Title'] || 'Untitled'}</h3>
+                            <p class="card-excerpt">${(blog['Blog Content'] || '').substring(0, 120)}${(blog['Blog Content'] || '').length > 120 ? '...' : ''}</p>
+                            <div class="card-meta">
+                                <span><i class="fa-regular fa-user"></i> ${blog['Author Name'] || 'Anonymous'}</span>
+                                <span><i class="fa-regular fa-calendar"></i> ${blog['Timestamp'] || new Date().toLocaleDateString()}</span>
+                            </div>
+                            <a href="#article-${slug}" class="read-more" onclick="event.stopPropagation(); showFullBlog('${slug}')">
+                                Read More <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // ============================================================
+        // SHOW FULL BLOG (Modal/Alert)
+        // ============================================================
+
+        function showFullBlog(slug) {
+            // Fetch and find the blog
+            fetch(APPS_SCRIPT_URL)
+                .then(res => res.json())
+                .then(data => {
+                    const submissions = data.submissions || [];
+                    const blog = submissions.find(b => (b['Blog Title'] || '').replace(/\s+/g, '-') === slug);
+
+                    if (blog) {
+                        // Create a nice modal dialog
+                        const modal = document.createElement('div');
+                        modal.style.cssText = `
+                            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                            background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+                            display: flex; align-items: center; justify-content: center;
+                            z-index: 10000; padding: 20px;
+                        `;
+                        
+                        modal.innerHTML = `
+                            <div style="background: #fff; border-radius: 20px; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 40px; position: relative; box-shadow: 0 32px 80px rgba(0,0,0,0.2);">
+                                <button onclick="this.closest('div[style]').remove()" style="position: sticky; top: 0; float: right; background: #f1f5f9; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 18px; cursor: pointer; margin-bottom: 16px;">
+                                    ✕
+                                </button>
+                                <h1 style="font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 8px;">${blog['Blog Title'] || 'Untitled'}</h1>
+                                <div style="display: flex; gap: 20px; flex-wrap: wrap; color: #64748b; font-size: 14px; margin-bottom: 16px;">
+                                    <span><i class="fa-regular fa-user"></i> ${blog['Author Name'] || 'Anonymous'}</span>
+                                    <span><i class="fa-regular fa-calendar"></i> ${blog['Timestamp'] || new Date().toLocaleDateString()}</span>
+                                    <span><i class="fa-regular fa-folder"></i> ${blog['Category'] || 'General'}</span>
+                                </div>
+                                ${blog['Image URL'] ? `<img src="${blog['Image URL']}" alt="${blog['Blog Title']}" style="width:100%; border-radius:12px; margin-bottom:20px; max-height:300px; object-fit:cover;" onerror="this.style.display='none'">` : ''}
+                                <div style="color: #334155; font-size: 16px; line-height: 1.9; white-space: pre-wrap;">${blog['Blog Content'] || 'No content available.'}</div>
+                                ${blog['Tags'] ? `<div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;"><span style="padding:4px 12px;background:#f1f5f9;border-radius:30px;font-size:12px;color:#64748b;">#${blog['Tags'].split(',').join('</span><span style="padding:4px 12px;background:#f1f5f9;border-radius:30px;font-size:12px;color:#64748b;">#')}</span></div>` : ''}
+                                <button onclick="this.closest('div[style]').remove()" style="margin-top:24px;width:100%;padding:12px;background:#3b82f6;color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;">
+                                    Close
+                                </button>
+                            </div>
+                        `;
+
+                        // Close on overlay click
+                        modal.addEventListener('click', function(e) {
+                            if (e.target === modal) {
+                                modal.remove();
+                            }
+                        });
+
+                        document.body.appendChild(modal);
+                    }
+                })
+                .catch(err => console.error('Error:', err));
+        }
     </script>
 </body>
 
