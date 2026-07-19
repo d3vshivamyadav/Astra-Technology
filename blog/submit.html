@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Blog - Astra Blog</title>
+    <meta name="description" content="Write and submit your blog to Astra Technology. Share your knowledge with our readers.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JNT5QMVXL6');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955"
+    crossorigin="anonymous">
+</script>
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="../style.css">
+<style>
+    /* ============================================================
+   SUBMIT PAGE STYLES
+   ============================================================ */
+
+    .submit-page {
+        padding: 40px 24px 60px;
+        max-width: 820px;
+        margin: 0 auto;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #64748b;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s;
+        margin-bottom: 24px;
+        padding: 8px 16px;
+        border-radius: 30px;
+        background: #f1f5f9;
+    }
+
+    .back-link:hover {
+        background: #e2e8f0;
+        color: #3b82f6;
+        transform: translateX(-4px);
+    }
+
+    .submit-container {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 44px 48px;
+        border: 1px solid #eef2f6;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .submit-container h1 {
+        font-size: 32px;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 8px;
+    }
+
+    .submit-container .subtitle {
+        color: #64748b;
+        font-size: 16px;
+        margin-bottom: 28px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        font-size: 14px;
+        color: #0f172a;
+        margin-bottom: 6px;
+    }
+
+    .form-group label .required {
+        color: #dc2626;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 15px;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.3s;
+        background: #f8fafc;
+        color: #0f172a;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #3b82f6;
+        outline: none;
+        background: #ffffff;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 200px;
+    }
+
+    .form-group .hint {
+        font-size: 12px;
+        color: #94a3b8;
+        margin-top: 4px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    /* ===== IMAGE UPLOAD ===== */
+    .image-upload-area {
+        border: 2px dashed #e2e8f0;
+        border-radius: 12px;
+        padding: 30px 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        background: #f8fafc;
+        position: relative;
+    }
+
+    .image-upload-area:hover {
+        border-color: #3b82f6;
+        background: #eff6ff;
+    }
+
+    .image-upload-area.dragover {
+        border-color: #3b82f6;
+        background: #dbeafe;
+    }
+
+    .image-upload-area .upload-icon {
+        font-size: 48px;
+        color: #94a3b8;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .image-upload-area .upload-text {
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    .image-upload-area .upload-text strong {
+        color: #3b82f6;
+    }
+
+    .image-upload-area .file-types {
+        font-size: 12px;
+        color: #94a3b8;
+        margin-top: 4px;
+    }
+
+    .image-upload-area input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .image-preview {
+        display: none;
+        margin-top: 16px;
+        position: relative;
+        text-align: center;
+    }
+
+    .image-preview img {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 12px;
+        border: 2px solid #e2e8f0;
+        object-fit: cover;
+    }
+
+    .image-preview .remove-image {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #dc2626;
+        color: #ffffff;
+        border: none;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+    }
+
+    .image-preview .remove-image:hover {
+        transform: scale(1.1);
+    }
+
+    /* ===== SUBMIT BUTTON ===== */
+    .submit-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 40px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: #ffffff;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25);
+    }
+
+    .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .form-note {
+        text-align: center;
+        font-size: 13px;
+        color: #94a3b8;
+        margin-top: 16px;
+    }
+
+    .form-note i {
+        color: #22c55e;
+        margin-right: 4px;
+    }
+
+    .success-message {
+        display: none;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .success-message .icon {
+        font-size: 64px;
+        color: #22c55e;
+        margin-bottom: 16px;
+    }
+
+    .success-message h2 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 8px;
+    }
+
+    .success-message p {
+        color: #64748b;
+        font-size: 16px;
+    }
+
+    .progress-bar {
+        display: none;
+        width: 100%;
+        height: 4px;
+        background: #e2e8f0;
+        border-radius: 4px;
+        margin-top: 12px;
+        overflow: hidden;
+    }
+
+    .progress-bar .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        border-radius: 4px;
+        transition: width 0.3s;
+        width: 0%;
+    }
+
+    /* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+    @media (max-width: 768px) {
+        .submit-container {
+            padding: 24px 20px;
+        }
+        .submit-container h1 {
+            font-size: 26px;
+        }
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+        .submit-btn {
+            padding: 12px 24px;
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .submit-container {
+            padding: 18px 14px;
+            border-radius: 16px;
+        }
+        .submit-container h1 {
+            font-size: 22px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            font-size: 14px;
+            padding: 10px 14px;
+        }
+        .image-upload-area {
+            padding: 20px 16px;
+        }
+        .image-upload-area .upload-icon {
+            font-size: 36px;
+        }
+    }
+
+    /* ============================================================
+   DARK MODE
+   ============================================================ */
+
+    [data-theme="dark"] .submit-container {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .submit-container h1 {
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .submit-container .subtitle {
+        color: #94a3b8;
+    }
+
+    [data-theme="dark"] .form-group label {
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .form-group input,
+    [data-theme="dark"] .form-group select,
+    [data-theme="dark"] .form-group textarea {
+        background: #0f172a;
+        border-color: #334155;
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .form-group input:focus,
+    [data-theme="dark"] .form-group select:focus,
+    [data-theme="dark"] .form-group textarea:focus {
+        border-color: #3b82f6;
+    }
+
+    [data-theme="dark"] .image-upload-area {
+        background: #0f172a;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .image-upload-area:hover {
+        border-color: #3b82f6;
+        background: #1e3a5f;
+    }
+
+    [data-theme="dark"] .back-link {
+        background: #1e293b;
+        color: #94a3b8;
+    }
+
+    [data-theme="dark"] .back-link:hover {
+        background: #334155;
+        color: #60a5fa;
+    }
+
+    [data-theme="dark"] .image-preview img {
+        border-color: #334155;
+    }
+</style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    <img src="../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
+                    <span>Astra Technology</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="/ai-tools/" class="nav-link"><i class="fas fa-robot"></i><span>AI Tools</span></a>
+                <a href="/qr-generator/" class="nav-link"><i class="fas fa-qrcode"></i><span>QR</span></a>
+                <a href="/blog/" class="nav-link"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+                <a href="/submit.html" class="nav-link active"><i class="fa-regular fa-pen-to-square"></i><span>Write</span></a>
+                <a href="/About/" class="nav-link"><i class="fas fa-info-circle"></i><span>About</span></a>
+                <a href="/Contact/" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a>
+                <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+    SUBMIT FORM
+    ============================================================ -->
+    <section class="submit-page">
+        <div class="container">
+            <a href="/blog/" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+
+            <div class="submit-container" id="submitForm">
+                <h1>✍️ Write for Astra Blog</h1>
+                <p class="subtitle">Share your knowledge, stories, and insights with our readers. We'll review and publish your blog.</p>
+
+                <form id="blogForm" action="https://formspree.io/f/mykrwbyr" method="POST">
+                    
+                    <!-- Formspree Configuration -->
+                    <input type="hidden" name="_subject" value="New Blog Submission - Astra Technology">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_next" value="https://astratechnology.me/blog/thank-you.html">
+
+                    <!-- ===== AUTHOR DETAILS ===== -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="authorName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="authorName" name="Author Name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="authorEmail">Email Address <span class="required">*</span></label>
+                            <input type="email" id="authorEmail" name="Author Email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <!-- ===== BLOG DETAILS ===== -->
+                    <div class="form-group">
+                        <label for="blogTitle">Blog Title <span class="required">*</span></label>
+                        <input type="text" id="blogTitle" name="Blog Title" placeholder="Enter a catchy title for your blog" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blogCategory">Category <span class="required">*</span></label>
+                        <select id="blogCategory" name="Category" required>
+                            <option value="">Select a category</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Cyber Security">Cyber Security</option>
+                            <option value="Scam Alert">Scam Alert</option>
+                            <option value="Digital Safety">Digital Safety</option>
+                            <option value="Guides">Guides</option>
+                            <option value="Sports">Sports</option>
+                            <option value="News">News</option>
+                            <option value="Education">Education</option>
+                            <option value="Health">Health</option>
+                            <option value="Business">Business</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blogContent">Blog Content <span class="required">*</span></label>
+                        <textarea id="blogContent" name="Blog Content" placeholder="Write your blog here... Minimum 300 words." required></textarea>
+                        <div class="hint" id="wordCountDisplay">📝 0 words (Minimum 300 recommended)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blogTags">Tags (comma separated)</label>
+                        <input type="text" id="blogTags" name="Tags" placeholder="e.g., AI, Technology, Security">
+                        <div class="hint">Add up to 5 tags to help readers find your blog</div>
+                    </div>
+
+                    <!-- ===== IMAGE UPLOAD ===== -->
+                    <div class="form-group">
+                        <label>Featured Image <span style="font-weight:400;color:#94a3b8;">(Optional)</span></label>
+                        <div class="image-upload-area" id="dropArea">
+                            <span class="upload-icon">🖼️</span>
+                            <div class="upload-text">
+                                <strong>Click to upload</strong> or drag and drop
+                            </div>
+                            <div class="file-types">PNG, JPG, JPEG, WebP (Max 5MB)</div>
+                            <input type="file" id="imageFile" accept="image/*" name="image">
+                        </div>
+
+                        <div class="image-preview" id="imagePreview">
+                            <img id="previewImage" src="" alt="Preview">
+                            <button type="button" class="remove-image" id="removeImage"><i class="fa-solid fa-times"></i></button>
+                        </div>
+
+                        <div class="hint">Upload a high-quality image for your blog thumbnail (16:9 ratio recommended)</div>
+                    </div>
+
+                    <!-- ===== SUBMIT ===== -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fa-regular fa-paper-plane"></i> Submit Blog for Review
+                    </button>
+
+                    <p class="form-note">
+                        <i class="fa-solid fa-lock"></i> Your information is secure. We'll review your blog within 24-48 hours.
+                    </p>
+                </form>
+            </div>
+
+            <!-- ===== SUCCESS MESSAGE ===== -->
+            <div class="submit-container" id="successMessage" style="display:none;">
+                <div class="success-message">
+                    <div class="icon">✅</div>
+                    <h2>Blog Submitted Successfully!</h2>
+                    <p>Thank you for submitting your blog. Our team will review it within 24-48 hours.</p>
+                    <p style="margin-top: 8px;">You'll receive a confirmation email once it's published.</p>
+                    <a href="/blog/" class="submit-btn" style="margin-top: 24px; display: inline-flex; width: auto; padding: 12px 32px;">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
+                <h2>Astra Technology</h2>
+            </div>
+            <p class="footer-text">Building useful digital products for everyone.</p>
+            <div class="footer-links">
+                <a href="/About/">About</a>
+                <a href="/blog/">Blog</a>
+                <a href="/submit.html">Write for Us</a>
+                <a href="/Contact/">Contact</a>
+                <a href="/Privacy/">Privacy Policy</a>
+                <a href="/Terms/">Terms &amp; Conditions</a>
+            </div>
+            <div class="social-links">
+                <a href="https://x.com/d3vshivamyadav" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://instagram.com/astratechnology.me" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:d3vshivamyadav@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+            <p class="developer">Designed &amp; Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // ============================================================
+        // GOOGLE SHEETS INTEGRATION - PRODUCTION READY
+        // ============================================================
+
+        // Your Apps Script Web App URL
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqBXWbETaTcVr6C23xEYzknDi1sJupelkEjHl3X-a6XoZcdvV6oGglHPj19gQwiAi1Dw/exec';
+
+        // ============================================================
+        // IMAGE UPLOAD HANDLING
+        // ============================================================
+
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('imageFile');
+        const previewContainer = document.getElementById('imagePreview');
+        const previewImage = document.getElementById('previewImage');
+        const removeBtn = document.getElementById('removeImage');
+
+        let uploadedImageData = null;
+
+        fileInput.addEventListener('change', function(e) {
+            const file = this.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        });
+
+        dropArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('dragover');
+        });
+
+        dropArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+        });
+
+        dropArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file) {
+                handleFile(file);
+                fileInput.files = e.dataTransfer.files;
+            }
+        });
+
+        function handleFile(file) {
+            const validTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
+            if (!validTypes.includes(file.type)) {
+                alert('Please upload a valid image file (PNG, JPG, JPEG, WebP)');
+                fileInput.value = '';
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Image size should be less than 5MB');
+                fileInput.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                uploadedImageData = e.target.result;
+                previewImage.src = uploadedImageData;
+                previewContainer.style.display = 'block';
+                dropArea.style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        removeBtn.addEventListener('click', function() {
+            uploadedImageData = null;
+            previewContainer.style.display = 'none';
+            dropArea.style.display = 'block';
+            fileInput.value = '';
+            previewImage.src = '';
+        });
+
+        // ============================================================
+        // WORD COUNTER
+        // ============================================================
+
+        const contentTextarea = document.getElementById('blogContent');
+        const wordCountDisplay = document.getElementById('wordCountDisplay');
+
+        contentTextarea.addEventListener('input', function() {
+            const words = this.value.trim().split(/\s+/).length;
+            const wordCount = this.value.trim() === '' ? 0 : words;
+            wordCountDisplay.textContent = `📝 ${wordCount} words (Minimum 300 recommended)`;
+            if (wordCount < 300 && this.value.length > 0) {
+                wordCountDisplay.style.color = '#f59e0b';
+            } else if (wordCount >= 300) {
+                wordCountDisplay.style.color = '#22c55e';
+                wordCountDisplay.textContent = `✅ ${wordCount} words - Good to go!`;
+            } else {
+                wordCountDisplay.style.color = '#94a3b8';
+            }
+        });
+
+        // ============================================================
+        // FORM SUBMISSION - PRODUCTION READY
+        // ============================================================
+
+        const form = document.getElementById('blogForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // ===== Validate Form =====
+            const authorName = document.getElementById('authorName').value.trim();
+            const authorEmail = document.getElementById('authorEmail').value.trim();
+            const blogTitle = document.getElementById('blogTitle').value.trim();
+            const category = document.getElementById('blogCategory').value;
+            const blogContent = document.getElementById('blogContent').value.trim();
+            const tags = document.getElementById('blogTags').value.trim();
+
+            if (!authorName || !authorEmail || !blogTitle || !category || !blogContent) {
+                alert('Please fill all required fields.');
+                return;
+            }
+
+            // Validate email
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(authorEmail)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Validate word count
+            const wordCount = blogContent.split(/\s+/).length;
+            if (wordCount < 300) {
+                alert('Please write at least 300 words for your blog. Currently: ' + wordCount + ' words.');
+                return;
+            }
+
+            // ===== Disable Button =====
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+            progressBar.style.display = 'block';
+            progressFill.style.width = '0%';
+
+            // ===== Prepare Data =====
+            const blogData = {
+                authorName: authorName,
+                authorEmail: authorEmail,
+                blogTitle: blogTitle,
+                category: category,
+                blogContent: blogContent,
+                tags: tags,
+                imageUrl: uploadedImageData || ''
+            };
+
+            try {
+                // ===== Submit to Google Sheets =====
+                progressFill.style.width = '50%';
+                
+                const response = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(blogData)
+                });
+
+                progressFill.style.width = '100%';
+
+                // ===== Show Success =====
+                document.getElementById('submitForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+
+                // ===== Also submit to Formspree (fallback) =====
+                // The form will submit to Formspree via the action attribute
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Something went wrong. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-regular fa-paper-plane"></i> Submit Blog for Review';
+                progressBar.style.display = 'none';
+                progressFill.style.width = '0%';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Blog Submitted | Astra Blog</title>
+    <meta name="description" content="Thank you for submitting your blog to Astra Technology. Our team will review it within 24-48 hours.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JNT5QMVXL6');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955"
+    crossorigin="anonymous">
+</script>
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="../style.css">
+<style>
+    /* ============================================================
+   THANK YOU PAGE STYLES
+   ============================================================ */
+
+    .thank-you-page {
+        padding: 60px 24px 80px;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .thank-you-container {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 60px 48px;
+        border: 1px solid #eef2f6;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .thank-you-container::before {
+        content: '✍️';
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 100px;
+        opacity: 0.04;
+        transform: rotate(15deg);
+        pointer-events: none;
+    }
+
+    .thank-you-container .icon {
+        font-size: 72px;
+        margin-bottom: 16px;
+        display: block;
+        animation: bounceIcon 2s ease-in-out infinite;
+    }
+
+    @keyframes bounceIcon {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .thank-you-container h1 {
+        font-size: 32px;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 8px;
+    }
+
+    .thank-you-container .subtitle {
+        color: #64748b;
+        font-size: 16px;
+        line-height: 1.7;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .thank-you-container .subtitle strong {
+        color: #0f172a;
+    }
+
+    .thank-you-container .info-box {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin: 24px 0;
+        border: 1px solid #eef2f6;
+        text-align: left;
+    }
+
+    .thank-you-container .info-box .label {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #94a3b8;
+        margin-bottom: 4px;
+    }
+
+    .thank-you-container .info-box .value {
+        color: #0f172a;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .thank-you-container .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin: 28px 0;
+    }
+
+    .thank-you-container .step {
+        text-align: center;
+        padding: 16px 12px;
+        background: #f8fafc;
+        border-radius: 12px;
+        border: 1px solid #eef2f6;
+        transition: all 0.3s;
+    }
+
+    .thank-you-container .step:hover {
+        transform: translateY(-2px);
+        border-color: #3b82f6;
+    }
+
+    .thank-you-container .step .step-icon {
+        font-size: 28px;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .thank-you-container .step .step-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #0f172a;
+    }
+
+    .thank-you-container .step .step-desc {
+        font-size: 11px;
+        color: #94a3b8;
+        margin-top: 2px;
+    }
+
+    .thank-you-container .btn-group {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 28px;
+        flex-wrap: wrap;
+    }
+
+    .thank-you-container .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 32px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: #ffffff;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s;
+    }
+
+    .thank-you-container .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+    }
+
+    .thank-you-container .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 32px;
+        background: #f1f5f9;
+        color: #0f172a;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s;
+        border: 1px solid #e2e8f0;
+    }
+
+    .thank-you-container .btn-secondary:hover {
+        background: #e2e8f0;
+        transform: translateY(-2px);
+    }
+
+    /* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+    @media (max-width: 768px) {
+        .thank-you-container {
+            padding: 36px 24px;
+        }
+        .thank-you-container h1 {
+            font-size: 26px;
+        }
+        .thank-you-container .steps {
+            grid-template-columns: 1fr;
+        }
+        .thank-you-container .btn-group {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .thank-you-container .btn-primary,
+        .thank-you-container .btn-secondary {
+            justify-content: center;
+        }
+        .thank-you-container::before {
+            font-size: 60px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .thank-you-container {
+            padding: 24px 16px;
+            border-radius: 16px;
+        }
+        .thank-you-container h1 {
+            font-size: 22px;
+        }
+        .thank-you-container .icon {
+            font-size: 52px;
+        }
+        .thank-you-container .subtitle {
+            font-size: 14px;
+        }
+        .thank-you-container .info-box {
+            padding: 12px 16px;
+        }
+        .thank-you-container .info-box .value {
+            font-size: 14px;
+        }
+        .thank-you-container .step .step-icon {
+            font-size: 22px;
+        }
+    }
+
+    /* ============================================================
+   DARK MODE
+   ============================================================ */
+
+    [data-theme="dark"] .thank-you-container {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .thank-you-container h1 {
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .thank-you-container .subtitle {
+        color: #94a3b8;
+    }
+
+    [data-theme="dark"] .thank-you-container .subtitle strong {
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .thank-you-container .info-box {
+        background: #0f172a;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .thank-you-container .info-box .value {
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .thank-you-container .step {
+        background: #0f172a;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .thank-you-container .step .step-label {
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .thank-you-container .step .step-desc {
+        color: #94a3b8;
+    }
+
+    [data-theme="dark"] .thank-you-container .btn-secondary {
+        background: #334155;
+        color: #f8fafc;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .thank-you-container .btn-secondary:hover {
+        background: #475569;
+    }
+
+    [data-theme="dark"] .thank-you-container::before {
+        opacity: 0.06;
+    }
+</style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    <img src="../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
+                    <span>Astra Technology</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="/ai-tools/" class="nav-link"><i class="fas fa-robot"></i><span>AI Tools</span></a>
+                <a href="/qr-generator/" class="nav-link"><i class="fas fa-qrcode"></i><span>QR</span></a>
+                <a href="/blog/" class="nav-link"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+                <a href="/submit.html" class="nav-link"><i class="fa-regular fa-pen-to-square"></i><span>Write</span></a>
+                <a href="/About/" class="nav-link"><i class="fas fa-info-circle"></i><span>About</span></a>
+                <a href="/Contact/" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a>
+                <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+    THANK YOU CONTENT
+    ============================================================ -->
+    <section class="thank-you-page">
+        <div class="thank-you-container">
+            <span class="icon">✅</span>
+            <h1>Blog Submitted Successfully!</h1>
+            <p class="subtitle">
+                Thank you for submitting your blog to <strong>Astra Technology</strong>. 
+                Our editorial team will review it within <strong>24-48 hours</strong>.
+            </p>
+
+            <!-- Submission Details -->
+            <div class="info-box" id="submissionDetails">
+                <div class="label">📌 Submission Details</div>
+                <div class="value" id="blogTitleDisplay">Blog Title: Loading...</div>
+                <div class="value" style="font-size:13px;color:#94a3b8;margin-top:2px;" id="blogAuthorDisplay">Author: Loading...</div>
+            </div>
+
+            <!-- Steps -->
+            <div class="steps">
+                <div class="step">
+                    <span class="step-icon">📝</span>
+                    <div class="step-label">Submitted</div>
+                    <div class="step-desc">Your blog is received</div>
+                </div>
+                <div class="step">
+                    <span class="step-icon">🔍</span>
+                    <div class="step-label">Under Review</div>
+                    <div class="step-desc">Team is reviewing</div>
+                </div>
+                <div class="step">
+                    <span class="step-icon">🚀</span>
+                    <div class="step-label">Published</div>
+                    <div class="step-desc">Live on the blog</div>
+                </div>
+            </div>
+
+            <p style="color:#94a3b8;font-size:14px;margin-top:8px;">
+                <i class="fa-regular fa-envelope"></i> You'll receive a confirmation email once it's published.
+            </p>
+
+            <!-- Buttons -->
+            <div class="btn-group">
+                <a href="/blog/" class="btn-primary"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+                <a href="/blog/submit.html" class="btn-secondary"><i class="fa-regular fa-pen-to-square"></i> Submit Another</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
+                <h2>Astra Technology</h2>
+            </div>
+            <p class="footer-text">Building useful digital products for everyone.</p>
+            <div class="footer-links">
+                <a href="/About/">About</a>
+                <a href="/blog/">Blog</a>
+                <a href="/submit.html">Write for Us</a>
+                <a href="/Contact/">Contact</a>
+                <a href="/Privacy/">Privacy Policy</a>
+                <a href="/Terms/">Terms &amp; Conditions</a>
+            </div>
+            <div class="social-links">
+                <a href="https://x.com/d3vshivamyadav" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://instagram.com/astratechnology.me" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:d3vshivamyadav@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+            <p class="developer">Designed &amp; Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // ============================================================
+        // SHOW SUBMISSION DETAILS FROM URL PARAMETERS
+        // ============================================================
+
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const blogTitle = urlParams.get('title') || 'Your Blog';
+        const authorName = urlParams.get('author') || 'You';
+
+        // Display the details
+        document.getElementById('blogTitleDisplay').textContent = '📌 Blog Title: ' + blogTitle;
+        document.getElementById('blogAuthorDisplay').textContent = '✍️ Author: ' + authorName;
+
+        // ============================================================
+        // SAVE SUBMISSION TO LOCAL STORAGE (for admin dashboard)
+        // ============================================================
+
+        const submissionData = {
+            id: Date.now(),
+            title: blogTitle,
+            author: authorName,
+            date: new Date().toLocaleDateString(),
+            status: 'Pending'
+        };
+
+        // Get existing submissions from localStorage
+        let submissions = JSON.parse(localStorage.getItem('blogSubmissions') || '[]');
+        submissions.push(submissionData);
+        localStorage.setItem('blogSubmissions', JSON.stringify(submissions));
+
+        console.log('✅ Blog submission saved:', submissionData);
+    </script>
+</body>
+
+</html>
