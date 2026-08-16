@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Active Recall · Pro Study System | Astra Student Portal</title>
+  <meta name="description" content="Master active recall with our pro-level study system. Interactive tools, timers, progress tracking, and science-backed techniques.">
+  <link rel="icon" href="../../../../assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../../../../style.css">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JNT5QMVXL6');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955" crossorigin="anonymous"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.7;
+      padding-top: 70px;
+      overflow-x: hidden;
+    }
+
+    /* ---- ANIMATED BACKGROUND ---- */
+    .bg-animation {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      overflow: hidden;
+    }
+    .bg-animation .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+    }
+    .bg-animation .orb:nth-child(1) {
+      width: 500px;
+      height: 500px;
+      top: -10%;
+      right: -10%;
+      background: #3b82f6;
+      animation-delay: 0s;
+    }
+    .bg-animation .orb:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      bottom: -10%;
+      left: -10%;
+      background: #8b5cf6;
+      animation-delay: -7s;
+    }
+    .bg-animation .orb:nth-child(3) {
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      background: #06b6d4;
+      animation-delay: -14s;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -40px) scale(1.1); }
+      50% { transform: translate(-20px, 20px) scale(0.9); }
+      75% { transform: translate(40px, 30px) scale(1.05); }
+    }
+
+    /* ---- HERO ---- */
+    .page-hero {
+      padding: 60px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero .badge {
+      display: inline-block;
+      padding: 6px 22px;
+      background: rgba(59,130,246,0.15);
+      color: #60a5fa;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(59,130,246,0.2);
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(59,130,246,0); }
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #f8fafc;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+      animation: fadeUp 1s ease-out;
+    }
+    .page-hero h1 .highlight {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease-in-out infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-hero p {
+      color: #94a3b8;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      animation: fadeUp 1s ease-out 0.4s both;
+    }
+    .hero-stats .stat {
+      background: rgba(255,255,255,0.04);
+      padding: 12px 28px;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+      cursor: default;
+    }
+    .hero-stats .stat:hover {
+      background: rgba(59,130,246,0.1);
+      border-color: rgba(59,130,246,0.3);
+      transform: translateY(-2px);
+    }
+    .hero-stats .stat .num {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+    .hero-stats .stat .lbl { color: #94a3b8; font-size: 0.85rem; margin-left: 6px; }
+
+    /* ---- CONTAINER ---- */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 50px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+      margin-bottom: 28px;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .back-link:hover { background: rgba(59,130,246,0.15); gap: 14px; border-color: rgba(59,130,246,0.3); }
+
+    /* ---- CARDS ---- */
+    .guide-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 36px 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      margin-bottom: 28px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .guide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .guide-card:hover::before { opacity: 1; }
+    .guide-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59,130,246,0.15);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+    }
+    .guide-card .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15));
+      color: #60a5fa;
+      font-size: 26px;
+      margin-bottom: 14px;
+      transition: transform 0.3s;
+    }
+    .guide-card:hover .card-icon { transform: scale(1.05) rotate(-3deg); }
+    .guide-card h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .guide-card h2 i { color: #60a5fa; margin-right: 12px; }
+    .guide-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin: 18px 0 8px;
+    }
+    .guide-card p, .guide-card li {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+    .guide-card ul, .guide-card ol {
+      padding-left: 24px;
+      margin: 8px 0 12px;
+    }
+    .guide-card ul li, .guide-card ol li { margin-bottom: 8px; }
+
+    .tip-box {
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.08));
+      border-left: 4px solid #3b82f6;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .tip-box i { color: #60a5fa; margin-right: 10px; }
+    .warning-box {
+      background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.04));
+      border-left: 4px solid #ef4444;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .warning-box i { color: #ef4444; margin-right: 10px; }
+    .example-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 16px 0;
+    }
+    .example-box strong { color: #f1f5f9; }
+
+    /* ---- GRIDS ---- */
+    .grid-2col, .grid-3col, .grid-4col {
+      display: grid;
+      gap: 16px;
+      margin: 12px 0;
+    }
+    .grid-2col { grid-template-columns: 1fr 1fr; }
+    .grid-3col { grid-template-columns: repeat(3, 1fr); }
+    .grid-4col { grid-template-columns: repeat(4, 1fr); }
+
+    .stat-mini {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .stat-mini:hover { border-color: rgba(59,130,246,0.3); transform: translateY(-2px); }
+    .stat-mini .number {
+      font-size: 34px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+    .stat-mini .label {
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .method-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .method-card:hover {
+      border-color: rgba(59,130,246,0.3);
+      background: rgba(59,130,246,0.05);
+      transform: translateY(-4px);
+    }
+    .method-card i {
+      font-size: 28px;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .method-card h4 { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
+    .method-card p { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
+
+    /* ---- PROGRESS TRACKER ---- */
+    .progress-tracker {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0 10px;
+      position: relative;
+      padding: 0 10px;
+    }
+    .progress-tracker::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 40px;
+      right: 40px;
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .step .circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #64748b;
+      border: 3px solid rgba(255,255,255,0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .step.active .circle {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 6px rgba(59,130,246,0.15), 0 0 30px rgba(59,130,246,0.2);
+      transform: scale(1.1);
+    }
+    .step.done .circle {
+      background: #10b981;
+      color: white;
+      border-color: #34d399;
+      box-shadow: 0 0 20px rgba(16,185,129,0.2);
+    }
+    .step.done .circle::after { content: '✓'; }
+    .step .label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #64748b;
+      text-align: center;
+      max-width: 60px;
+      transition: color 0.3s;
+    }
+    .step.active .label, .step.done .label { color: #f1f5f9; }
+
+    /* ---- TIMER ---- */
+    .study-timer {
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 24px 30px;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .timer-display {
+      font-size: 3rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Inter', monospace;
+    }
+    .timer-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .timer-controls button {
+      padding: 8px 20px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .timer-controls button:hover {
+      background: rgba(59,130,246,0.15);
+      border-color: rgba(59,130,246,0.3);
+      transform: translateY(-2px);
+    }
+    .timer-controls button.primary {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border: none;
+      color: white;
+    }
+    .timer-controls button.primary:hover {
+      box-shadow: 0 4px 20px rgba(59,130,246,0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ---- FAQ ---- */
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(59,130,246,0.2); }
+    .faq-question {
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #f1f5f9;
+      background: rgba(255,255,255,0.02);
+      transition: background 0.3s;
+      user-select: none;
+    }
+    .faq-question:hover { background: rgba(255,255,255,0.04); }
+    .faq-question i { color: #60a5fa; transition: transform 0.4s; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+      color: #94a3b8;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 20px 18px 20px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .grid-4col { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .grid-2col, .grid-3col, .grid-4col { grid-template-columns: 1fr; }
+      .guide-card { padding: 24px 20px; }
+      .hero-stats { gap: 12px; }
+      .hero-stats .stat { padding: 8px 18px; }
+      .progress-tracker { flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .progress-tracker::before { display: none; }
+      .study-timer { flex-direction: column; align-items: center; }
+      .timer-display { font-size: 2.5rem; }
+    }
+    @media (max-width: 480px) {
+      .grid-4col { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 2rem; }
+    }
+
+    /* ---- SCROLL ANIMATIONS ---- */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0a0f1f;
+      color: #e2e8f0;
+      padding: 48px 20px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-container { max-width: 600px; margin: 0 auto; }
+    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 6px; }
+    .footer-logo { height: 32px; width: auto; }
+    .footer h2 { font-size: 22px; font-weight: 700; color: #ffffff; }
+    .footer-text { font-size: 14px; color: #94a3b8; margin: 4px 0 16px; }
+    .footer-links { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #ffffff; }
+    .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .social-links a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.03); color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s;
+      text-decoration: none;
+    }
+    .social-links a:hover { background: #3b82f6; color: #ffffff; transform: translateY(-3px) scale(1.05); border-color: #3b82f6; box-shadow: 0 8px 24px rgba(59,130,246,0.15); }
+    .copyright { font-size: 12px; color: #64748b; margin-top: 12px; }
+    .developer { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    .gradient-text { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ===== ANIMATED BACKGROUND ===== -->
+<div class="bg-animation">
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar" style="background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <a href="/" class="logo-link">
+      <div class="logo" style="color:#f8fafc;">
+        <img src="../../../../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
+        <span>Astra Technology</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student-portal/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-graduation-cap"></i><span>Student Portal</span></a>
+      <a href="/blog/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+      <a href="/About/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="/Contact/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-envelope"></i><span>Contact</span></a>
+      <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+  <span class="badge"><i class="fas fa-brain"></i> Science-Backed</span>
+  <h1>🧠 <span class="highlight">Active Recall</span> Pro</h1>
+  <p>The ultimate study system — combine active recall with spacing, testing, and smart tools for peak performance.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="num">400%</span><span class="lbl">better retention</span></div>
+    <div class="stat"><span class="num">80%</span><span class="lbl">recall after 7 days</span></div>
+    <div class="stat"><span class="num">2.5x</span><span class="lbl">faster learning</span></div>
+  </div>
+</section>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+
+  <a href="/student-portal/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Study Tips</a>
+
+  <!-- ===== WHAT IS ACTIVE RECALL ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+    <h2>What is Active Recall?</h2>
+    <p><strong>Active recall</strong> is the process of actively retrieving information from your memory, rather than passively reviewing it. Instead of re-reading notes, you close the book and <em>force your brain to remember</em>.</p>
+    <div class="tip-box">
+      <i class="fas fa-quote-left"></i> "Active recall is the single most effective study technique supported by decades of cognitive science research." — <strong style="color:#f1f5f9;">Dr. Henry Roediger</strong>
+    </div>
+    <p>Each retrieval attempt strengthens neural pathways, making information easier to access during exams. It's the difference between <em>recognizing</em> information and <em>remembering</em> it.</p>
+  </div>
+
+  <!-- ===== WHY IT WORKS ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+    <h2>Why Active Recall Works</h2>
+    <div class="grid-3col">
+      <div class="stat-mini"><span class="number">50%</span><span class="label">Better than re-reading</span></div>
+      <div class="stat-mini"><span class="number">80%</span><span class="label">Retention after 7 days</span></div>
+      <div class="stat-mini"><span class="number">20%</span><span class="label">Passive reading retention</span></div>
+    </div>
+    <ul>
+      <li><strong>🔬 Strengthens memory:</strong> Each retrieval strengthens the memory trace.</li>
+      <li><strong>🔍 Identifies gaps:</strong> You instantly discover what you don't know.</li>
+      <li><strong>🚫 Reduces illusion of competence:</strong> Passive reading feels productive but isn't.</li>
+      <li><strong>🎯 Improves exam performance:</strong> Because exams are retrieval tasks.</li>
+      <li><strong>🧠 Builds long-term retention:</strong> Information moves to long-term memory faster.</li>
+      <li><strong>⚡ Neuroplasticity boost:</strong> Repeated retrieval strengthens neural connections.</li>
+    </ul>
+  </div>
+
+  <!-- ===== STEP-BY-STEP WITH PROGRESS ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-list-check"></i></div>
+    <h2>Master the Process</h2>
+    <div class="progress-tracker" id="progressTracker">
+      <div class="step active" data-step="0"><div class="circle">1</div><span class="label">Study</span></div>
+      <div class="step" data-step="1"><div class="circle">2</div><span class="label">Close</span></div>
+      <div class="step" data-step="2"><div class="circle">3</div><span class="label">Ask</span></div>
+      <div class="step" data-step="3"><div class="circle">4</div><span class="label">Write</span></div>
+      <div class="step" data-step="4"><div class="circle">5</div><span class="label">Check</span></div>
+      <div class="step" data-step="5"><div class="circle">6</div><span class="label">Repeat</span></div>
+    </div>
+    <ol style="margin-top:16px;">
+      <li><strong>Study a topic</strong> – read, watch, or listen to the material with focus.</li>
+      <li><strong>Close the material</strong> – put away all notes and books completely.</li>
+      <li><strong>Ask yourself questions</strong> – "What were the key points? How does this work?"</li>
+      <li><strong>Write or say answers</strong> – from memory, without peeking.</li>
+      <li><strong>Check and correct</strong> – review the material and fill in gaps.</li>
+      <li><strong>Repeat</strong> – do this multiple times with increasing spacing (spaced repetition).</li>
+    </ol>
+    <div class="example-box">
+      <strong>📌 Example:</strong> After reading a chapter on photosynthesis, close the book and write: <em style="color:#94a3b8;">"What are the two stages of photosynthesis? What are the inputs and outputs of each?"</em> Then check your answers.
+    </div>
+  </div>
+
+  <!-- ===== STUDY TIMER ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-clock"></i></div>
+    <h2>⏱️ Study Timer — Pomodoro Mode</h2>
+    <p>Use the Pomodoro Technique with active recall: 25 min focused study → 5 min break → repeat.</p>
+    <div class="study-timer">
+      <div class="timer-display" id="timerDisplay">25:00</div>
+      <div class="timer-controls">
+        <button class="primary" id="timerStartBtn"><i class="fas fa-play"></i> Start</button>
+        <button id="timerPauseBtn"><i class="fas fa-pause"></i> Pause</button>
+        <button id="timerResetBtn"><i class="fas fa-undo"></i> Reset</button>
+        <button id="timerModeBtn"><i class="fas fa-rotate"></i> 5min</button>
+      </div>
+    </div>
+    <p style="font-size:0.85rem;color:#64748b;margin-top:8px;"><i class="fas fa-info-circle"></i> Click the step circles above to track your progress through the active recall process.</p>
+  </div>
+
+  <!-- ===== TOOLS & METHODS ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-tools"></i></div>
+    <h2>Pro Tools & Methods</h2>
+    <div class="grid-3col">
+      <div class="method-card">
+        <i class="fas fa-cards"></i>
+        <h4>Flashcards</h4>
+        <p>Anki, Quizlet, or physical cards. Question on one side, answer on the other. Built-in spaced repetition.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-notes-medical"></i>
+        <h4>Cornell Notes</h4>
+        <p>Divide notes: cues on the left, details on the right. Use cues as prompts for recall.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-pen-fancy"></i>
+        <h4>Feynman Technique</h4>
+        <p>Explain a concept in simple terms as if teaching a child. Identify gaps immediately.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-question-circle"></i>
+        <h4>Self-Testing</h4>
+        <p>Use practice questions, past papers, or create your own tests. Simulate exam conditions.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-robot"></i>
+        <h4>AI-Powered</h4>
+        <p>Use AI tools like ChatGPT to generate questions and quiz you on any topic.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-users"></i>
+        <h4>Study Groups</h4>
+        <p>Quiz each other, teach concepts, and explain ideas to peers. Teaching = ultimate recall.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SPACED REPETITION ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-clock"></i></div>
+    <h2>Combine with Spaced Repetition</h2>
+    <p>Active recall is most powerful when combined with <strong style="color:#f1f5f9;">spaced repetition</strong> – reviewing at increasing intervals.</p>
+    <div style="background:rgba(255,255,255,0.03);border-radius:14px;padding:18px 22px;margin:12px 0;border:1px solid rgba(255,255,255,0.06);">
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:space-around;">
+        <div><span style="font-weight:700;color:#60a5fa;">Day 1</span> → Study + Recall</div>
+        <div><span style="font-weight:700;color:#60a5fa;">Day 2</span> → Recall</div>
+        <div><span style="font-weight:700;color:#60a5fa;">Day 4</span> → Recall</div>
+        <div><span style="font-weight:700;color:#60a5fa;">Day 7</span> → Recall</div>
+        <div><span style="font-weight:700;color:#60a5fa;">Day 14</span> → Final Review</div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <i class="fas fa-lightbulb"></i> Use apps like <strong style="color:#f1f5f9;">Anki</strong>, <strong style="color:#f1f5f9;">Memrise</strong>, or <strong style="color:#f1f5f9;">RemNote</strong> that automate spaced repetition.
+    </div>
+  </div>
+
+  <!-- ===== COMMON MISTAKES ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-triangle-exclamation" style="color:#ef4444;"></i></div>
+    <h2 style="color:#f87171;">Common Mistakes to Avoid</h2>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Re-reading instead of recalling</strong> — if you're just reading again, you're not doing active recall.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Not checking your answers</strong> — always verify correctness to avoid reinforcing wrong information.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Only recalling easy things</strong> — focus on the hard stuff. That's where the growth happens.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Cramming</strong> — active recall works best with spaced sessions, not all-nighters.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Giving up too quickly</strong> — it feels harder than passive reading. The struggle is learning!
+    </div>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-circle-question"></i></div>
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item active">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How is active recall different from re-reading?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Re-reading is passive — you see the information and it feels familiar. Active recall forces your brain to retrieve information without cues, which strengthens memory and reveals gaps.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How often should I practice active recall?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Ideally, use spaced repetition: review new material within 24 hours, then again after 2-3 days, then weekly. The key is consistency, not marathon sessions.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Does active recall work for all subjects?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Yes! It works for math, sciences, languages, humanities — any subject that requires memorization or understanding. For math, practice solving problems without looking at examples.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How long should an active recall session be?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Start with 20-30 minute sessions. The Pomodoro Technique (25 min study, 5 min break) works great with active recall. Quality over quantity matters more.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Can active recall replace note-taking?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        No. Note-taking is still important as a first step. Use active recall after you've understood the material. It complements note-taking rather than replacing it.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>What's the best tool for active recall?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        For flashcards: <strong>Anki</strong> (best for spaced repetition). For notes: <strong>RemNote</strong> or <strong>Notion</strong>. For quick testing: <strong>Quizlet</strong> or pen and paper works great too!
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUICK START CHALLENGE ===== -->
+  <div class="guide-card animate-on-scroll" style="background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.08));border-color:rgba(59,130,246,0.15);">
+    <div class="card-icon" style="background:linear-gradient(135deg, #3b82f6, #8b5cf6);color:white;"><i class="fas fa-play"></i></div>
+    <h2 style="color:#60a5fa;">🔥 Quick Start Challenge</h2>
+    <p>Try active recall right now in 5 minutes:</p>
+    <ol style="margin:12px 0 0 20px;color:#cbd5e1;">
+      <li>Pick one concept you've been studying.</li>
+      <li>Close your notes completely.</li>
+      <li>Write down everything you remember about it.</li>
+      <li>Check your notes and fill in the gaps.</li>
+      <li>Repeat tomorrow with the same concept.</li>
+    </ol>
+    <p style="margin-top:14px;font-weight:700;color:#60a5fa;">🚀 That's active recall in action — you're already ahead of 90% of students!</p>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="../../../../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
+      <h2>Astra Technology</h2>
+    </div>
+    <p class="footer-text">Building useful digital products for students and everyone.</p>
+    <div class="footer-links">
+      <a href="/About/">About</a>
+      <a href="/student-portal/">Student Portal</a>
+      <a href="/blog/">Blog</a>
+      <a href="/Contact/">Contact</a>
+      <a href="/Privacy/">Privacy Policy</a>
+      <a href="/Terms/">Terms &amp; Conditions</a>
+    </div>
+    <div class="social-links">
+      <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+    <p class="developer">Designed &amp; Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+  </div>
+</footer>
+
+<script>
+  // ===== TIMER =====
+  let timerInterval = null;
+  let timerSeconds = 25 * 60;
+  let isTimerRunning = false;
+  let isBreakMode = false;
+
+  const timerDisplay = document.getElementById('timerDisplay');
+  const startBtn = document.getElementById('timerStartBtn');
+  const pauseBtn = document.getElementById('timerPauseBtn');
+  const resetBtn = document.getElementById('timerResetBtn');
+  const modeBtn = document.getElementById('timerModeBtn');
+
+  function updateTimerDisplay() {
+    const mins = Math.floor(timerSeconds / 60);
+    const secs = timerSeconds % 60;
+    timerDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
+  function startTimer() {
+    if (isTimerRunning) return;
+    isTimerRunning = true;
+    timerInterval = setInterval(() => {
+      timerSeconds--;
+      updateTimerDisplay();
+      if (timerSeconds <= 0) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        alert(isBreakMode ? '⏰ Break time is over! Back to study.' : '⏰ Study session complete! Time for a break.');
+        if (!isBreakMode) {
+          timerSeconds = 5 * 60;
+          isBreakMode = true;
+          modeBtn.textContent = '🔁 Study';
+          updateTimerDisplay();
+        } else {
+          timerSeconds = 25 * 60;
+          isBreakMode = false;
+          modeBtn.textContent = '⏳ 5min';
+          updateTimerDisplay();
+        }
+      }
+    }, 1000);
+  }
+
+  function pauseTimer() {
+    clearInterval(timerInterval);
+    isTimerRunning = false;
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    isTimerRunning = false;
+    if (isBreakMode) {
+      timerSeconds = 5 * 60;
+    } else {
+      timerSeconds = 25 * 60;
+    }
+    updateTimerDisplay();
+  }
+
+  function toggleMode() {
+    pauseTimer();
+    isBreakMode = !isBreakMode;
+    if (isBreakMode) {
+      timerSeconds = 5 * 60;
+      modeBtn.textContent = '🔁 Study';
+    } else {
+      timerSeconds = 25 * 60;
+      modeBtn.textContent = '⏳ 5min';
+    }
+    updateTimerDisplay();
+  }
+
+  startBtn.addEventListener('click', startTimer);
+  pauseBtn.addEventListener('click', pauseTimer);
+  resetBtn.addEventListener('click', resetTimer);
+  modeBtn.addEventListener('click', toggleMode);
+
+  // ===== PROGRESS TRACKER =====
+  const steps = document.querySelectorAll('.step');
+  let currentStep = 0;
+
+  steps.forEach((step, index) => {
+    step.addEventListener('click', function() {
+      currentStep = index;
+      updateProgress();
+    });
+  });
+
+  function updateProgress() {
+    steps.forEach((step, index) => {
+      step.classList.remove('active', 'done');
+      if (index < currentStep) {
+        step.classList.add('done');
+        step.querySelector('.circle').textContent = '✓';
+      } else if (index === currentStep) {
+        step.classList.add('active');
+        step.querySelector('.circle').textContent = index + 1;
+      } else {
+        step.querySelector('.circle').textContent = index + 1;
+      }
+    });
+  }
+
+  // ===== SCROLL ANIMATIONS =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ===== FAQ =====
+  function toggleFAQ(el) {
+    const item = el.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  }
+
+  // ===== YEAR =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

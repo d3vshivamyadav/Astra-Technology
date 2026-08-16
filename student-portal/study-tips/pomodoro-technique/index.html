@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Technique · Pro Study System | Astra Student Portal</title>
+  <meta name="description" content="Master the Pomodoro Technique with our pro-level study system. Interactive timer, tips, and science-backed productivity methods.">
+  <link rel="icon" href="../../../../assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../../../../style.css">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JNT5QMVXL6');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955" crossorigin="anonymous"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.7;
+      padding-top: 70px;
+      overflow-x: hidden;
+    }
+
+    /* ---- ANIMATED BACKGROUND ---- */
+    .bg-animation {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      overflow: hidden;
+    }
+    .bg-animation .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+    }
+    .bg-animation .orb:nth-child(1) {
+      width: 500px;
+      height: 500px;
+      top: -10%;
+      right: -10%;
+      background: #f59e0b;
+      animation-delay: 0s;
+    }
+    .bg-animation .orb:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      bottom: -10%;
+      left: -10%;
+      background: #ef4444;
+      animation-delay: -7s;
+    }
+    .bg-animation .orb:nth-child(3) {
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      background: #10b981;
+      animation-delay: -14s;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -40px) scale(1.1); }
+      50% { transform: translate(-20px, 20px) scale(0.9); }
+      75% { transform: translate(40px, 30px) scale(1.05); }
+    }
+
+    /* ---- HERO ---- */
+    .page-hero {
+      padding: 60px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero .badge {
+      display: inline-block;
+      padding: 6px 22px;
+      background: rgba(245,158,11,0.15);
+      color: #fbbf24;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(245,158,11,0.2);
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(245,158,11,0); }
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #f8fafc;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+      animation: fadeUp 1s ease-out;
+    }
+    .page-hero h1 .highlight {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease-in-out infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-hero p {
+      color: #94a3b8;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      animation: fadeUp 1s ease-out 0.4s both;
+    }
+    .hero-stats .stat {
+      background: rgba(255,255,255,0.04);
+      padding: 12px 28px;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+      cursor: default;
+    }
+    .hero-stats .stat:hover {
+      background: rgba(245,158,11,0.1);
+      border-color: rgba(245,158,11,0.3);
+      transform: translateY(-2px);
+    }
+    .hero-stats .stat .num {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+    .hero-stats .stat .lbl { color: #94a3b8; font-size: 0.85rem; margin-left: 6px; }
+
+    /* ---- CONTAINER ---- */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 50px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fbbf24;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+      margin-bottom: 28px;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .back-link:hover { background: rgba(245,158,11,0.15); gap: 14px; border-color: rgba(245,158,11,0.3); }
+
+    /* ---- CARDS ---- */
+    .guide-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 36px 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      margin-bottom: 28px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .guide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #f59e0b, #ef4444, transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .guide-card:hover::before { opacity: 1; }
+    .guide-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245,158,11,0.15);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+    }
+    .guide-card .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(239,68,68,0.15));
+      color: #fbbf24;
+      font-size: 26px;
+      margin-bottom: 14px;
+      transition: transform 0.3s;
+    }
+    .guide-card:hover .card-icon { transform: scale(1.05) rotate(-3deg); }
+    .guide-card h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .guide-card h2 i { color: #fbbf24; margin-right: 12px; }
+    .guide-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin: 18px 0 8px;
+    }
+    .guide-card p, .guide-card li {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+    .guide-card ul, .guide-card ol {
+      padding-left: 24px;
+      margin: 8px 0 12px;
+    }
+    .guide-card ul li, .guide-card ol li { margin-bottom: 8px; }
+
+    .tip-box {
+      background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(239,68,68,0.08));
+      border-left: 4px solid #f59e0b;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .tip-box i { color: #fbbf24; margin-right: 10px; }
+    .warning-box {
+      background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.04));
+      border-left: 4px solid #ef4444;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .warning-box i { color: #ef4444; margin-right: 10px; }
+    .example-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 16px 0;
+    }
+    .example-box strong { color: #f1f5f9; }
+
+    /* ---- GRIDS ---- */
+    .grid-2col, .grid-3col, .grid-4col {
+      display: grid;
+      gap: 16px;
+      margin: 12px 0;
+    }
+    .grid-2col { grid-template-columns: 1fr 1fr; }
+    .grid-3col { grid-template-columns: repeat(3, 1fr); }
+    .grid-4col { grid-template-columns: repeat(4, 1fr); }
+
+    .stat-mini {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .stat-mini:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-2px); }
+    .stat-mini .number {
+      font-size: 34px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+    .stat-mini .label {
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .method-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .method-card:hover {
+      border-color: rgba(245,158,11,0.3);
+      background: rgba(245,158,11,0.05);
+      transform: translateY(-4px);
+    }
+    .method-card i {
+      font-size: 28px;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .method-card h4 { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
+    .method-card p { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
+
+    /* ---- TIMER ---- */
+    .pomodoro-timer {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 30px 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      margin-top: 10px;
+    }
+    .timer-circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border: 4px solid rgba(245,158,11,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s;
+    }
+    .timer-circle.break-mode {
+      border-color: rgba(16,185,129,0.3);
+    }
+    .timer-circle .timer-display {
+      font-size: 3.5rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Inter', monospace;
+    }
+    .timer-circle.break-mode .timer-display {
+      background: linear-gradient(135deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .timer-status {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+    .timer-status .status-text {
+      color: #fbbf24;
+    }
+    .timer-status .status-text.break {
+      color: #34d399;
+    }
+    .timer-controls {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .timer-controls button {
+      padding: 10px 28px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .timer-controls button:hover {
+      background: rgba(245,158,11,0.15);
+      border-color: rgba(245,158,11,0.3);
+      transform: translateY(-2px);
+    }
+    .timer-controls button.primary {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      border: none;
+      color: white;
+    }
+    .timer-controls button.primary:hover {
+      box-shadow: 0 4px 20px rgba(245,158,11,0.3);
+      transform: translateY(-2px);
+    }
+    .timer-controls button.secondary {
+      background: rgba(255,255,255,0.06);
+    }
+    .timer-controls button.secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ---- PROGRESS TRACKER ---- */
+    .progress-tracker {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0 10px;
+      position: relative;
+      padding: 0 10px;
+    }
+    .progress-tracker::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 40px;
+      right: 40px;
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .step .circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #64748b;
+      border: 3px solid rgba(255,255,255,0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .step.active .circle {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: white;
+      border-color: #fbbf24;
+      box-shadow: 0 0 0 6px rgba(245,158,11,0.15), 0 0 30px rgba(245,158,11,0.2);
+      transform: scale(1.1);
+    }
+    .step.done .circle {
+      background: #10b981;
+      color: white;
+      border-color: #34d399;
+      box-shadow: 0 0 20px rgba(16,185,129,0.2);
+    }
+    .step.done .circle::after { content: '✓'; }
+    .step .label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #64748b;
+      text-align: center;
+      max-width: 60px;
+      transition: color 0.3s;
+    }
+    .step.active .label, .step.done .label { color: #f1f5f9; }
+
+    /* ---- FAQ ---- */
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(245,158,11,0.2); }
+    .faq-question {
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #f1f5f9;
+      background: rgba(255,255,255,0.02);
+      transition: background 0.3s;
+      user-select: none;
+    }
+    .faq-question:hover { background: rgba(255,255,255,0.04); }
+    .faq-question i { color: #fbbf24; transition: transform 0.4s; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+      color: #94a3b8;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 20px 18px 20px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .grid-4col { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .grid-2col, .grid-3col, .grid-4col { grid-template-columns: 1fr; }
+      .guide-card { padding: 24px 20px; }
+      .hero-stats { gap: 12px; }
+      .hero-stats .stat { padding: 8px 18px; }
+      .progress-tracker { flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .progress-tracker::before { display: none; }
+      .pomodoro-timer { padding: 20px; }
+      .timer-circle { width: 160px; height: 160px; }
+      .timer-circle .timer-display { font-size: 2.8rem; }
+    }
+    @media (max-width: 480px) {
+      .grid-4col { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 2rem; }
+      .timer-circle { width: 140px; height: 140px; }
+      .timer-circle .timer-display { font-size: 2.2rem; }
+    }
+
+    /* ---- SCROLL ANIMATIONS ---- */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0a0f1f;
+      color: #e2e8f0;
+      padding: 48px 20px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-container { max-width: 600px; margin: 0 auto; }
+    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 6px; }
+    .footer-logo { height: 32px; width: auto; }
+    .footer h2 { font-size: 22px; font-weight: 700; color: #ffffff; }
+    .footer-text { font-size: 14px; color: #94a3b8; margin: 4px 0 16px; }
+    .footer-links { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #ffffff; }
+    .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .social-links a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.03); color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s;
+      text-decoration: none;
+    }
+    .social-links a:hover { background: #3b82f6; color: #ffffff; transform: translateY(-3px) scale(1.05); border-color: #3b82f6; box-shadow: 0 8px 24px rgba(59,130,246,0.15); }
+    .copyright { font-size: 12px; color: #64748b; margin-top: 12px; }
+    .developer { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    .gradient-text { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ===== ANIMATED BACKGROUND ===== -->
+<div class="bg-animation">
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar" style="background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <a href="/" class="logo-link">
+      <div class="logo" style="color:#f8fafc;">
+        <img src="../../../../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
+        <span>Astra Technology</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student-portal/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-graduation-cap"></i><span>Student Portal</span></a>
+      <a href="/blog/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+      <a href="/About/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="/Contact/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-envelope"></i><span>Contact</span></a>
+      <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+  <span class="badge"><i class="fas fa-clock"></i> Productivity System</span>
+  <h1>🍅 <span class="highlight">Pomodoro</span> Technique</h1>
+  <p>Master the science of focused work — 25 minutes of deep focus, 5 minutes of rest. Boost productivity by 2x.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="num">2x</span><span class="lbl">productivity boost</span></div>
+    <div class="stat"><span class="num">65%</span><span class="lbl">better focus</span></div>
+    <div class="stat"><span class="num">90%</span><span class="lbl">reduced burnout</span></div>
+  </div>
+</section>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+
+  <a href="/student-portal/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Study Tips</a>
+
+  <!-- ===== WHAT IS POMODORO ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+    <h2>What is the Pomodoro Technique?</h2>
+    <p>The <strong>Pomodoro Technique</strong> is a time management method developed by Francesco Cirillo in the late 1980s. It uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks.</p>
+    <div class="tip-box">
+      <i class="fas fa-quote-left"></i> "The Pomodoro Technique teaches you to work with time, not against it." — <strong style="color:#f1f5f9;">Francesco Cirillo</strong>
+    </div>
+    <p>The name "Pomodoro" comes from the Italian word for tomato, inspired by the tomato-shaped kitchen timer Cirillo used as a university student.</p>
+  </div>
+
+  <!-- ===== WHY IT WORKS ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+    <h2>Why the Pomodoro Technique Works</h2>
+    <div class="grid-3col">
+      <div class="stat-mini"><span class="number">25</span><span class="label">min focused work</span></div>
+      <div class="stat-mini"><span class="number">5</span><span class="label">min break</span></div>
+      <div class="stat-mini"><span class="number">4</span><span class="label">sessions = 1 cycle</span></div>
+    </div>
+    <ul>
+      <li><strong>🧠 Reduces mental fatigue:</strong> Short bursts of focus prevent burnout.</li>
+      <li><strong>🎯 Increases accountability:</strong> The timer creates a sense of urgency.</li>
+      <li><strong>🔄 Builds momentum:</strong> Each completed session feels like a win.</li>
+      <li><strong>📈 Improves estimation:</strong> You learn how much you can accomplish in a session.</li>
+      <li><strong>⏰ Creates work-life balance:</strong> Structured breaks prevent overworking.</li>
+    </ul>
+  </div>
+
+  <!-- ===== POMODORO TIMER ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-clock"></i></div>
+    <h2>🍅 Live Pomodoro Timer</h2>
+    <p>Use the timer below to start your focused work session. Follow the cycle: 25 min work → 5 min break.</p>
+    <div class="pomodoro-timer">
+      <div class="timer-circle" id="timerCircle">
+        <div class="timer-display" id="timerDisplay">25:00</div>
+      </div>
+      <div class="timer-status">
+        <span>⏳ Status: <span class="status-text" id="statusText">Ready</span></span>
+      </div>
+      <div class="timer-controls">
+        <button class="primary" id="timerStartBtn"><i class="fas fa-play"></i> Start</button>
+        <button class="secondary" id="timerPauseBtn"><i class="fas fa-pause"></i> Pause</button>
+        <button class="secondary" id="timerResetBtn"><i class="fas fa-undo"></i> Reset</button>
+        <button class="secondary" id="timerSkipBtn"><i class="fas fa-forward"></i> Skip</button>
+      </div>
+    </div>
+    <p style="font-size:0.85rem;color:#64748b;margin-top:12px;text-align:center;">
+      <i class="fas fa-info-circle"></i> Complete 4 sessions → take a 15-30 minute long break.
+    </p>
+  </div>
+
+  <!-- ===== HOW TO USE ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-list-check"></i></div>
+    <h2>How to Use the Pomodoro Technique</h2>
+    <div class="progress-tracker" id="progressTracker">
+      <div class="step active" data-step="0"><div class="circle">1</div><span class="label">Plan</span></div>
+      <div class="step" data-step="1"><div class="circle">2</div><span class="label">Focus</span></div>
+      <div class="step" data-step="2"><div class="circle">3</div><span class="label">Timer</span></div>
+      <div class="step" data-step="3"><div class="circle">4</div><span class="label">Break</span></div>
+      <div class="step" data-step="4"><div class="circle">5</div><span class="label">Repeat</span></div>
+    </div>
+    <ol style="margin-top:16px;">
+      <li><strong>Plan your task</strong> – Choose a single task to work on.</li>
+      <li><strong>Set the timer</strong> – Start the 25-minute countdown.</li>
+      <li><strong>Work with focus</strong> – No distractions until the timer rings.</li>
+      <li><strong>Take a short break</strong> – 5 minutes to rest and recharge.</li>
+      <li><strong>Repeat</strong> – After 4 sessions, take a 15-30 minute break.</li>
+    </ol>
+    <div class="example-box">
+      <strong>📌 Pro Tip:</strong> During your 5-minute break, stand up, stretch, walk around, or grab water. Avoid screens to let your eyes rest.
+    </div>
+  </div>
+
+  <!-- ===== TIPS FOR SUCCESS ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-star"></i></div>
+    <h2>Tips for Pomodoro Success</h2>
+    <div class="grid-2col">
+      <div class="method-card">
+        <i class="fas fa-bullseye"></i>
+        <h4>One Task at a Time</h4>
+        <p>Focus on a single task per Pomodoro. Multitasking kills productivity.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-phone-slash"></i>
+        <h4>Eliminate Distractions</h4>
+        <p>Put your phone on silent, close extra tabs, and focus completely.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-mobile-screen"></i>
+        <h4>Use a Timer App</h4>
+        <p>Try apps like Forest, Focus To-Do, or the built-in timer above.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-rotate"></i>
+        <h4>Adjust Intervals</h4>
+        <p>Find your rhythm — some work better with 50/10 or 30/5 intervals.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-book"></i>
+        <h4>Track Your Sessions</h4>
+        <p>Log completed sessions to build a streak and stay motivated.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-music"></i>
+        <h4>Ambient Focus Music</h4>
+        <p>Use Lo-fi or nature sounds to enhance concentration during sessions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== COMMON MISTAKES ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-triangle-exclamation" style="color:#ef4444;"></i></div>
+    <h2 style="color:#f87171;">Common Mistakes to Avoid</h2>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Skipping breaks</strong> — The break is essential for maintaining focus and preventing burnout.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Checking social media during breaks</strong> — This keeps your brain active and reduces the rest benefit.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Working for too long</strong> — If you exceed 50 minutes in a session, you're defeating the purpose.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Not tracking your sessions</strong> — Tracking helps you see progress and stay motivated.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Multitasking</strong> — Focus on one task per Pomodoro for maximum efficiency.
+    </div>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-circle-question"></i></div>
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item active">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>What is the ideal Pomodoro length?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        The traditional Pomodoro is 25 minutes, but you can adjust it. Some people prefer 30/5, 50/10, or even 90/20. Experiment to find what works best for you.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Can I use Pomodoro for all types of tasks?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Yes! It works for studying, coding, writing, creative work, and even chores. For tasks requiring deep flow, you might prefer longer sessions.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>What should I do during breaks?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Stand up, stretch, walk around, get water, or do breathing exercises. Avoid screens and mentally demanding activities. Your brain needs to rest.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How many Pomodoros should I do per day?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Start with 4-6 sessions per day (2-3 hours of focused work). As you build stamina, you can increase to 8-10 sessions for intensive study days.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>What if I get interrupted during a Pomodoro?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        If it's urgent, handle it and restart the Pomodoro. If not, write down the interruption and return to your task. The goal is to protect your focus.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Is the Pomodoro Technique good for ADHD?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Yes! Many ADHD individuals find it helpful because it provides structure, a clear end time, and frequent breaks, which align well with ADHD needs.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUICK START CHALLENGE ===== -->
+  <div class="guide-card animate-on-scroll" style="background:linear-gradient(135deg, rgba(245,158,11,0.08), rgba(239,68,68,0.08));border-color:rgba(245,158,11,0.15);">
+    <div class="card-icon" style="background:linear-gradient(135deg, #f59e0b, #ef4444);color:white;"><i class="fas fa-play"></i></div>
+    <h2 style="color:#fbbf24;">🔥 Quick Start Challenge</h2>
+    <p>Try the Pomodoro Technique right now:</p>
+    <ol style="margin:12px 0 0 20px;color:#cbd5e1;">
+      <li>Pick one task you need to complete.</li>
+      <li>Start the timer above for 25 minutes.</li>
+      <li>Work without distractions until the timer rings.</li>
+      <li>Take a 5-minute break.</li>
+      <li>Repeat 4 times, then take a longer break.</li>
+    </ol>
+    <p style="margin-top:14px;font-weight:700;color:#fbbf24;">🍅 That's the Pomodoro Technique — you'll be amazed at what you can accomplish!</p>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="../../../../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
+      <h2>Astra Technology</h2>
+    </div>
+    <p class="footer-text">Building useful digital products for students and everyone.</p>
+    <div class="footer-links">
+      <a href="/About/">About</a>
+      <a href="/student-portal/">Student Portal</a>
+      <a href="/blog/">Blog</a>
+      <a href="/Contact/">Contact</a>
+      <a href="/Privacy/">Privacy Policy</a>
+      <a href="/Terms/">Terms &amp; Conditions</a>
+    </div>
+    <div class="social-links">
+      <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+    <p class="developer">Designed &amp; Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+  </div>
+</footer>
+
+<script>
+  // ===== POMODORO TIMER =====
+  let timerInterval = null;
+  let timerSeconds = 25 * 60;
+  let isTimerRunning = false;
+  let isBreakMode = false;
+  let sessionCount = 0;
+  const maxSessions = 4;
+
+  const timerDisplay = document.getElementById('timerDisplay');
+  const timerCircle = document.getElementById('timerCircle');
+  const statusText = document.getElementById('statusText');
+  const startBtn = document.getElementById('timerStartBtn');
+  const pauseBtn = document.getElementById('timerPauseBtn');
+  const resetBtn = document.getElementById('timerResetBtn');
+  const skipBtn = document.getElementById('timerSkipBtn');
+
+  function updateTimerDisplay() {
+    const mins = Math.floor(timerSeconds / 60);
+    const secs = timerSeconds % 60;
+    timerDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    if (isBreakMode) {
+      timerCircle.classList.add('break-mode');
+      statusText.textContent = 'Break';
+      statusText.className = 'status-text break';
+    } else {
+      timerCircle.classList.remove('break-mode');
+      statusText.textContent = 'Focus';
+      statusText.className = 'status-text';
+    }
+  }
+
+  function startTimer() {
+    if (isTimerRunning) return;
+    isTimerRunning = true;
+    timerInterval = setInterval(() => {
+      timerSeconds--;
+      updateTimerDisplay();
+      if (timerSeconds <= 0) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        // Timer finished
+        if (!isBreakMode) {
+          sessionCount++;
+          // Play notification sound effect
+          const beep = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YV9vT18=');
+          beep.play().catch(() => {});
+          alert(`🍅 Session ${sessionCount} complete! Time for a break.`);
+          timerSeconds = 5 * 60;
+          isBreakMode = true;
+          updateTimerDisplay();
+          statusText.textContent = 'Break';
+          statusText.className = 'status-text break';
+          timerCircle.classList.add('break-mode');
+        } else {
+          // Break is over
+          if (sessionCount >= maxSessions) {
+            alert(`🎉 Amazing! You completed ${maxSessions} sessions! Take a 15-30 minute long break.`);
+            sessionCount = 0;
+            timerSeconds = 25 * 60;
+            isBreakMode = false;
+            updateTimerDisplay();
+            timerCircle.classList.remove('break-mode');
+            statusText.textContent = 'Focus';
+            statusText.className = 'status-text';
+          } else {
+            const remaining = maxSessions - sessionCount;
+            alert(`⏰ Break over! Ready for session ${sessionCount + 1}? (${remaining} more to go!)`);
+            timerSeconds = 25 * 60;
+            isBreakMode = false;
+            updateTimerDisplay();
+            timerCircle.classList.remove('break-mode');
+            statusText.textContent = 'Focus';
+            statusText.className = 'status-text';
+          }
+        }
+        updateTimerDisplay();
+      }
+    }, 1000);
+  }
+
+  function pauseTimer() {
+    clearInterval(timerInterval);
+    isTimerRunning = false;
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    isTimerRunning = false;
+    timerSeconds = 25 * 60;
+    isBreakMode = false;
+    sessionCount = 0;
+    updateTimerDisplay();
+    timerCircle.classList.remove('break-mode');
+    statusText.textContent = 'Ready';
+    statusText.className = 'status-text';
+  }
+
+  function skipTimer() {
+    pauseTimer();
+    if (!isBreakMode) {
+      // Skip focus session
+      sessionCount++;
+      timerSeconds = 5 * 60;
+      isBreakMode = true;
+      updateTimerDisplay();
+      timerCircle.classList.add('break-mode');
+      statusText.textContent = 'Break';
+      statusText.className = 'status-text break';
+    } else {
+      // Skip break
+      if (sessionCount >= maxSessions) {
+        alert(`🎉 You completed ${maxSessions} sessions! Take a long break.`);
+        sessionCount = 0;
+        timerSeconds = 25 * 60;
+        isBreakMode = false;
+        updateTimerDisplay();
+        timerCircle.classList.remove('break-mode');
+        statusText.textContent = 'Focus';
+        statusText.className = 'status-text';
+      } else {
+        timerSeconds = 25 * 60;
+        isBreakMode = false;
+        updateTimerDisplay();
+        timerCircle.classList.remove('break-mode');
+        statusText.textContent = 'Focus';
+        statusText.className = 'status-text';
+      }
+    }
+  }
+
+  startBtn.addEventListener('click', startTimer);
+  pauseBtn.addEventListener('click', pauseTimer);
+  resetBtn.addEventListener('click', resetTimer);
+  skipBtn.addEventListener('click', skipTimer);
+
+  // ===== PROGRESS TRACKER =====
+  const steps = document.querySelectorAll('.step');
+  let currentStep = 0;
+
+  steps.forEach((step, index) => {
+    step.addEventListener('click', function() {
+      currentStep = index;
+      updateProgress();
+    });
+  });
+
+  function updateProgress() {
+    steps.forEach((step, index) => {
+      step.classList.remove('active', 'done');
+      if (index < currentStep) {
+        step.classList.add('done');
+        step.querySelector('.circle').textContent = '✓';
+      } else if (index === currentStep) {
+        step.classList.add('active');
+        step.querySelector('.circle').textContent = index + 1;
+      } else {
+        step.querySelector('.circle').textContent = index + 1;
+      }
+    });
+  }
+
+  // ===== SCROLL ANIMATIONS =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ===== FAQ =====
+  function toggleFAQ(el) {
+    const item = el.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  }
+
+  // ===== YEAR =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -57,6 +57,308 @@
     crossorigin="anonymous">
 </script>
 
+<!-- Popup CSS -->
+<style>
+    /* ============================================================
+   WELCOME POPUP - PREMIUM DESIGN
+   ============================================================ */
+
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .popup-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .popup-overlay.active .popup-card {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+
+    .popup-card {
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 48px 44px 40px;
+        max-width: 480px;
+        width: 92%;
+        position: relative;
+        transform: scale(0.9) translateY(30px);
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+
+    .popup-card::-webkit-scrollbar {
+        width: 4px;
+    }
+    .popup-card::-webkit-scrollbar-thumb {
+        background: #3b82f6;
+        border-radius: 10px;
+    }
+
+    .popup-close {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #94a3b8;
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f1f5f9;
+    }
+
+    .popup-close:hover {
+        background: #fee2e2;
+        color: #dc2626;
+        transform: rotate(90deg);
+    }
+
+    .popup-icon {
+        text-align: center;
+        font-size: 56px;
+        margin-bottom: 8px;
+        animation: popupBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes popupBounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .popup-card h2 {
+        font-size: 28px;
+        font-weight: 800;
+        color: #0f172a;
+        text-align: center;
+        margin-bottom: 6px;
+        letter-spacing: -0.5px;
+    }
+
+    .popup-card h2 .highlight {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .popup-card .subtitle {
+        text-align: center;
+        color: #64748b;
+        font-size: 15px;
+        margin-bottom: 24px;
+        line-height: 1.6;
+    }
+
+    .popup-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 24px;
+    }
+
+    .popup-feature {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        background: #f8fafc;
+        border-radius: 12px;
+        border: 1px solid #eef2f6;
+        transition: all 0.3s;
+        font-size: 13px;
+        font-weight: 500;
+        color: #0f172a;
+    }
+
+    .popup-feature:hover {
+        background: #eff6ff;
+        border-color: #3b82f6;
+        transform: translateY(-2px);
+    }
+
+    .popup-feature i {
+        color: #3b82f6;
+        font-size: 16px;
+        width: 20px;
+        text-align: center;
+    }
+
+    .popup-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .popup-actions .btn-primary {
+        flex: 1;
+        padding: 14px 24px;
+        border: none;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+    }
+
+    .popup-actions .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25);
+    }
+
+    .popup-actions .btn-secondary {
+        flex: 1;
+        padding: 14px 24px;
+        border: 2px solid #e2e8f0;
+        border-radius: 14px;
+        background: transparent;
+        color: #64748b;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .popup-actions .btn-secondary:hover {
+        border-color: #3b82f6;
+        color: #3b82f6;
+        background: #eff6ff;
+    }
+
+    .popup-footer {
+        text-align: center;
+        margin-top: 16px;
+        font-size: 12px;
+        color: #94a3b8;
+        border-top: 1px solid #eef2f6;
+        padding-top: 16px;
+    }
+
+    .popup-footer a {
+        color: #3b82f6;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .popup-footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+        .popup-card {
+            padding: 32px 20px 28px;
+            border-radius: 20px;
+        }
+        .popup-card h2 {
+            font-size: 22px;
+        }
+        .popup-features {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+        .popup-actions {
+            flex-direction: column;
+        }
+        .popup-actions .btn-primary,
+        .popup-actions .btn-secondary {
+            flex: none;
+            width: 100%;
+        }
+        .popup-icon {
+            font-size: 44px;
+        }
+    }
+
+    /* Dark Mode */
+    [data-theme="dark"] .popup-card {
+        background: #1e293b;
+    }
+
+    [data-theme="dark"] .popup-card h2 {
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .popup-card .subtitle {
+        color: #94a3b8;
+    }
+
+    [data-theme="dark"] .popup-feature {
+        background: #0f172a;
+        border-color: #334155;
+        color: #f8fafc;
+    }
+
+    [data-theme="dark"] .popup-feature:hover {
+        background: #1e293b;
+        border-color: #3b82f6;
+    }
+
+    [data-theme="dark"] .popup-close {
+        background: #334155;
+        color: #94a3b8;
+    }
+
+    [data-theme="dark"] .popup-close:hover {
+        background: #451a1a;
+        color: #f87171;
+    }
+
+    [data-theme="dark"] .popup-actions .btn-secondary {
+        border-color: #334155;
+        color: #94a3b8;
+    }
+
+    [data-theme="dark"] .popup-actions .btn-secondary:hover {
+        border-color: #3b82f6;
+        color: #60a5fa;
+        background: #1e3a5f;
+    }
+
+    [data-theme="dark"] .popup-footer {
+        border-color: #334155;
+        color: #64748b;
+    }
+
+    [data-theme="dark"] .popup-footer a {
+        color: #60a5fa;
+    }
+</style>
+
 </head>
 
 <body>
@@ -76,6 +378,9 @@
                 <a href="/About/" class="nav-link">About</a>
                 <a href="/blog/" class="nav-link blog-link">
                     <i class="fa-regular fa-pen-to-square"></i> Blog
+                </a>
+                <a href="/student-portal/" class="nav-link" style="color:#3b82f6; font-weight:600;">
+                    <i class="fa-solid fa-graduation-cap"></i> Student Portal
                 </a>
                 <a href="/Contact/" class="nav-link">Contact</a>
                 <a href="#projects" class="nav-btn">
@@ -129,6 +434,51 @@
         </div>
     </section>
 
+    <!-- ================= WELCOME POPUP ================= -->
+    <div class="popup-overlay" id="welcomePopup">
+        <div class="popup-card">
+            <button class="popup-close" id="popupClose" aria-label="Close popup">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="popup-icon">🎓</div>
+            <h2>Welcome to <span class="highlight">Student Portal</span></h2>
+            <p class="subtitle">Your one-stop destination for free courses, scholarships, study tips, career guidance, and tools.</p>
+
+            <div class="popup-features">
+                <div class="popup-feature">
+                    <i class="fas fa-book"></i> Free Courses
+                </div>
+                <div class="popup-feature">
+                    <i class="fas fa-award"></i> Scholarships
+                </div>
+                <div class="popup-feature">
+                    <i class="fas fa-lightbulb"></i> Study Tips
+                </div>
+                <div class="popup-feature">
+                    <i class="fas fa-briefcase"></i> Career Hub
+                </div>
+                <div class="popup-feature">
+                    <i class="fas fa-tools"></i> Free Tools
+                </div>
+                <div class="popup-feature">
+                    <i class="fas fa-globe"></i> 50+ Countries
+                </div>
+            </div>
+
+            <div class="popup-actions">
+                <a href="/student-portal/" class="btn-primary">
+                    <i class="fas fa-rocket"></i> Explore Now
+                </a>
+                <button class="btn-secondary" id="popupLater">Later</button>
+            </div>
+
+            <div class="popup-footer">
+                Join <strong>10,000+</strong> students worldwide • Rated <strong>4.8/5</strong>
+            </div>
+        </div>
+    </div>
+
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <div class="footer-container">
@@ -145,6 +495,7 @@
             <div class="footer-links">
                 <a href="/About/">About</a>
                 <a href="/blog/">Blog</a>
+                <a href="/student-portal/">Student Portal</a>
                 <a href="/Contact/">Contact</a>
                 <a href="/Privacy/">Privacy Policy</a>
                 <a href="/Terms/">Terms &amp; Conditions</a>
@@ -175,6 +526,61 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // ============================================================
+        // WELCOME POPUP - SCRIPT
+        // ============================================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('welcomePopup');
+            const closeBtn = document.getElementById('popupClose');
+            const laterBtn = document.getElementById('popupLater');
+
+            // Check if popup was already shown in this session
+            const popupShown = sessionStorage.getItem('astraPopupShown');
+
+            // Show popup after 3 seconds if not shown before
+            if (!popupShown) {
+                setTimeout(function() {
+                    popup.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }, 3000);
+            }
+
+            // Close popup function
+            function closePopup() {
+                popup.classList.remove('active');
+                document.body.style.overflow = '';
+                sessionStorage.setItem('astraPopupShown', 'true');
+            }
+
+            // Close on button click
+            closeBtn.addEventListener('click', closePopup);
+
+            // Close on "Later" button
+            laterBtn.addEventListener('click', closePopup);
+
+            // Close on overlay click
+            popup.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closePopup();
+                }
+            });
+
+            // Close on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && popup.classList.contains('active')) {
+                    closePopup();
+                }
+            });
+
+            // Footer Year
+            const yearSpan = document.getElementById('year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
 
 </body>
 

@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Student Portal - Premium Learning Hub</title>
+    <meta name="description" content="Premium student portal with scholarships, study tips, career guidance, and tools. Join 10,000+ students worldwide.">
+    <meta name="keywords" content="Student Portal, Scholarships, Study Tips, Career Guide, Student Tools, Premium UI">
+    <meta name="author" content="Astra Technology">
+    <link rel="canonical" href="https://astratechnology.me/student-portal/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Astra Student Portal - Premium Learning Hub">
+    <meta property="og:description" content="Premium student portal with scholarships, study tips, career guidance, and tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://astratechnology.me/student-portal/">
+    <meta property="og:image" content="https://astratechnology.me/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Astra Student Portal - Premium Learning Hub">
+    <meta name="twitter:description" content="Premium student portal with scholarships, study tips, career guidance, and tools.">
+    <meta name="twitter:image" content="https://astratechnology.me/assets/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JNT5QMVXL6');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955"
+    crossorigin="anonymous">
+</script>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Astra Student Portal",
+    "description": "Premium student portal with scholarships, study tips, career guidance, and tools.",
+    "url": "https://astratechnology.me/student-portal/"
+}
+</script>
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="../style.css">
+<style>
+    /* ============================================================
+   STUDENT PORTAL - GOOGLE CLOUD INSPIRED PREMIUM UI/UX
+   ============================================================ */
+
+    /* ===== RESET & BASE ===== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f0f4f8;
+        color: #0f172a;
+        line-height: 1.6;
+        padding-top: 70px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* ============================================================
+   SCROLLBAR
+   ============================================================ */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f0f4f8; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #2563eb, #7c3aed); border-radius: 20px; }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(135deg, #1d4ed8, #6d28d9); }
+
+    /* ============================================================
+   NAVBAR
+   ============================================================ */
+    .navbar {
+        background: rgba(255, 255, 255, 0.92) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
+    }
+
+    [data-theme="dark"] .navbar {
+        background: rgba(15, 23, 42, 0.92) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+    }
+
+    /* ============================================================
+   PORTAL HERO - GOOGLE CLOUD STYLE
+   ============================================================ */
+    .portal-hero {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
+        padding: 80px 20px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .portal-hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: heroGlow 8s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    .portal-hero::after {
+        content: '';
+        position: absolute;
+        bottom: -40%;
+        left: -20%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(124, 58, 237, 0.04) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: heroGlow 10s ease-in-out infinite reverse;
+        pointer-events: none;
+    }
+
+    @keyframes heroGlow {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    .portal-hero .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .portal-hero .badge {
+        display: inline-block;
+        padding: 4px 18px;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.12);
+        border-radius: 50px;
+        color: #60a5fa;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 16px;
+        backdrop-filter: blur(4px);
+    }
+
+    .portal-hero h1 {
+        font-size: clamp(2.2rem, 6vw, 3.8rem);
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.05;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+    }
+
+    .portal-hero h1 .highlight {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        background-size: 200% 200%;
+        animation: gradientMove 4s ease-in-out infinite;
+    }
+
+    @keyframes gradientMove {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .portal-hero .hero-desc {
+        font-size: clamp(1rem, 1.2vw, 1.2rem);
+        color: #94a3b8;
+        max-width: 600px;
+        margin: 0 auto 32px;
+        line-height: 1.8;
+        font-weight: 300;
+    }
+
+    .portal-hero .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: clamp(20px, 4vw, 48px);
+        flex-wrap: wrap;
+    }
+
+    .portal-hero .hero-stats .stat {
+        text-align: center;
+        padding: 10px 18px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        min-width: 80px;
+        transition: all 0.3s;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .portal-hero .hero-stats .stat.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .portal-hero .hero-stats .stat:nth-child(1) { transition-delay: 0.1s; }
+    .portal-hero .hero-stats .stat:nth-child(2) { transition-delay: 0.2s; }
+    .portal-hero .hero-stats .stat:nth-child(3) { transition-delay: 0.3s; }
+    .portal-hero .hero-stats .stat:nth-child(4) { transition-delay: 0.4s; }
+
+    .portal-hero .hero-stats .stat:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(59, 130, 246, 0.15);
+        transform: translateY(-4px);
+    }
+
+    .portal-hero .hero-stats .stat .number {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 800;
+        color: #3b82f6;
+        display: block;
+        letter-spacing: -0.5px;
+    }
+
+    .portal-hero .hero-stats .stat .label {
+        font-size: clamp(0.7rem, 0.85vw, 0.85rem);
+        color: #94a3b8;
+        font-weight: 400;
+    }
+
+    /* ============================================================
+   PORTAL NAV - GOOGLE STYLE
+   ============================================================ */
+    .portal-nav {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        padding: 10px 16px;
+        position: sticky;
+        top: 70px;
+        z-index: 99;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.02);
+    }
+
+    .portal-nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 4px;
+        flex-wrap: nowrap;
+        justify-content: center;
+        min-width: min-content;
+    }
+
+    .portal-nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border-radius: 50px;
+        font-size: clamp(0.7rem, 0.85vw, 0.85rem);
+        font-weight: 500;
+        color: #64748b;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 1px solid transparent;
+        white-space: nowrap;
+        background: transparent;
+        position: relative;
+    }
+
+    .portal-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
+
+    .portal-nav a:hover::after { width: 60%; }
+    .portal-nav a:hover {
+        background: #f1f5f9;
+        color: #0f172a;
+        border-color: #e2e8f0;
+    }
+
+    .portal-nav a.active {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: #ffffff;
+        border-color: transparent;
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15);
+    }
+    .portal-nav a.active::after { display: none; }
+    .portal-nav a i { font-size: clamp(0.7rem, 0.85vw, 0.85rem); }
+
+    /* ============================================================
+   PORTAL SECTIONS
+   ============================================================ */
+    .portal-section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .portal-section.alt-bg {
+        background: #ffffff;
+        box-shadow: 0 1px 0 0 #eef2f6;
+    }
+
+    .portal-section .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .portal-section .section-header .section-badge {
+        display: inline-block;
+        padding: 3px 14px;
+        background: #dbeafe;
+        color: #1e40af;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 8px;
+    }
+
+    .portal-section .section-header h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        font-weight: 800;
+        color: #0f172a;
+        letter-spacing: -0.5px;
+        margin-bottom: 4px;
+    }
+
+    .portal-section .section-header p {
+        color: #64748b;
+        font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+        margin-top: 4px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* ============================================================
+   PORTAL CARDS - GOOGLE MATERIAL DESIGN
+   ============================================================ */
+    .portal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .portal-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 28px 24px 22px;
+        border: 1px solid #eef2f6;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        text-decoration: none;
+        color: #0f172a;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .portal-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .portal-card:nth-child(1) { transition-delay: 0.05s; }
+    .portal-card:nth-child(2) { transition-delay: 0.1s; }
+    .portal-card:nth-child(3) { transition-delay: 0.15s; }
+    .portal-card:nth-child(4) { transition-delay: 0.2s; }
+    .portal-card:nth-child(5) { transition-delay: 0.25s; }
+    .portal-card:nth-child(6) { transition-delay: 0.3s; }
+
+    .portal-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .portal-card:hover::before { opacity: 1; }
+    .portal-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        border-color: #dce3ec;
+    }
+
+    .portal-card .card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    .portal-card .icon-wrap {
+        width: 52px;
+        height: 52px;
+        background: #eff6ff;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        transition: all 0.3s;
+    }
+
+    .portal-card:hover .icon-wrap {
+        background: #dbeafe;
+        transform: scale(1.05);
+    }
+
+    .portal-card .badge {
+        display: inline-block;
+        padding: 2px 12px;
+        border-radius: 50px;
+        font-size: 10px;
+        font-weight: 600;
+        background: #dbeafe;
+        color: #1e40af;
+        white-space: nowrap;
+        border: 1px solid #bfdbfe;
+    }
+
+    .portal-card h3 {
+        font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #0f172a;
+        transition: color 0.3s;
+    }
+    .portal-card:hover h3 { color: #3b82f6; }
+
+    .portal-card p {
+        color: #64748b;
+        font-size: clamp(0.85rem, 0.95vw, 0.95rem);
+        line-height: 1.6;
+        margin-bottom: 16px;
+        font-weight: 400;
+    }
+
+    .portal-card .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 14px;
+        border-top: 1px solid #eef2f6;
+    }
+
+    .portal-card .card-footer .arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #3b82f6;
+        font-weight: 500;
+        font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+        transition: gap 0.3s ease;
+    }
+    .portal-card:hover .card-footer .arrow { gap: 12px; }
+
+    .portal-card .card-footer .card-count {
+        font-size: 12px;
+        color: #94a3b8;
+        font-weight: 400;
+        background: #f1f5f9;
+        padding: 2px 12px;
+        border-radius: 20px;
+    }
+
+    /* ============================================================
+   FOOTER
+   ============================================================ */
+    .portal-footer {
+        background: #0f172a;
+        color: #e2e8f0;
+        padding: 48px 20px 28px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+        margin-top: 0;
+    }
+
+    .portal-footer .footer-container { max-width: 600px; margin: 0 auto; }
+    .portal-footer .footer-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 6px;
+    }
+    .portal-footer .footer-logo { height: 32px; width: auto; }
+    .portal-footer h2 { font-size: 22px; font-weight: 700; color: #ffffff; }
+    .portal-footer .footer-text {
+        font-size: 14px;
+        color: #94a3b8;
+        margin: 4px 0 16px;
+    }
+    .portal-footer .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin: 12px 0 16px;
+    }
+    .portal-footer .footer-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.2s;
+    }
+    .portal-footer .footer-links a:hover { color: #ffffff; }
+    .portal-footer .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 12px 0 16px;
+    }
+    .portal-footer .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        color: #cbd5e1;
+        font-size: 16px;
+        transition: all 0.2s;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .portal-footer .social-links a:hover {
+        background: #3b82f6;
+        color: #ffffff;
+        transform: translateY(-3px) scale(1.05);
+        border-color: #3b82f6;
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+    }
+    .portal-footer .copyright {
+        font-size: 12px;
+        color: #64748b;
+        margin-top: 12px;
+    }
+    .portal-footer .developer {
+        font-size: 12px;
+        color: #94a3b8;
+        margin-top: 2px;
+    }
+    .portal-footer .gradient-text {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 600;
+    }
+
+    /* ============================================================
+   TOAST MESSAGE
+   ============================================================ */
+    .toast-message {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #0f172a;
+        color: #ffffff;
+        padding: 10px 24px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        animation: toastFadeIn 0.3s ease;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    @keyframes toastFadeIn {
+        from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    [data-theme="dark"] .toast-message { background: #1e293b; color: #f8fafc; }
+
+    /* ============================================================
+   RESPONSIVE
+   ============================================================ */
+    @media (max-width: 1024px) {
+        .portal-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .portal-hero { padding: 60px 20px 45px; }
+    }
+
+    @media (max-width: 768px) {
+        body { padding-top: 62px; }
+        .portal-hero { padding: 45px 16px 35px; }
+        .portal-hero .hero-stats { gap: 12px; }
+        .portal-hero .hero-stats .stat { min-width: 70px; padding: 8px 12px; }
+        .portal-nav { top: 62px; padding: 8px 12px; }
+        .portal-nav-inner { gap: 4px; justify-content: flex-start; }
+        .portal-nav a { font-size: 11px; padding: 6px 12px; }
+        .portal-nav a i { font-size: 11px; }
+        .portal-section { padding: 40px 16px; }
+        .portal-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+        .portal-card { padding: 20px 16px; }
+        .portal-card .icon-wrap { width: 44px; height: 44px; font-size: 20px; }
+    }
+
+    @media (max-width: 540px) {
+        .portal-grid { grid-template-columns: 1fr; gap: 14px; }
+        .portal-hero h1 { font-size: 26px; }
+        .portal-hero .hero-desc { font-size: 14px; }
+        .portal-hero .hero-stats .stat .number { font-size: 18px; }
+        .portal-hero .hero-stats .stat .label { font-size: 10px; }
+        .portal-nav a { font-size: 10px; padding: 4px 10px; }
+        .portal-section .section-header h2 { font-size: 22px; }
+        .portal-card { padding: 16px 14px; }
+        .portal-card .card-footer { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+
+    @media (max-width: 360px) {
+        .portal-hero h1 { font-size: 20px; }
+        .portal-nav a { font-size: 9px; padding: 3px 8px; }
+        .portal-card { padding: 14px 12px; }
+    }
+
+    /* ============================================================
+   DARK MODE
+   ============================================================ */
+    [data-theme="dark"] body { background: #0f172a; }
+
+    [data-theme="dark"] .portal-nav {
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    [data-theme="dark"] .portal-nav a { color: #94a3b8; }
+    [data-theme="dark"] .portal-nav a:hover {
+        background: #1e293b;
+        color: #f8fafc;
+        border-color: #334155;
+    }
+    [data-theme="dark"] .portal-nav a.active {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: #ffffff;
+        border-color: transparent;
+    }
+
+    [data-theme="dark"] .portal-card {
+        background: #1e293b;
+        border-color: #334155;
+    }
+    [data-theme="dark"] .portal-card:hover {
+        border-color: #3b82f6;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+    [data-theme="dark"] .portal-card .icon-wrap { background: #1e3a5f; }
+    [data-theme="dark"] .portal-card .icon-wrap i { color: #60a5fa; }
+    [data-theme="dark"] .portal-card h3 { color: #f8fafc; }
+    [data-theme="dark"] .portal-card p { color: #94a3b8; }
+    [data-theme="dark"] .portal-card .badge {
+        background: #1e3a5f;
+        color: #60a5fa;
+        border-color: #1e3a5f;
+    }
+    [data-theme="dark"] .portal-card .card-footer { border-color: #334155; }
+    [data-theme="dark"] .portal-card .card-footer .card-count {
+        background: #1e293b;
+        color: #64748b;
+    }
+
+    [data-theme="dark"] .portal-section .section-header h2 { color: #f8fafc; }
+    [data-theme="dark"] .portal-section .section-header p { color: #94a3b8; }
+    [data-theme="dark"] .portal-section .section-header .section-badge {
+        background: #1e3a5f;
+        color: #60a5fa;
+    }
+    [data-theme="dark"] .portal-section.alt-bg {
+        background: #0f172a;
+        box-shadow: 0 1px 0 0 #1e293b;
+    }
+    [data-theme="dark"] .portal-hero {
+        background: linear-gradient(135deg, #0a0f1f 0%, #1a1a2e 40%, #0a0f1f 100%);
+    }
+    [data-theme="dark"] .portal-footer { background: #0a0f1f; }
+    [data-theme="dark"] .portal-footer .social-links a {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.04);
+    }
+    [data-theme="dark"] .portal-footer .social-links a:hover {
+        background: #3b82f6;
+        border-color: #3b82f6;
+    }
+</style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    <img src="../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
+                    <span>Astra Technology</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="/student-portal/" class="nav-link active"><i class="fas fa-graduation-cap"></i><span>Student Portal</span></a>
+                <a href="/blog/" class="nav-link"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+                <a href="/About/" class="nav-link"><i class="fas fa-info-circle"></i><span>About</span></a>
+                <a href="/Contact/" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a>
+                <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+    PORTAL HERO
+    ============================================================ -->
+    <section class="portal-hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge"><i class="fas fa-rocket"></i> Launching 2026</span>
+                <h1>🎓 Welcome to <span class="highlight">Student Portal</span></h1>
+                <p class="hero-desc">Your premium one-stop destination for scholarships, study tips, career guidance, and tools. Join 10,000+ students worldwide.</p>
+                <div class="hero-stats">
+                    <div class="stat" id="stat1">
+                        <span class="number">10K+</span>
+                        <span class="label">Students</span>
+                    </div>
+                    <div class="stat" id="stat2">
+                        <span class="number">50+</span>
+                        <span class="label">Countries</span>
+                    </div>
+                    <div class="stat" id="stat3">
+                        <span class="number">100+</span>
+                        <span class="label">Free Resources</span>
+                    </div>
+                    <div class="stat" id="stat4">
+                        <span class="number">4.8</span>
+                        <span class="label">Student Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PORTAL NAVIGATION
+    ============================================================ -->
+    <nav class="portal-nav" id="portalNav">
+        <div class="portal-nav-inner">
+            <a href="#scholarships" class="active"><i class="fas fa-award"></i> Scholarships</a>
+            <a href="#study-tips"><i class="fas fa-lightbulb"></i> Study Tips</a>
+            <a href="#career"><i class="fas fa-briefcase"></i> Career</a>
+            <a href="#tools"><i class="fas fa-tools"></i> Tools</a>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    SCHOLARSHIPS SECTION
+    ============================================================ -->
+    <section id="scholarships" class="portal-section alt-bg">
+        <div class="section-header">
+            <span class="section-badge">🎓 Funding</span>
+            <h2>Scholarships Worldwide</h2>
+            <p>Find fully funded scholarships and financial aid for international students</p>
+        </div>
+        <div class="portal-grid">
+            <a href="/student-portal/scholarships/india/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-flag"></i></div>
+                    <span class="badge">Apply Now</span>
+                </div>
+                <h3>India Scholarships</h3>
+                <p>Government and private scholarships for Indian students.</p>
+                <div class="card-footer">
+                    <span class="arrow">View →</span>
+                    <span class="card-count">50+ options</span>
+                </div>
+            </a>
+            <a href="/student-portal/scholarships/usa/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-flag-usa"></i></div>
+                    <span class="badge">Apply Now</span>
+                </div>
+                <h3>USA Scholarships</h3>
+                <p>Fulbright, Gates, and university scholarships for international students.</p>
+                <div class="card-footer">
+                    <span class="arrow">View →</span>
+                    <span class="card-count">40+ options</span>
+                </div>
+            </a>
+            <a href="/student-portal/scholarships/uk/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-flag"></i></div>
+                    <span class="badge">Apply Now</span>
+                </div>
+                <h3>UK Scholarships</h3>
+                <p>Chevening, Commonwealth, and more UK scholarships.</p>
+                <div class="card-footer">
+                    <span class="arrow">View →</span>
+                    <span class="card-count">30+ options</span>
+                </div>
+            </a>
+            <a href="/student-portal/scholarships/europe/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-flag"></i></div>
+                    <span class="badge">Apply Now</span>
+                </div>
+                <h3>Europe Scholarships</h3>
+                <p>Erasmus Mundus, DAAD, and Eiffel scholarships.</p>
+                <div class="card-footer">
+                    <span class="arrow">View →</span>
+                    <span class="card-count">60+ options</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    STUDY TIPS SECTION
+    ============================================================ -->
+    <section id="study-tips" class="portal-section">
+        <div class="section-header">
+            <span class="section-badge">📝 Productivity</span>
+            <h2>Study Tips & Productivity</h2>
+            <p>Proven techniques to help you study smarter, not harder</p>
+        </div>
+        <div class="portal-grid">
+            <a href="/student-portal/study-tips/pomodoro-technique/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-clock"></i></div>
+                    <span class="badge">Popular</span>
+                </div>
+                <h3>Pomodoro Technique</h3>
+                <p>Study for 25 minutes, take a 5-minute break. Boost your focus.</p>
+                <div class="card-footer">
+                    <span class="arrow">Learn →</span>
+                    <span class="card-count">5 min read</span>
+                </div>
+            </a>
+            <a href="/student-portal/study-tips/active-recall/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-brain"></i></div>
+                    <span class="badge">Science</span>
+                </div>
+                <h3>Active Recall</h3>
+                <p>Test yourself instead of re-reading. Improve memory by 50%.</p>
+                <div class="card-footer">
+                    <span class="arrow">Learn →</span>
+                    <span class="card-count">6 min read</span>
+                </div>
+            </a>
+            <a href="/student-portal/study-tips/spaced-repetition/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-rotate"></i></div>
+                    <span class="badge">Proven</span>
+                </div>
+                <h3>Spaced Repetition</h3>
+                <p>Review material at increasing intervals for long-term retention.</p>
+                <div class="card-footer">
+                    <span class="arrow">Learn →</span>
+                    <span class="card-count">7 min read</span>
+                </div>
+            </a>
+            <a href="/student-portal/study-tips/study-schedule/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-calendar-check"></i></div>
+                    <span class="badge">Essential</span>
+                </div>
+                <h3>Study Schedule</h3>
+                <p>Create a study schedule and stick to it for academic success.</p>
+                <div class="card-footer">
+                    <span class="arrow">Learn →</span>
+                    <span class="card-count">4 min read</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CAREER SECTION
+    ============================================================ -->
+    <section id="career" class="portal-section alt-bg">
+        <div class="section-header">
+            <span class="section-badge">💼 Career</span>
+            <h2>Career Hub</h2>
+            <p>Build your career with resume tips, interview preparation, and internship guides</p>
+        </div>
+        <div class="portal-grid">
+            <a href="/student-portal/career/resume-writing/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-file-pen"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>Resume Writing</h3>
+                <p>Learn how to write a professional resume that stands out.</p>
+                <div class="card-footer">
+                    <span class="arrow">Explore →</span>
+                    <span class="card-count">8 min read</span>
+                </div>
+            </a>
+            <a href="/student-portal/career/interview-preparation/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-bullseye"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>Interview Preparation</h3>
+                <p>Top interview questions and answers to help you succeed.</p>
+                <div class="card-footer">
+                    <span class="arrow">Explore →</span>
+                    <span class="card-count">10 min read</span>
+                </div>
+            </a>
+            <a href="/student-portal/career/internship-guide/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-briefcase"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>Internship Guide</h3>
+                <p>How to find and secure the perfect internship for your career.</p>
+                <div class="card-footer">
+                    <span class="arrow">Explore →</span>
+                    <span class="card-count">12 min read</span>
+                </div>
+            </a>
+            <a href="/student-portal/career/freelance-jobs/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-laptop-code"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>Freelance Jobs</h3>
+                <p>Best freelance opportunities for students to earn money.</p>
+                <div class="card-footer">
+                    <span class="arrow">Explore →</span>
+                    <span class="card-count">6 min read</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    STUDENT TOOLS SECTION
+    ============================================================ -->
+    <section id="tools" class="portal-section">
+        <div class="section-header">
+            <span class="section-badge">🛠️ Free Tools</span>
+            <h2>Free Student Tools</h2>
+            <p>Tools every student needs for projects, assignments, and productivity</p>
+        </div>
+        <div class="portal-grid">
+            <a href="/qr-generator/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-qrcode"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>QR Generator</h3>
+                <p>Create QR codes for projects, presentations, and more.</p>
+                <div class="card-footer">
+                    <span class="arrow">Use →</span>
+                    <span class="card-count">Instant</span>
+                </div>
+            </a>
+            <a href="/ai-tools/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-robot"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>AI Tools</h3>
+                <p>Discover free AI tools for students - research, writing, coding.</p>
+                <div class="card-footer">
+                    <span class="arrow">Use →</span>
+                    <span class="card-count">150+ tools</span>
+                </div>
+            </a>
+            <a href="/student-portal/tools/pdf-tools/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-file-pdf"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>PDF Tools</h3>
+                <p>Merge, split, compress, and edit PDF files online.</p>
+                <div class="card-footer">
+                    <span class="arrow">Use →</span>
+                    <span class="card-count">Instant</span>
+                </div>
+            </a>
+            <a href="/student-portal/tools/resume-builder/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-file-lines"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>Resume Builder</h3>
+                <p>Create a professional resume in minutes with templates.</p>
+                <div class="card-footer">
+                    <span class="arrow">Use →</span>
+                    <span class="card-count">Instant</span>
+                </div>
+            </a>
+            <a href="/student-portal/tools/citation-generator/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-book"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>Citation Generator</h3>
+                <p>Generate APA, MLA, Chicago citations instantly.</p>
+                <div class="card-footer">
+                    <span class="arrow">Use →</span>
+                    <span class="card-count">Instant</span>
+                </div>
+            </a>
+            <a href="/student-portal/tools/grammar-checker/" class="portal-card">
+                <div class="card-top">
+                    <div class="icon-wrap"><i class="fas fa-spell-check"></i></div>
+                    <span class="badge">Free</span>
+                </div>
+                <h3>Grammar Checker</h3>
+                <p>Check your essays and assignments for grammar errors.</p>
+                <div class="card-footer">
+                    <span class="arrow">Use →</span>
+                    <span class="card-count">Instant</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="portal-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
+                <h2>Astra Technology</h2>
+            </div>
+            <p class="footer-text">Building useful digital products for students and everyone.</p>
+            <div class="footer-links">
+                <a href="/About/">About</a>
+                <a href="/student-portal/">Student Portal</a>
+                <a href="/blog/">Blog</a>
+                <a href="/Contact/">Contact</a>
+                <a href="/Privacy/">Privacy Policy</a>
+                <a href="/Terms/">Terms &amp; Conditions</a>
+            </div>
+            <div class="social-links">
+                <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+            <p class="developer">Designed &amp; Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // ============================================================
+        // SCROLL REVEAL - Intersection Observer
+        // ============================================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Stats animation
+            const stats = document.querySelectorAll('.hero-stats .stat');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.3 });
+                stats.forEach(stat => observer.observe(stat));
+            } else {
+                stats.forEach(stat => stat.classList.add('visible'));
+            }
+
+            // Cards animation
+            const cards = document.querySelectorAll('.portal-card');
+            if ('IntersectionObserver' in window) {
+                const cardObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                cards.forEach(card => cardObserver.observe(card));
+            } else {
+                cards.forEach(card => card.classList.add('visible'));
+            }
+
+            // ============================================================
+            // PORTAL NAVIGATION - SMOOTH SCROLL & ACTIVE STATE
+            // ============================================================
+
+            const navLinks = document.querySelectorAll('.portal-nav a');
+            const sections = document.querySelectorAll('.portal-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const offset = 130;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        let current = 'scholarships';
+                        sections.forEach(section => {
+                            const sectionTop = section.offsetTop - 150;
+                            if (window.pageYOffset >= sectionTop) {
+                                current = section.id;
+                            }
+                        });
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + current) {
+                                link.classList.add('active');
+                            }
+                        });
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Footer Year
+            const yearSpan = document.getElementById('year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

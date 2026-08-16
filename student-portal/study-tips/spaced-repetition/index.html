@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spaced Repetition · Pro Study System | Astra Student Portal</title>
+  <meta name="description" content="Master spaced repetition with our pro-level study system. Interactive scheduler, science-backed techniques, and long-term retention tools.">
+  <link rel="icon" href="../../../../assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../../../../style.css">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JNT5QMVXL6');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955" crossorigin="anonymous"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.7;
+      padding-top: 70px;
+      overflow-x: hidden;
+    }
+
+    /* ---- ANIMATED BACKGROUND ---- */
+    .bg-animation {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      overflow: hidden;
+    }
+    .bg-animation .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+    }
+    .bg-animation .orb:nth-child(1) {
+      width: 500px;
+      height: 500px;
+      top: -10%;
+      right: -10%;
+      background: #8b5cf6;
+      animation-delay: 0s;
+    }
+    .bg-animation .orb:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      bottom: -10%;
+      left: -10%;
+      background: #06b6d4;
+      animation-delay: -7s;
+    }
+    .bg-animation .orb:nth-child(3) {
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      background: #10b981;
+      animation-delay: -14s;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -40px) scale(1.1); }
+      50% { transform: translate(-20px, 20px) scale(0.9); }
+      75% { transform: translate(40px, 30px) scale(1.05); }
+    }
+
+    /* ---- HERO ---- */
+    .page-hero {
+      padding: 60px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero .badge {
+      display: inline-block;
+      padding: 6px 22px;
+      background: rgba(139,92,246,0.15);
+      color: #a78bfa;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(139,92,246,0.2);
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(139,92,246,0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(139,92,246,0); }
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #f8fafc;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+      animation: fadeUp 1s ease-out;
+    }
+    .page-hero h1 .highlight {
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease-in-out infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-hero p {
+      color: #94a3b8;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      animation: fadeUp 1s ease-out 0.4s both;
+    }
+    .hero-stats .stat {
+      background: rgba(255,255,255,0.04);
+      padding: 12px 28px;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+      cursor: default;
+    }
+    .hero-stats .stat:hover {
+      background: rgba(139,92,246,0.1);
+      border-color: rgba(139,92,246,0.3);
+      transform: translateY(-2px);
+    }
+    .hero-stats .stat .num {
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+    .hero-stats .stat .lbl { color: #94a3b8; font-size: 0.85rem; margin-left: 6px; }
+
+    /* ---- CONTAINER ---- */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 50px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #a78bfa;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+      margin-bottom: 28px;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .back-link:hover { background: rgba(139,92,246,0.15); gap: 14px; border-color: rgba(139,92,246,0.3); }
+
+    /* ---- CARDS ---- */
+    .guide-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 36px 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      margin-bottom: 28px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .guide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #8b5cf6, #06b6d4, transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .guide-card:hover::before { opacity: 1; }
+    .guide-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139,92,246,0.15);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+    }
+    .guide-card .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(6,182,212,0.15));
+      color: #a78bfa;
+      font-size: 26px;
+      margin-bottom: 14px;
+      transition: transform 0.3s;
+    }
+    .guide-card:hover .card-icon { transform: scale(1.05) rotate(-3deg); }
+    .guide-card h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .guide-card h2 i { color: #a78bfa; margin-right: 12px; }
+    .guide-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin: 18px 0 8px;
+    }
+    .guide-card p, .guide-card li {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+    .guide-card ul, .guide-card ol {
+      padding-left: 24px;
+      margin: 8px 0 12px;
+    }
+    .guide-card ul li, .guide-card ol li { margin-bottom: 8px; }
+
+    .tip-box {
+      background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.08));
+      border-left: 4px solid #8b5cf6;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .tip-box i { color: #a78bfa; margin-right: 10px; }
+    .warning-box {
+      background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.04));
+      border-left: 4px solid #ef4444;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .warning-box i { color: #ef4444; margin-right: 10px; }
+    .example-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 16px 0;
+    }
+    .example-box strong { color: #f1f5f9; }
+
+    /* ---- GRIDS ---- */
+    .grid-2col, .grid-3col, .grid-4col {
+      display: grid;
+      gap: 16px;
+      margin: 12px 0;
+    }
+    .grid-2col { grid-template-columns: 1fr 1fr; }
+    .grid-3col { grid-template-columns: repeat(3, 1fr); }
+    .grid-4col { grid-template-columns: repeat(4, 1fr); }
+
+    .stat-mini {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .stat-mini:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-2px); }
+    .stat-mini .number {
+      font-size: 34px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+    .stat-mini .label {
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .method-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .method-card:hover {
+      border-color: rgba(139,92,246,0.3);
+      background: rgba(139,92,246,0.05);
+      transform: translateY(-4px);
+    }
+    .method-card i {
+      font-size: 28px;
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .method-card h4 { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
+    .method-card p { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
+
+    /* ---- SPACED REPETITION SCHEDULER ---- */
+    .scheduler {
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 24px 30px;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-top: 10px;
+    }
+    .scheduler-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .scheduler-item {
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s;
+    }
+    .scheduler-item:hover {
+      border-color: rgba(139,92,246,0.3);
+      transform: translateY(-2px);
+    }
+    .scheduler-item .day {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .scheduler-item .interval {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #f8fafc;
+      display: block;
+      margin: 4px 0;
+    }
+    .scheduler-item .action {
+      font-size: 0.7rem;
+      color: #a78bfa;
+      font-weight: 600;
+    }
+    .scheduler-item.completed {
+      border-color: rgba(16,185,129,0.3);
+      background: rgba(16,185,129,0.05);
+    }
+    .scheduler-item.completed .action { color: #34d399; }
+    .scheduler-item.completed .action::before { content: '✅ '; }
+    .scheduler-item.current {
+      border-color: rgba(139,92,246,0.4);
+      background: rgba(139,92,246,0.08);
+      box-shadow: 0 0 20px rgba(139,92,246,0.05);
+    }
+    .scheduler-item.current .action { color: #a78bfa; }
+    .scheduler-item.current .action::before { content: '⏳ '; }
+
+    .scheduler-controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .scheduler-controls button {
+      padding: 8px 24px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .scheduler-controls button:hover {
+      background: rgba(139,92,246,0.15);
+      border-color: rgba(139,92,246,0.3);
+      transform: translateY(-2px);
+    }
+    .scheduler-controls button.primary {
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      border: none;
+      color: white;
+    }
+    .scheduler-controls button.primary:hover {
+      box-shadow: 0 4px 20px rgba(139,92,246,0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ---- PROGRESS TRACKER ---- */
+    .progress-tracker {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0 10px;
+      position: relative;
+      padding: 0 10px;
+    }
+    .progress-tracker::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 40px;
+      right: 40px;
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .step .circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #64748b;
+      border: 3px solid rgba(255,255,255,0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .step.active .circle {
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      color: white;
+      border-color: #a78bfa;
+      box-shadow: 0 0 0 6px rgba(139,92,246,0.15), 0 0 30px rgba(139,92,246,0.2);
+      transform: scale(1.1);
+    }
+    .step.done .circle {
+      background: #10b981;
+      color: white;
+      border-color: #34d399;
+      box-shadow: 0 0 20px rgba(16,185,129,0.2);
+    }
+    .step.done .circle::after { content: '✓'; }
+    .step .label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #64748b;
+      text-align: center;
+      max-width: 60px;
+      transition: color 0.3s;
+    }
+    .step.active .label, .step.done .label { color: #f1f5f9; }
+
+    /* ---- FAQ ---- */
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(139,92,246,0.2); }
+    .faq-question {
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #f1f5f9;
+      background: rgba(255,255,255,0.02);
+      transition: background 0.3s;
+      user-select: none;
+    }
+    .faq-question:hover { background: rgba(255,255,255,0.04); }
+    .faq-question i { color: #a78bfa; transition: transform 0.4s; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+      color: #94a3b8;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 20px 18px 20px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .grid-4col { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .grid-2col, .grid-3col, .grid-4col { grid-template-columns: 1fr; }
+      .guide-card { padding: 24px 20px; }
+      .hero-stats { gap: 12px; }
+      .hero-stats .stat { padding: 8px 18px; }
+      .progress-tracker { flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .progress-tracker::before { display: none; }
+      .scheduler-grid { grid-template-columns: repeat(2, 1fr); }
+      .scheduler { padding: 16px; }
+    }
+    @media (max-width: 480px) {
+      .grid-4col { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 2rem; }
+      .scheduler-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ---- SCROLL ANIMATIONS ---- */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0a0f1f;
+      color: #e2e8f0;
+      padding: 48px 20px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-container { max-width: 600px; margin: 0 auto; }
+    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 6px; }
+    .footer-logo { height: 32px; width: auto; }
+    .footer h2 { font-size: 22px; font-weight: 700; color: #ffffff; }
+    .footer-text { font-size: 14px; color: #94a3b8; margin: 4px 0 16px; }
+    .footer-links { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #ffffff; }
+    .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .social-links a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.03); color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s;
+      text-decoration: none;
+    }
+    .social-links a:hover { background: #3b82f6; color: #ffffff; transform: translateY(-3px) scale(1.05); border-color: #3b82f6; box-shadow: 0 8px 24px rgba(59,130,246,0.15); }
+    .copyright { font-size: 12px; color: #64748b; margin-top: 12px; }
+    .developer { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    .gradient-text { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ===== ANIMATED BACKGROUND ===== -->
+<div class="bg-animation">
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar" style="background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <a href="/" class="logo-link">
+      <div class="logo" style="color:#f8fafc;">
+        <img src="../../../../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
+        <span>Astra Technology</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student-portal/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-graduation-cap"></i><span>Student Portal</span></a>
+      <a href="/blog/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+      <a href="/About/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="/Contact/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-envelope"></i><span>Contact</span></a>
+      <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+  <span class="badge"><i class="fas fa-brain"></i> Long-Term Retention System</span>
+  <h1>🔄 <span class="highlight">Spaced Repetition</span> Pro</h1>
+  <p>Master the science of memory — review material at increasing intervals for lifelong retention. Never forget what you learn.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="num">80%</span><span class="lbl">better retention</span></div>
+    <div class="stat"><span class="num">50%</span><span class="lbl">less study time</span></div>
+    <div class="stat"><span class="num">2.5x</span><span class="lbl">faster learning</span></div>
+  </div>
+</section>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+
+  <a href="/student-portal/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Study Tips</a>
+
+  <!-- ===== WHAT IS SPACED REPETITION ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+    <h2>What is Spaced Repetition?</h2>
+    <p><strong>Spaced repetition</strong> is a learning technique that involves reviewing material at increasing intervals over time. Instead of cramming, you revisit information just when you're about to forget it — strengthening memory with each review.</p>
+    <div class="tip-box">
+      <i class="fas fa-quote-left"></i> "Spaced repetition is the most powerful learning technique ever discovered." — <strong style="color:#f1f5f9;">Dr. Piotr Wozniak</strong>
+    </div>
+    <p>This technique leverages the <strong>spacing effect</strong> — the phenomenon where information is better retained when learning sessions are spaced out over time.</p>
+  </div>
+
+  <!-- ===== WHY IT WORKS ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+    <h2>Why Spaced Repetition Works</h2>
+    <div class="grid-3col">
+      <div class="stat-mini"><span class="number">80%</span><span class="label">Retention after 30 days</span></div>
+      <div class="stat-mini"><span class="number">20%</span><span class="label">Cramming retention</span></div>
+      <div class="stat-mini"><span class="number">50%</span><span class="label">Less study time</span></div>
+    </div>
+    <ul>
+      <li><strong>🧠 Combats forgetting curve:</strong> Reviews are timed to prevent forgetting.</li>
+      <li><strong>⚡ Optimizes memory:</strong> Each review strengthens neural connections.</li>
+      <li><strong>🎯 Saves time:</strong> Focus only on what you're about to forget.</li>
+      <li><strong>🔬 Scientifically proven:</strong> Backed by decades of cognitive research.</li>
+      <li><strong>📈 Builds fluency:</strong> Information moves to long-term memory.</li>
+      <li><strong>🔄 Sustainable learning:</strong> No burnout from marathon cramming sessions.</li>
+    </ul>
+  </div>
+
+  <!-- ===== SPACED REPETITION SCHEDULER ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-calendar"></i></div>
+    <h2>📆 Spaced Repetition Scheduler</h2>
+    <p>Track your review schedule. Complete each review to build a strong memory.</p>
+    <div class="scheduler">
+      <div class="scheduler-grid" id="schedulerGrid">
+        <div class="scheduler-item current">
+          <span class="day">Today</span>
+          <span class="interval">Day 1</span>
+          <span class="action">Learn + Review</span>
+        </div>
+        <div class="scheduler-item">
+          <span class="day">Tomorrow</span>
+          <span class="interval">Day 2</span>
+          <span class="action">Review</span>
+        </div>
+        <div class="scheduler-item">
+          <span class="day">+2 Days</span>
+          <span class="interval">Day 4</span>
+          <span class="action">Review</span>
+        </div>
+        <div class="scheduler-item">
+          <span class="day">+3 Days</span>
+          <span class="interval">Day 7</span>
+          <span class="action">Review</span>
+        </div>
+        <div class="scheduler-item">
+          <span class="day">+7 Days</span>
+          <span class="interval">Day 14</span>
+          <span class="action">Review</span>
+        </div>
+        <div class="scheduler-item">
+          <span class="day">+14 Days</span>
+          <span class="interval">Day 28</span>
+          <span class="action">Master Review</span>
+        </div>
+      </div>
+      <div class="scheduler-controls">
+        <button class="primary" id="completeReviewBtn"><i class="fas fa-check"></i> Complete Review</button>
+        <button id="resetSchedulerBtn"><i class="fas fa-undo"></i> Reset Schedule</button>
+      </div>
+      <p style="font-size:0.85rem;color:#64748b;margin-top:12px;text-align:center;">
+        <i class="fas fa-info-circle"></i> Complete each review to strengthen your memory. The intervals increase to optimize long-term retention.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== HOW TO USE ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-list-check"></i></div>
+    <h2>How to Use Spaced Repetition</h2>
+    <div class="progress-tracker" id="progressTracker">
+      <div class="step active" data-step="0"><div class="circle">1</div><span class="label">Learn</span></div>
+      <div class="step" data-step="1"><div class="circle">2</div><span class="label">Review Day 1</span></div>
+      <div class="step" data-step="2"><div class="circle">3</div><span class="label">Review Day 4</span></div>
+      <div class="step" data-step="3"><div class="circle">4</div><span class="label">Review Day 7</span></div>
+      <div class="step" data-step="4"><div class="circle">5</div><span class="label">Review Day 14</span></div>
+      <div class="step" data-step="5"><div class="circle">6</div><span class="label">Master</span></div>
+    </div>
+    <ol style="margin-top:16px;">
+      <li><strong>Learn the material</strong> – Study the content thoroughly.</li>
+      <li><strong>Review after 1 day</strong> – First review to strengthen the memory.</li>
+      <li><strong>Review after 3 more days</strong> – Second review, the forgetting curve is flattening.</li>
+      <li><strong>Review after 7 days</strong> – Third review, moving to long-term memory.</li>
+      <li><strong>Review after 14 days</strong> – Final review, cementing knowledge.</li>
+      <li><strong>Master</strong> – Knowledge is now in long-term memory.</li>
+    </ol>
+    <div class="example-box">
+      <strong>📌 Example:</strong> Learning vocabulary words — review new words on Day 1, Day 3, Day 7, Day 14, and Day 28. By the 28-day mark, the words are permanently stored in your long-term memory.
+    </div>
+  </div>
+
+  <!-- ===== TOOLS & APPS ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-tools"></i></div>
+    <h2>Best Spaced Repetition Apps & Tools</h2>
+    <div class="grid-3col">
+      <div class="method-card">
+        <i class="fas fa-cards"></i>
+        <h4>Anki</h4>
+        <p>The gold standard. Open-source, highly customizable, with powerful spaced repetition algorithms.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-brain"></i>
+        <h4>RemNote</h4>
+        <p>Combines note-taking with spaced repetition. Great for students who want an all-in-one system.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h4>Quizlet</h4>
+        <p>Popular flashcard app with built-in spaced repetition and gamification features.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-mobile-screen"></i>
+        <h4>Memrise</h4>
+        <p>Uses spaced repetition with mnemonic techniques. Excellent for language learning.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-newspaper"></i>
+        <h4>Readwise</h4>
+        <p>Spaced repetition for your highlights and notes from books and articles.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-robot"></i>
+        <h4>AI-Powered Tools</h4>
+        <p>Use ChatGPT or Claude to generate flashcards and create spaced repetition schedules.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FORGETTING CURVE ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-chart-simple"></i></div>
+    <h2>The Forgetting Curve & Spaced Repetition</h2>
+    <p>The <strong>Ebbinghaus Forgetting Curve</strong> shows that we lose 50% of what we learn within 1 hour, and up to 80% within 30 days — without review.</p>
+    <div style="background:rgba(255,255,255,0.03);border-radius:14px;padding:18px 22px;margin:12px 0;border:1px solid rgba(255,255,255,0.06);">
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:space-around;">
+        <div><span style="font-weight:700;color:#a78bfa;">Without review</span> → 80% forgotten in 30 days</div>
+        <div><span style="font-weight:700;color:#34d399;">With spaced repetition</span> → 80% retained in 30 days</div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <i class="fas fa-lightbulb"></i> Spaced repetition works by reviewing material at the peak of the forgetting curve — just when you're about to forget it. This strengthens the memory and moves it to long-term storage.
+    </div>
+  </div>
+
+  <!-- ===== COMMON MISTAKES ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-triangle-exclamation" style="color:#ef4444;"></i></div>
+    <h2 style="color:#f87171;">Common Mistakes to Avoid</h2>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Cramming instead of spacing</strong> — Cramming leads to short-term memory. Spacing leads to long-term memory.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Reviewing too early</strong> — Reviewing before you start to forget wastes effort. Wait for the optimal interval.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Reviewing too late</strong> — If you wait too long, you'll have to re-learn the material completely.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Not using active recall</strong> — Reviewing should be active, not passive. Test yourself, don't just re-read.
+    </div>
+    <div class="warning-box">
+      <i class="fas fa-exclamation-circle"></i> <strong>Overloading with too many cards</strong> — Quality over quantity. Focus on what matters most.</div>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-circle-question"></i></div>
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item active">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>What is the ideal spaced repetition interval?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        The optimal intervals depend on the material, but a common schedule is: 1 day → 3 days → 7 days → 14 days → 28 days. Apps like Anki use algorithms to adjust intervals based on your performance.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How does spaced repetition compare to cramming?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Cramming works for short-term recall (like the next day's exam) but leads to rapid forgetting. Spaced repetition is for long-term retention — the knowledge stays with you for months or years.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Can I use spaced repetition for language learning?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Absolutely! It's the most effective method for learning vocabulary, grammar, and pronunciation. Apps like Anki and Memrise are built specifically for language learning with spaced repetition.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How many cards should I review per day?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Start with 20-30 cards per day. As you build the habit, you can increase to 50-100 cards. The key is consistency — daily reviews are more important than the number of cards.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>What if I miss a review day?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Don't worry! Just pick up where you left off. The spaced repetition algorithm will adjust the intervals based on your performance. Consistency is more important than perfection.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Can spaced repetition be combined with other study techniques?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Yes! Spaced repetition works best with active recall, the Feynman technique, and interleaving. Use them together for maximum learning efficiency.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUICK START CHALLENGE ===== -->
+  <div class="guide-card animate-on-scroll" style="background:linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.08));border-color:rgba(139,92,246,0.15);">
+    <div class="card-icon" style="background:linear-gradient(135deg, #8b5cf6, #06b6d4);color:white;"><i class="fas fa-play"></i></div>
+    <h2 style="color:#a78bfa;">🔥 Quick Start Challenge</h2>
+    <p>Try spaced repetition right now with these steps:</p>
+    <ol style="margin:12px 0 0 20px;color:#cbd5e1;">
+      <li>Pick a topic you want to learn (e.g., vocabulary, history facts, or a new concept).</li>
+      <li>Create flashcards or notes for the topic.</li>
+      <li>Use the scheduler above to plan your review intervals.</li>
+      <li>Review the material on Day 1, Day 3, Day 7, Day 14, and Day 28.</li>
+      <li>Track your progress and watch your retention improve.</li>
+    </ol>
+    <p style="margin-top:14px;font-weight:700;color:#a78bfa;">🚀 That's spaced repetition — the secret to never forgetting what you learn!</p>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="../../../../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
+      <h2>Astra Technology</h2>
+    </div>
+    <p class="footer-text">Building useful digital products for students and everyone.</p>
+    <div class="footer-links">
+      <a href="/About/">About</a>
+      <a href="/student-portal/">Student Portal</a>
+      <a href="/blog/">Blog</a>
+      <a href="/Contact/">Contact</a>
+      <a href="/Privacy/">Privacy Policy</a>
+      <a href="/Terms/">Terms &amp; Conditions</a>
+    </div>
+    <div class="social-links">
+      <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+    <p class="developer">Designed &amp; Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+  </div>
+</footer>
+
+<script>
+  // ===== SPACED REPETITION SCHEDULER =====
+  let currentReviewIndex = 0;
+  const schedulerItems = document.querySelectorAll('.scheduler-item');
+  const completeBtn = document.getElementById('completeReviewBtn');
+  const resetBtn = document.getElementById('resetSchedulerBtn');
+
+  function updateScheduler() {
+    schedulerItems.forEach((item, index) => {
+      item.classList.remove('current', 'completed');
+      if (index < currentReviewIndex) {
+        item.classList.add('completed');
+      } else if (index === currentReviewIndex) {
+        item.classList.add('current');
+      }
+    });
+  }
+
+  completeBtn.addEventListener('click', function() {
+    if (currentReviewIndex < schedulerItems.length) {
+      schedulerItems[currentReviewIndex].classList.remove('current');
+      schedulerItems[currentReviewIndex].classList.add('completed');
+      currentReviewIndex++;
+      if (currentReviewIndex < schedulerItems.length) {
+        schedulerItems[currentReviewIndex].classList.add('current');
+      } else {
+        // All completed
+        alert('🎉 Congratulations! You\'ve completed the entire spaced repetition schedule. Your knowledge is now in long-term memory!');
+        // Reset or show celebration
+        const celebration = document.createElement('div');
+        celebration.style.cssText = 'text-align:center;padding:12px;background:rgba(16,185,129,0.1);border-radius:12px;border:1px solid rgba(16,185,129,0.2);margin-top:12px;';
+        celebration.innerHTML = '✅ <strong style="color:#34d399;">All reviews completed!</strong> You\'ve mastered this topic. Keep up the great work!';
+        document.querySelector('.scheduler').appendChild(celebration);
+      }
+      updateScheduler();
+    }
+  });
+
+  resetBtn.addEventListener('click', function() {
+    if (confirm('Reset the scheduler? This will start the spaced repetition cycle from the beginning.')) {
+      currentReviewIndex = 0;
+      schedulerItems.forEach(item => {
+        item.classList.remove('completed', 'current');
+      });
+      schedulerItems[0].classList.add('current');
+      // Remove celebration if exists
+      const celebration = document.querySelector('.scheduler > div:last-child');
+      if (celebration && celebration.style.borderColor === 'rgba(16,185,129,0.2)') {
+        celebration.remove();
+      }
+      updateScheduler();
+    }
+  });
+
+  // ===== PROGRESS TRACKER =====
+  const steps = document.querySelectorAll('.step');
+  let currentStep = 0;
+
+  steps.forEach((step, index) => {
+    step.addEventListener('click', function() {
+      currentStep = index;
+      updateProgress();
+    });
+  });
+
+  function updateProgress() {
+    steps.forEach((step, index) => {
+      step.classList.remove('active', 'done');
+      if (index < currentStep) {
+        step.classList.add('done');
+        step.querySelector('.circle').textContent = '✓';
+      } else if (index === currentStep) {
+        step.classList.add('active');
+        step.querySelector('.circle').textContent = index + 1;
+      } else {
+        step.querySelector('.circle').textContent = index + 1;
+      }
+    });
+  }
+
+  // ===== SCROLL ANIMATIONS =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ===== FAQ =====
+  function toggleFAQ(el) {
+    const item = el.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  }
+
+  // ===== YEAR =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

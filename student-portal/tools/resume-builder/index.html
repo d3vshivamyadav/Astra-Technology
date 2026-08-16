@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder · Pro Career Tool | Astra Student Portal</title>
+  <meta name="description" content="Build a professional resume with our free resume builder. Choose from multiple templates and export as PDF.">
+  <link rel="icon" href="../../../assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../../../style.css">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JNT5QMVXL6');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955" crossorigin="anonymous"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.7;
+      padding-top: 70px;
+      overflow-x: hidden;
+    }
+
+    /* ---- ANIMATED BACKGROUND ---- */
+    .bg-animation {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      overflow: hidden;
+    }
+    .bg-animation .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+    }
+    .bg-animation .orb:nth-child(1) {
+      width: 500px;
+      height: 500px;
+      top: -10%;
+      right: -10%;
+      background: #10b981;
+      animation-delay: 0s;
+    }
+    .bg-animation .orb:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      bottom: -10%;
+      left: -10%;
+      background: #3b82f6;
+      animation-delay: -7s;
+    }
+    .bg-animation .orb:nth-child(3) {
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      background: #8b5cf6;
+      animation-delay: -14s;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -40px) scale(1.1); }
+      50% { transform: translate(-20px, 20px) scale(0.9); }
+      75% { transform: translate(40px, 30px) scale(1.05); }
+    }
+
+    /* ---- HERO ---- */
+    .page-hero {
+      padding: 60px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero .badge {
+      display: inline-block;
+      padding: 6px 22px;
+      background: rgba(16,185,129,0.15);
+      color: #34d399;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(16,185,129,0.2);
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(16,185,129,0); }
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #f8fafc;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+      animation: fadeUp 1s ease-out;
+    }
+    .page-hero h1 .highlight {
+      background: linear-gradient(135deg, #34d399, #10b981, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease-in-out infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-hero p {
+      color: #94a3b8;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      animation: fadeUp 1s ease-out 0.4s both;
+    }
+    .hero-stats .stat {
+      background: rgba(255,255,255,0.04);
+      padding: 12px 28px;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+      cursor: default;
+    }
+    .hero-stats .stat:hover {
+      background: rgba(16,185,129,0.1);
+      border-color: rgba(16,185,129,0.3);
+      transform: translateY(-2px);
+    }
+    .hero-stats .stat .num {
+      background: linear-gradient(135deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+    .hero-stats .stat .lbl { color: #94a3b8; font-size: 0.85rem; margin-left: 6px; }
+
+    /* ---- CONTAINER ---- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 50px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #34d399;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+      margin-bottom: 28px;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .back-link:hover { background: rgba(16,185,129,0.15); gap: 14px; border-color: rgba(16,185,129,0.3); }
+
+    /* ---- RESUME BUILDER LAYOUT ---- */
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .builder-form {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 30px 32px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      max-height: 800px;
+      overflow-y: auto;
+    }
+    .builder-form::-webkit-scrollbar {
+      width: 4px;
+    }
+    .builder-form::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+    }
+    .builder-form::-webkit-scrollbar-thumb {
+      background: rgba(16,185,129,0.3);
+      border-radius: 10px;
+    }
+
+    .builder-preview {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 30px 32px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 90px;
+    }
+
+    .form-section {
+      margin-bottom: 20px;
+    }
+    .form-section h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-section h3 i { color: #34d399; }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: rgba(16,185,129,0.3);
+      box-shadow: 0 0 0 3px rgba(16,185,129,0.05);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder {
+      color: #64748b;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .add-btn {
+      padding: 6px 16px;
+      border-radius: 30px;
+      border: 1px solid rgba(16,185,129,0.3);
+      background: rgba(16,185,129,0.08);
+      color: #34d399;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .add-btn:hover {
+      background: rgba(16,185,129,0.15);
+      border-color: rgba(16,185,129,0.5);
+      transform: translateY(-1px);
+    }
+
+    .entry-list {
+      margin-top: 8px;
+    }
+    .entry-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.04);
+      margin-bottom: 4px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+    .entry-item .remove {
+      color: #f87171;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0 4px;
+    }
+    .entry-item .remove:hover { color: #ef4444; }
+
+    /* ---- RESUME PREVIEW ---- */
+    .resume-preview {
+      background: white;
+      color: #0f172a;
+      padding: 30px;
+      border-radius: 12px;
+      min-height: 500px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    .resume-preview .name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+    .resume-preview .title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #3b82f6;
+      margin-bottom: 8px;
+    }
+    .resume-preview .contact {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+    .resume-preview .contact span { display: flex; align-items: center; gap: 4px; }
+    .resume-preview .section-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0f172a;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 4px;
+      margin: 12px 0 8px;
+    }
+    .resume-preview .summary {
+      color: #475569;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+    .resume-preview .exp-item, .resume-preview .edu-item {
+      margin-bottom: 8px;
+    }
+    .resume-preview .exp-item .exp-header, .resume-preview .edu-item .edu-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .resume-preview .exp-item .exp-desc, .resume-preview .edu-item .edu-desc {
+      color: #475569;
+      font-size: 0.8rem;
+    }
+    .resume-preview .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .resume-preview .skills span {
+      background: #e2e8f0;
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: #0f172a;
+      font-weight: 500;
+    }
+    .resume-preview .projects .project-item {
+      margin-bottom: 4px;
+    }
+    .resume-preview .projects .project-item strong {
+      color: #0f172a;
+    }
+
+    .preview-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .preview-actions button {
+      padding: 10px 24px;
+      border-radius: 40px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+      flex: 1;
+      min-width: 120px;
+    }
+    .preview-actions .btn-export {
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      color: white;
+    }
+    .preview-actions .btn-export:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+    }
+    .preview-actions .btn-print {
+      background: rgba(255,255,255,0.06);
+      color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .preview-actions .btn-print:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .builder-grid { grid-template-columns: 1fr; }
+      .builder-preview { position: static; }
+    }
+    @media (max-width: 768px) {
+      .guide-card { padding: 20px; }
+      .hero-stats { gap: 12px; }
+      .hero-stats .stat { padding: 8px 18px; }
+      .form-row { grid-template-columns: 1fr; }
+      .builder-form { padding: 20px; max-height: none; }
+      .builder-preview { padding: 20px; }
+      .resume-preview { padding: 20px; }
+    }
+    @media (max-width: 480px) {
+      .page-hero h1 { font-size: 2rem; }
+      .preview-actions button { flex: 1 1 100%; }
+    }
+
+    /* ---- SCROLL ANIMATIONS ---- */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0a0f1f;
+      color: #e2e8f0;
+      padding: 48px 20px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-container { max-width: 600px; margin: 0 auto; }
+    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 6px; }
+    .footer-logo { height: 32px; width: auto; }
+    .footer h2 { font-size: 22px; font-weight: 700; color: #ffffff; }
+    .footer-text { font-size: 14px; color: #94a3b8; margin: 4px 0 16px; }
+    .footer-links { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #ffffff; }
+    .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .social-links a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.03); color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s;
+      text-decoration: none;
+    }
+    .social-links a:hover { background: #3b82f6; color: #ffffff; transform: translateY(-3px) scale(1.05); border-color: #3b82f6; box-shadow: 0 8px 24px rgba(59,130,246,0.15); }
+    .copyright { font-size: 12px; color: #64748b; margin-top: 12px; }
+    .developer { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    .gradient-text { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ===== ANIMATED BACKGROUND ===== -->
+<div class="bg-animation">
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar" style="background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <a href="/" class="logo-link">
+      <div class="logo" style="color:#f8fafc;">
+        <img src="../../../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
+        <span>Astra Technology</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student-portal/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-graduation-cap"></i><span>Student Portal</span></a>
+      <a href="/blog/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+      <a href="/About/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="/Contact/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-envelope"></i><span>Contact</span></a>
+      <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+  <span class="badge"><i class="fas fa-file-alt"></i> Career Tool</span>
+  <h1>📄 <span class="highlight">Resume Builder</span> Pro</h1>
+  <p>Build a professional resume in minutes. Fill in your details, preview instantly, and export as PDF.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="num">3</span><span class="lbl">Templates</span></div>
+    <div class="stat"><span class="num">100%</span><span class="lbl">Free</span></div>
+    <div class="stat"><span class="num">PDF</span><span class="lbl">Export</span></div>
+  </div>
+</section>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+
+  <a href="/student-portal/tools/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
+
+  <!-- ===== RESUME BUILDER ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+    <h2>📝 Build Your Resume</h2>
+    <p>Fill in your information on the left and see a live preview on the right. Export your resume as a professional PDF.</p>
+
+    <div class="builder-grid">
+      <!-- FORM -->
+      <div class="builder-form" id="resumeForm">
+        <!-- Personal Info -->
+        <div class="form-section">
+          <h3><i class="fas fa-user"></i> Personal Information</h3>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="fullName" placeholder="John Doe" value="John Doe">
+          </div>
+          <div class="form-group">
+            <label>Professional Title</label>
+            <input type="text" id="jobTitle" placeholder="Software Engineer" value="Software Engineer">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="email" placeholder="john@example.com" value="john.doe@email.com">
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="text" id="phone" placeholder="+1 234 567 890" value="+1 (555) 123-4567">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" id="location" placeholder="City, Country" value="New York, USA">
+            </div>
+            <div class="form-group">
+              <label>LinkedIn</label>
+              <input type="text" id="linkedin" placeholder="linkedin.com/in/username" value="linkedin.com/in/johndoe">
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="form-section">
+          <h3><i class="fas fa-align-left"></i> Professional Summary</h3>
+          <div class="form-group">
+            <textarea id="summary" rows="3" placeholder="Write a brief summary of your professional background...">Passionate Software Engineer with 5+ years of experience in full-stack development. Skilled in JavaScript, Python, and cloud technologies. Strong problem-solving abilities and team collaboration.</textarea>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="form-section">
+          <h3><i class="fas fa-briefcase"></i> Experience</h3>
+          <div id="experienceContainer">
+            <div class="entry-item">
+              <span><strong>Senior Developer</strong> - Tech Corp (2020-2024)</span>
+              <span class="remove" onclick="removeEntry(this, 'experience')"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="entry-item">
+              <span><strong>Junior Developer</strong> - Startup Inc (2018-2020)</span>
+              <span class="remove" onclick="removeEntry(this, 'experience')"><i class="fas fa-times"></i></span>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:8px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Job Title</label>
+                <input type="text" id="expTitle" placeholder="Software Engineer">
+              </div>
+              <div class="form-group">
+                <label>Company</label>
+                <input type="text" id="expCompany" placeholder="Company Name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Start Year</label>
+                <input type="text" id="expStart" placeholder="2020">
+              </div>
+              <div class="form-group">
+                <label>End Year</label>
+                <input type="text" id="expEnd" placeholder="2024">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" id="expDesc" placeholder="Key responsibilities and achievements">
+            </div>
+            <button class="add-btn" onclick="addExperience()"><i class="fas fa-plus"></i> Add Experience</button>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="form-section">
+          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div id="educationContainer">
+            <div class="entry-item">
+              <span><strong>B.S. Computer Science</strong> - Stanford University (2014-2018)</span>
+              <span class="remove" onclick="removeEntry(this, 'education')"><i class="fas fa-times"></i></span>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:8px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Degree</label>
+                <input type="text" id="eduDegree" placeholder="B.S. Computer Science">
+              </div>
+              <div class="form-group">
+                <label>Institution</label>
+                <input type="text" id="eduInstitution" placeholder="University Name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Start Year</label>
+                <input type="text" id="eduStart" placeholder="2014">
+              </div>
+              <div class="form-group">
+                <label>End Year</label>
+                <input type="text" id="eduEnd" placeholder="2018">
+              </div>
+            </div>
+            <button class="add-btn" onclick="addEducation()"><i class="fas fa-plus"></i> Add Education</button>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="form-section">
+          <h3><i class="fas fa-code"></i> Skills</h3>
+          <div id="skillsContainer">
+            <div class="entry-item"><span>JavaScript</span><span class="remove" onclick="removeEntry(this, 'skills')"><i class="fas fa-times"></i></span></div>
+            <div class="entry-item"><span>Python</span><span class="remove" onclick="removeEntry(this, 'skills')"><i class="fas fa-times"></i></span></div>
+            <div class="entry-item"><span>React</span><span class="remove" onclick="removeEntry(this, 'skills')"><i class="fas fa-times"></i></span></div>
+            <div class="entry-item"><span>Node.js</span><span class="remove" onclick="removeEntry(this, 'skills')"><i class="fas fa-times"></i></span></div>
+          </div>
+          <div class="form-group" style="margin-top:8px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Skill</label>
+                <input type="text" id="skillInput" placeholder="e.g., React, Python">
+              </div>
+            </div>
+            <button class="add-btn" onclick="addSkill()"><i class="fas fa-plus"></i> Add Skill</button>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="form-section">
+          <h3><i class="fas fa-project-diagram"></i> Projects</h3>
+          <div id="projectsContainer">
+            <div class="entry-item"><span><strong>E-Commerce Platform</strong> - Full-stack app with React & Node</span><span class="remove" onclick="removeEntry(this, 'projects')"><i class="fas fa-times"></i></span></div>
+          </div>
+          <div class="form-group" style="margin-top:8px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Project Name</label>
+                <input type="text" id="projectName" placeholder="Project Name">
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <input type="text" id="projectDesc" placeholder="Brief description">
+              </div>
+            </div>
+            <button class="add-btn" onclick="addProject()"><i class="fas fa-plus"></i> Add Project</button>
+          </div>
+        </div>
+
+        <p style="font-size:0.8rem;color:#64748b;margin-top:10px;"><i class="fas fa-info-circle"></i> Your resume updates in real-time on the right.</p>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="builder-preview">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <h3 style="font-size:1rem;color:#94a3b8;"><i class="fas fa-eye"></i> Live Preview</h3>
+          <span style="font-size:0.7rem;color:#34d399;"><i class="fas fa-circle" style="font-size:8px;"></i> Auto-updates</span>
+        </div>
+        <div class="resume-preview" id="resumePreview">
+          <div class="name" id="previewName">John Doe</div>
+          <div class="title" id="previewTitle">Software Engineer</div>
+          <div class="contact">
+            <span><i class="fas fa-envelope"></i> <span id="previewEmail">john.doe@email.com</span></span>
+            <span><i class="fas fa-phone"></i> <span id="previewPhone">+1 (555) 123-4567</span></span>
+            <span><i class="fas fa-map-marker-alt"></i> <span id="previewLocation">New York, USA</span></span>
+            <span><i class="fab fa-linkedin"></i> <span id="previewLinkedin">linkedin.com/in/johndoe</span></span>
+          </div>
+          <div class="section-title">Professional Summary</div>
+          <div class="summary" id="previewSummary">Passionate Software Engineer with 5+ years of experience in full-stack development. Skilled in JavaScript, Python, and cloud technologies. Strong problem-solving abilities and team collaboration.</div>
+
+          <div class="section-title">Experience</div>
+          <div id="previewExperience">
+            <div class="exp-item">
+              <div class="exp-header"><span>Senior Developer</span><span>Tech Corp | 2020-2024</span></div>
+              <div class="exp-desc">Led development of core products using React and Node.js.</div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-header"><span>Junior Developer</span><span>Startup Inc | 2018-2020</span></div>
+              <div class="exp-desc">Built and maintained web applications using JavaScript and Python.</div>
+            </div>
+          </div>
+
+          <div class="section-title">Education</div>
+          <div id="previewEducation">
+            <div class="edu-item">
+              <div class="edu-header"><span>B.S. Computer Science</span><span>Stanford University | 2014-2018</span></div>
+              <div class="edu-desc">GPA: 3.8/4.0</div>
+            </div>
+          </div>
+
+          <div class="section-title">Skills</div>
+          <div class="skills" id="previewSkills">
+            <span>JavaScript</span><span>Python</span><span>React</span><span>Node.js</span>
+          </div>
+
+          <div class="section-title">Projects</div>
+          <div class="projects" id="previewProjects">
+            <div class="project-item"><strong>E-Commerce Platform</strong> - Full-stack app with React & Node</div>
+          </div>
+        </div>
+
+        <div class="preview-actions">
+          <button class="btn-export" onclick="exportPDF()"><i class="fas fa-file-pdf"></i> Export PDF</button>
+          <button class="btn-print" onclick="window.print()"><i class="fas fa-print"></i> Print</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="../../../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
+      <h2>Astra Technology</h2>
+    </div>
+    <p class="footer-text">Building useful digital products for students and everyone.</p>
+    <div class="footer-links">
+      <a href="/About/">About</a>
+      <a href="/student-portal/">Student Portal</a>
+      <a href="/blog/">Blog</a>
+      <a href="/Contact/">Contact</a>
+      <a href="/Privacy/">Privacy Policy</a>
+      <a href="/Terms/">Terms &amp; Conditions</a>
+    </div>
+    <div class="social-links">
+      <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+    <p class="developer">Designed &amp; Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+  </div>
+</footer>
+
+<script>
+  // ===== DATA STORE =====
+  let experienceData = [
+    { title: 'Senior Developer', company: 'Tech Corp', start: '2020', end: '2024', desc: 'Led development of core products using React and Node.js.' },
+    { title: 'Junior Developer', company: 'Startup Inc', start: '2018', end: '2020', desc: 'Built and maintained web applications using JavaScript and Python.' }
+  ];
+  let educationData = [
+    { degree: 'B.S. Computer Science', institution: 'Stanford University', start: '2014', end: '2018', desc: 'GPA: 3.8/4.0' }
+  ];
+  let skillsData = ['JavaScript', 'Python', 'React', 'Node.js'];
+  let projectsData = [
+    { name: 'E-Commerce Platform', desc: 'Full-stack app with React & Node' }
+  ];
+
+  // ===== REAL-TIME PREVIEW UPDATE =====
+  function updatePreview() {
+    // Personal Info
+    document.getElementById('previewName').textContent = document.getElementById('fullName').value || 'Your Name';
+    document.getElementById('previewTitle').textContent = document.getElementById('jobTitle').value || 'Your Title';
+    document.getElementById('previewEmail').textContent = document.getElementById('email').value || 'email@example.com';
+    document.getElementById('previewPhone').textContent = document.getElementById('phone').value || '+1 234 567 890';
+    document.getElementById('previewLocation').textContent = document.getElementById('location').value || 'City, Country';
+    document.getElementById('previewLinkedin').textContent = document.getElementById('linkedin').value || 'linkedin.com/in/username';
+
+    // Summary
+    document.getElementById('previewSummary').textContent = document.getElementById('summary').value || 'Write your professional summary here...';
+
+    // Experience
+    const expContainer = document.getElementById('previewExperience');
+    expContainer.innerHTML = '';
+    experienceData.forEach(exp => {
+      const div = document.createElement('div');
+      div.className = 'exp-item';
+      div.innerHTML = `
+        <div class="exp-header"><span>${exp.title}</span><span>${exp.company} | ${exp.start}-${exp.end}</span></div>
+        <div class="exp-desc">${exp.desc || 'Key responsibilities and achievements.'}</div>
+      `;
+      expContainer.appendChild(div);
+    });
+
+    // Education
+    const eduContainer = document.getElementById('previewEducation');
+    eduContainer.innerHTML = '';
+    educationData.forEach(edu => {
+      const div = document.createElement('div');
+      div.className = 'edu-item';
+      div.innerHTML = `
+        <div class="edu-header"><span>${edu.degree}</span><span>${edu.institution} | ${edu.start}-${edu.end}</span></div>
+        <div class="edu-desc">${edu.desc || ''}</div>
+      `;
+      eduContainer.appendChild(div);
+    });
+
+    // Skills
+    const skillsContainer = document.getElementById('previewSkills');
+    skillsContainer.innerHTML = '';
+    skillsData.forEach(skill => {
+      const span = document.createElement('span');
+      span.textContent = skill;
+      skillsContainer.appendChild(span);
+    });
+
+    // Projects
+    const projectsContainer = document.getElementById('previewProjects');
+    projectsContainer.innerHTML = '';
+    projectsData.forEach(proj => {
+      const div = document.createElement('div');
+      div.className = 'project-item';
+      div.innerHTML = `<strong>${proj.name}</strong> - ${proj.desc || ''}`;
+      projectsContainer.appendChild(div);
+    });
+  }
+
+  // ===== ADD FUNCTIONS =====
+  function addExperience() {
+    const title = document.getElementById('expTitle').value.trim();
+    const company = document.getElementById('expCompany').value.trim();
+    const start = document.getElementById('expStart').value.trim();
+    const end = document.getElementById('expEnd').value.trim();
+    const desc = document.getElementById('expDesc').value.trim();
+
+    if (!title || !company) {
+      alert('Please enter at least the job title and company.');
+      return;
+    }
+
+    experienceData.push({ title, company, start: start || 'YYYY', end: end || 'YYYY', desc: desc || 'Key responsibilities and achievements.' });
+    updateExperienceList();
+    updatePreview();
+
+    // Clear fields
+    document.getElementById('expTitle').value = '';
+    document.getElementById('expCompany').value = '';
+    document.getElementById('expStart').value = '';
+    document.getElementById('expEnd').value = '';
+    document.getElementById('expDesc').value = '';
+  }
+
+  function addEducation() {
+    const degree = document.getElementById('eduDegree').value.trim();
+    const institution = document.getElementById('eduInstitution').value.trim();
+    const start = document.getElementById('eduStart').value.trim();
+    const end = document.getElementById('eduEnd').value.trim();
+
+    if (!degree || !institution) {
+      alert('Please enter at least the degree and institution.');
+      return;
+    }
+
+    educationData.push({ degree, institution, start: start || 'YYYY', end: end || 'YYYY', desc: '' });
+    updateEducationList();
+    updatePreview();
+
+    document.getElementById('eduDegree').value = '';
+    document.getElementById('eduInstitution').value = '';
+    document.getElementById('eduStart').value = '';
+    document.getElementById('eduEnd').value = '';
+  }
+
+  function addSkill() {
+    const skill = document.getElementById('skillInput').value.trim();
+    if (!skill) {
+      alert('Please enter a skill.');
+      return;
+    }
+    skillsData.push(skill);
+    updateSkillsList();
+    updatePreview();
+    document.getElementById('skillInput').value = '';
+  }
+
+  function addProject() {
+    const name = document.getElementById('projectName').value.trim();
+    const desc = document.getElementById('projectDesc').value.trim();
+
+    if (!name) {
+      alert('Please enter a project name.');
+      return;
+    }
+
+    projectsData.push({ name, desc: desc || 'Project description' });
+    updateProjectsList();
+    updatePreview();
+
+    document.getElementById('projectName').value = '';
+    document.getElementById('projectDesc').value = '';
+  }
+
+  // ===== REMOVE FUNCTIONS =====
+  function removeEntry(element, type) {
+    const item = element.closest('.entry-item');
+    const text = item.querySelector('span:first-child').textContent;
+
+    if (type === 'experience') {
+      const index = experienceData.findIndex(e => `${e.title} - ${e.company} (${e.start}-${e.end})` === text || `${e.title} - ${e.company}` === text);
+      if (index > -1) { experienceData.splice(index, 1); updateExperienceList(); updatePreview(); }
+    } else if (type === 'education') {
+      const index = educationData.findIndex(e => `${e.degree} - ${e.institution} (${e.start}-${e.end})` === text || `${e.degree} - ${e.institution}` === text);
+      if (index > -1) { educationData.splice(index, 1); updateEducationList(); updatePreview(); }
+    } else if (type === 'skills') {
+      const index = skillsData.indexOf(text.trim());
+      if (index > -1) { skillsData.splice(index, 1); updateSkillsList(); updatePreview(); }
+    } else if (type === 'projects') {
+      const index = projectsData.findIndex(p => `${p.name} - ${p.desc}` === text || p.name === text);
+      if (index > -1) { projectsData.splice(index, 1); updateProjectsList(); updatePreview(); }
+    }
+  }
+
+  // ===== UPDATE LISTS =====
+  function updateExperienceList() {
+    const container = document.getElementById('experienceContainer');
+    container.innerHTML = '';
+    experienceData.forEach(exp => {
+      const div = document.createElement('div');
+      div.className = 'entry-item';
+      div.innerHTML = `
+        <span><strong>${exp.title}</strong> - ${exp.company} (${exp.start}-${exp.end})</span>
+        <span class="remove" onclick="removeEntry(this, 'experience')"><i class="fas fa-times"></i></span>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function updateEducationList() {
+    const container = document.getElementById('educationContainer');
+    container.innerHTML = '';
+    educationData.forEach(edu => {
+      const div = document.createElement('div');
+      div.className = 'entry-item';
+      div.innerHTML = `
+        <span><strong>${edu.degree}</strong> - ${edu.institution} (${edu.start}-${edu.end})</span>
+        <span class="remove" onclick="removeEntry(this, 'education')"><i class="fas fa-times"></i></span>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function updateSkillsList() {
+    const container = document.getElementById('skillsContainer');
+    container.innerHTML = '';
+    skillsData.forEach(skill => {
+      const div = document.createElement('div');
+      div.className = 'entry-item';
+      div.innerHTML = `
+        <span>${skill}</span>
+        <span class="remove" onclick="removeEntry(this, 'skills')"><i class="fas fa-times"></i></span>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function updateProjectsList() {
+    const container = document.getElementById('projectsContainer');
+    container.innerHTML = '';
+    projectsData.forEach(proj => {
+      const div = document.createElement('div');
+      div.className = 'entry-item';
+      div.innerHTML = `
+        <span><strong>${proj.name}</strong> - ${proj.desc}</span>
+        <span class="remove" onclick="removeEntry(this, 'projects')"><i class="fas fa-times"></i></span>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  // ===== INPUT EVENT LISTENERS =====
+  document.querySelectorAll('#resumeForm input, #resumeForm textarea').forEach(el => {
+    el.addEventListener('input', updatePreview);
+  });
+
+  // ===== EXPORT PDF =====
+  function exportPDF() {
+    const preview = document.getElementById('resumePreview');
+    const originalContent = preview.innerHTML;
+
+    // Create a clean version for PDF
+    const printWindow = window.open('', '_blank', 'width=800,height=600');
+    if (!printWindow) {
+      alert('Please allow pop-ups to export PDF.');
+      return;
+    }
+
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Resume - ${document.getElementById('fullName').value || 'Resume'}</title>
+        <style>
+          body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; color: #0f172a; line-height: 1.6; }
+          .name { font-size: 2rem; font-weight: 800; margin-bottom: 2px; }
+          .title { font-size: 1.2rem; font-weight: 600; color: #3b82f6; margin-bottom: 8px; }
+          .contact { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.85rem; color: #64748b; margin-bottom: 12px; }
+          .contact span { display: flex; align-items: center; gap: 4px; }
+          .section-title { font-weight: 700; font-size: 1rem; color: #0f172a; border-bottom: 2px solid #3b82f6; padding-bottom: 4px; margin: 14px 0 8px; }
+          .summary { color: #475569; font-size: 0.9rem; margin-bottom: 8px; }
+          .exp-item, .edu-item { margin-bottom: 8px; }
+          .exp-header, .edu-header { display: flex; justify-content: space-between; font-weight: 600; color: #0f172a; }
+          .exp-desc, .edu-desc { color: #475569; font-size: 0.85rem; }
+          .skills { display: flex; flex-wrap: wrap; gap: 6px; }
+          .skills span { background: #e2e8f0; padding: 2px 14px; border-radius: 20px; font-size: 0.8rem; color: #0f172a; font-weight: 500; }
+          .project-item { margin-bottom: 4px; }
+          @media print { body { padding: 30px; } .no-print { display: none; } }
+        </style>
+      </head>
+      <body>
+        ${originalContent}
+        <p style="text-align:center;font-size:0.7rem;color:#94a3b8;margin-top:20px;border-top:1px solid #e2e8f0;padding-top:10px;">Generated with Astra Technology Resume Builder</p>
+      </body>
+      </html>
+    `);
+
+    printWindow.document.close();
+
+    // Wait for styles to load then print
+    setTimeout(() => {
+      printWindow.print();
+    }, 500);
+  }
+
+  // ===== INITIALIZE =====
+  document.addEventListener('DOMContentLoaded', function() {
+    updatePreview();
+  });
+
+  // ===== SCROLL ANIMATIONS =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ===== YEAR =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

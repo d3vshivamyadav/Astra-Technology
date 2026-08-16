@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citation Generator · Pro Study Tools | Astra Student Portal</title>
+  <meta name="description" content="Generate perfect citations in APA, MLA, Chicago, and Harvard styles. Free citation generator for students and researchers.">
+  <link rel="icon" href="../../../assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../../../style.css">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT5QMVXL6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JNT5QMVXL6');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8419693337797955" crossorigin="anonymous"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.7;
+      padding-top: 70px;
+      overflow-x: hidden;
+    }
+
+    /* ---- ANIMATED BACKGROUND ---- */
+    .bg-animation {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      overflow: hidden;
+    }
+    .bg-animation .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+    }
+    .bg-animation .orb:nth-child(1) {
+      width: 500px;
+      height: 500px;
+      top: -10%;
+      right: -10%;
+      background: #10b981;
+      animation-delay: 0s;
+    }
+    .bg-animation .orb:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      bottom: -10%;
+      left: -10%;
+      background: #3b82f6;
+      animation-delay: -7s;
+    }
+    .bg-animation .orb:nth-child(3) {
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      background: #8b5cf6;
+      animation-delay: -14s;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -40px) scale(1.1); }
+      50% { transform: translate(-20px, 20px) scale(0.9); }
+      75% { transform: translate(40px, 30px) scale(1.05); }
+    }
+
+    /* ---- HERO ---- */
+    .page-hero {
+      padding: 60px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero .badge {
+      display: inline-block;
+      padding: 6px 22px;
+      background: rgba(16,185,129,0.15);
+      color: #34d399;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(16,185,129,0.2);
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(16,185,129,0); }
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #f8fafc;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+      animation: fadeUp 1s ease-out;
+    }
+    .page-hero h1 .highlight {
+      background: linear-gradient(135deg, #34d399, #10b981, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease-in-out infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-hero p {
+      color: #94a3b8;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      animation: fadeUp 1s ease-out 0.4s both;
+    }
+    .hero-stats .stat {
+      background: rgba(255,255,255,0.04);
+      padding: 12px 28px;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+      cursor: default;
+    }
+    .hero-stats .stat:hover {
+      background: rgba(16,185,129,0.1);
+      border-color: rgba(16,185,129,0.3);
+      transform: translateY(-2px);
+    }
+    .hero-stats .stat .num {
+      background: linear-gradient(135deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+    .hero-stats .stat .lbl { color: #94a3b8; font-size: 0.85rem; margin-left: 6px; }
+
+    /* ---- CONTAINER ---- */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 50px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #34d399;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+      margin-bottom: 28px;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .back-link:hover { background: rgba(16,185,129,0.15); gap: 14px; border-color: rgba(16,185,129,0.3); }
+
+    /* ---- CARDS ---- */
+    .guide-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 36px 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      margin-bottom: 28px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .guide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #10b981, #3b82f6, transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .guide-card:hover::before { opacity: 1; }
+    .guide-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16,185,129,0.15);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+    }
+    .guide-card .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(59,130,246,0.15));
+      color: #34d399;
+      font-size: 26px;
+      margin-bottom: 14px;
+      transition: transform 0.3s;
+    }
+    .guide-card:hover .card-icon { transform: scale(1.05) rotate(-3deg); }
+    .guide-card h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .guide-card h2 i { color: #34d399; margin-right: 12px; }
+    .guide-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin: 18px 0 8px;
+    }
+    .guide-card p, .guide-card li {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+    .guide-card ul, .guide-card ol {
+      padding-left: 24px;
+      margin: 8px 0 12px;
+    }
+    .guide-card ul li, .guide-card ol li { margin-bottom: 8px; }
+
+    .tip-box {
+      background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.08));
+      border-left: 4px solid #10b981;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .tip-box i { color: #34d399; margin-right: 10px; }
+
+    /* ---- CITATION GENERATOR ---- */
+    .citation-generator {
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 24px 30px;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-top: 10px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: rgba(16,185,129,0.3);
+      box-shadow: 0 0 0 3px rgba(16,185,129,0.05);
+    }
+    .form-group input::placeholder {
+      color: #64748b;
+    }
+    .form-group select option {
+      background: #1e293b;
+      color: #f1f5f9;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .generate-btn {
+      padding: 12px 32px;
+      border-radius: 40px;
+      border: none;
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+      width: 100%;
+      margin-top: 8px;
+    }
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+    }
+
+    .citation-result {
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 16px 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-top: 16px;
+      display: none;
+      position: relative;
+    }
+    .citation-result.active {
+      display: block;
+      animation: fadeUp 0.5s ease-out;
+    }
+    .citation-result .citation-text {
+      font-family: 'Inter', monospace;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      word-wrap: break-word;
+      padding-right: 40px;
+    }
+    .citation-result .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 6px 14px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #94a3b8;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .citation-result .copy-btn:hover {
+      background: rgba(16,185,129,0.15);
+      border-color: rgba(16,185,129,0.3);
+      color: #34d399;
+    }
+    .citation-result .copy-btn.copied {
+      background: rgba(16,185,129,0.15);
+      border-color: rgba(16,185,129,0.3);
+      color: #34d399;
+    }
+
+    /* ---- GRIDS ---- */
+    .grid-2col, .grid-3col, .grid-4col {
+      display: grid;
+      gap: 16px;
+      margin: 12px 0;
+    }
+    .grid-2col { grid-template-columns: 1fr 1fr; }
+    .grid-3col { grid-template-columns: repeat(3, 1fr); }
+
+    .method-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .method-card:hover {
+      border-color: rgba(16,185,129,0.3);
+      background: rgba(16,185,129,0.05);
+      transform: translateY(-4px);
+    }
+    .method-card i {
+      font-size: 28px;
+      background: linear-gradient(135deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .method-card h4 { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
+    .method-card p { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
+
+    /* ---- FAQ ---- */
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(16,185,129,0.2); }
+    .faq-question {
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #f1f5f9;
+      background: rgba(255,255,255,0.02);
+      transition: background 0.3s;
+      user-select: none;
+    }
+    .faq-question:hover { background: rgba(255,255,255,0.04); }
+    .faq-question i { color: #34d399; transition: transform 0.4s; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+      color: #94a3b8;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 20px 18px 20px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .grid-3col { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .grid-2col, .grid-3col { grid-template-columns: 1fr; }
+      .guide-card { padding: 24px 20px; }
+      .hero-stats { gap: 12px; }
+      .hero-stats .stat { padding: 8px 18px; }
+      .form-row { grid-template-columns: 1fr; }
+      .citation-generator { padding: 16px; }
+    }
+    @media (max-width: 480px) {
+      .page-hero h1 { font-size: 2rem; }
+    }
+
+    /* ---- SCROLL ANIMATIONS ---- */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0a0f1f;
+      color: #e2e8f0;
+      padding: 48px 20px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-container { max-width: 600px; margin: 0 auto; }
+    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 6px; }
+    .footer-logo { height: 32px; width: auto; }
+    .footer h2 { font-size: 22px; font-weight: 700; color: #ffffff; }
+    .footer-text { font-size: 14px; color: #94a3b8; margin: 4px 0 16px; }
+    .footer-links { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #ffffff; }
+    .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .social-links a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.03); color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s;
+      text-decoration: none;
+    }
+    .social-links a:hover { background: #3b82f6; color: #ffffff; transform: translateY(-3px) scale(1.05); border-color: #3b82f6; box-shadow: 0 8px 24px rgba(59,130,246,0.15); }
+    .copyright { font-size: 12px; color: #64748b; margin-top: 12px; }
+    .developer { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    .gradient-text { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ===== ANIMATED BACKGROUND ===== -->
+<div class="bg-animation">
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar" style="background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <a href="/" class="logo-link">
+      <div class="logo" style="color:#f8fafc;">
+        <img src="../../../assets/logo.png" alt="Astra Technology Logo" width="34" height="34">
+        <span>Astra Technology</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student-portal/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-graduation-cap"></i><span>Student Portal</span></a>
+      <a href="/blog/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-newspaper"></i><span>Blog</span></a>
+      <a href="/About/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="/Contact/" class="nav-link" style="color:#94a3b8;"><i class="fas fa-envelope"></i><span>Contact</span></a>
+      <a href="/#projects" class="nav-btn"><i class="fa-regular fa-compass"></i><span>Explore</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+  <span class="badge"><i class="fas fa-quote-right"></i> Academic Tool</span>
+  <h1>📚 <span class="highlight">Citation Generator</span> Pro</h1>
+  <p>Generate perfect citations in APA, MLA, Chicago, and Harvard styles. Free, fast, and accurate.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="num">4</span><span class="lbl">Citation Styles</span></div>
+    <div class="stat"><span class="num">100%</span><span class="lbl">Free</span></div>
+    <div class="stat"><span class="num">10s</span><span class="lbl">Quick Generate</span></div>
+  </div>
+</section>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+
+  <a href="/student-portal/#tools" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
+
+  <!-- ===== CITATION GENERATOR ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-quote-right"></i></div>
+    <h2>📝 Citation Generator</h2>
+    <p>Enter the details of your source and get a perfectly formatted citation in your chosen style.</p>
+    <div class="citation-generator">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="citationStyle">Citation Style</label>
+          <select id="citationStyle">
+            <option value="apa">APA 7th Edition</option>
+            <option value="mla">MLA 9th Edition</option>
+            <option value="chicago">Chicago 17th Edition</option>
+            <option value="harvard">Harvard</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sourceType">Source Type</label>
+          <select id="sourceType">
+            <option value="book">Book</option>
+            <option value="article">Journal Article</option>
+            <option value="website">Website</option>
+            <option value="video">Video / Film</option>
+            <option value="ebook">E-Book</option>
+            <option value="thesis">Thesis / Dissertation</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="authorName">Author Name</label>
+        <input type="text" id="authorName" placeholder="e.g., John Smith or Smith, J.">
+      </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" placeholder="e.g., The Art of Learning">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="publisher">Publisher / Journal</label>
+          <input type="text" id="publisher" placeholder="e.g., Oxford University Press">
+        </div>
+        <div class="form-group">
+          <label for="year">Year</label>
+          <input type="text" id="year" placeholder="e.g., 2024">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="url">URL (for websites)</label>
+          <input type="text" id="url" placeholder="https://example.com">
+        </div>
+        <div class="form-group">
+          <label for="doi">DOI (for articles)</label>
+          <input type="text" id="doi" placeholder="10.xxxx/xxxxx">
+        </div>
+      </div>
+      <button class="generate-btn" id="generateCitation"><i class="fas fa-magic"></i> Generate Citation</button>
+
+      <div class="citation-result" id="citationResult">
+        <button class="copy-btn" id="copyCitation"><i class="fas fa-copy"></i> Copy</button>
+        <div class="citation-text" id="citationText">Your formatted citation will appear here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CITATION STYLES ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-book"></i></div>
+    <h2>📖 Citation Style Guide</h2>
+    <div class="grid-3col">
+      <div class="method-card">
+        <i class="fas fa-ribbon"></i>
+        <h4>APA 7th Edition</h4>
+        <p>American Psychological Association style. Used in social sciences, psychology, and education.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-ribbon"></i>
+        <h4>MLA 9th Edition</h4>
+        <p>Modern Language Association style. Used in humanities, literature, and languages.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-ribbon"></i>
+        <h4>Chicago 17th Edition</h4>
+        <p>University of Chicago style. Used in history, arts, and social sciences. Two styles: Notes & Bibliography and Author-Date.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-ribbon"></i>
+        <h4>Harvard</h4>
+        <p>Parenthetical referencing style. Widely used in business, economics, and social sciences.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CITATION TIPS ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-star"></i></div>
+    <h2>💡 Pro Citation Tips</h2>
+    <div class="grid-2col">
+      <div class="method-card">
+        <i class="fas fa-check-circle"></i>
+        <h4>Always Double-Check</h4>
+        <p>Citation generators are helpful but always verify your citations against the official style guide.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-database"></i>
+        <h4>Use a Reference Manager</h4>
+        <p>Tools like Zotero, Mendeley, or EndNote can automate citations and bibliography creation.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-print"></i>
+        <h4>Check PDFs First</h4>
+        <p>Journal articles often have the correct citation format on the first page or in the PDF metadata.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-link"></i>
+        <h4>Include DOIs</h4>
+        <p>Digital Object Identifiers (DOIs) are preferred over URLs for journal articles in most citation styles.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-sort-alpha-down"></i>
+        <h4>Organize Your References</h4>
+        <p>Keep a running list of sources as you research to save time at the end.</p>
+      </div>
+      <div class="method-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h4>Ask Your Librarian</h4>
+        <p>University librarians are experts in citation styles and can help with tricky sources.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <div class="guide-card animate-on-scroll">
+    <div class="card-icon"><i class="fas fa-circle-question"></i></div>
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item active">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Which citation style should I use?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        The style depends on your field and instructor requirements. APA is common in social sciences, MLA in humanities, Chicago in history, and Harvard in business. Always check your course guidelines.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>What's the difference between a bibliography and a reference list?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A reference list includes only the sources you cited in your text. A bibliography includes all sources you consulted during your research, even if you didn't cite them directly.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How do I cite a source with multiple authors?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        In APA, list up to 20 authors (with an ampersand before the last). In MLA, list up to 3 authors (with "and" before the last). For more than 3 authors, use "et al." after the first author in MLA.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How do I cite a website with no author?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Use the title of the page in place of the author. In APA, move the title to the author position. In MLA, use the title followed by the date and URL.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>What's the difference between APA and MLA?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        APA uses author-date in-text citations and a reference list. MLA uses author-page citations and a Works Cited list. APA is more common in sciences, MLA in humanities.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>How do I cite a source I found in another source?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        This is called secondary citing. In APA, cite both the primary and secondary sources. For example: (Smith, 2020, as cited in Jones, 2023). Try to find and cite the original source if possible.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUICK START CHALLENGE ===== -->
+  <div class="guide-card animate-on-scroll" style="background:linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.08));border-color:rgba(16,185,129,0.15);">
+    <div class="card-icon" style="background:linear-gradient(135deg, #10b981, #3b82f6);color:white;"><i class="fas fa-play"></i></div>
+    <h2 style="color:#34d399;">🔥 Quick Start Challenge</h2>
+    <p>Test the citation generator right now:</p>
+    <ol style="margin:12px 0 0 20px;color:#cbd5e1;">
+      <li>Find a book, article, or website you want to cite.</li>
+      <li>Enter the details into the form above.</li>
+      <li>Select your citation style and source type.</li>
+      <li>Click "Generate Citation".</li>
+      <li>Copy the formatted citation to your bibliography.</li>
+    </ol>
+    <p style="margin-top:14px;font-weight:700;color:#34d399;">🚀 That's how you create perfect citations in seconds!</p>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="../../../assets/logo.png" alt="Astra Technology Logo" class="footer-logo" width="32" height="32">
+      <h2>Astra Technology</h2>
+    </div>
+    <p class="footer-text">Building useful digital products for students and everyone.</p>
+    <div class="footer-links">
+      <a href="/About/">About</a>
+      <a href="/student-portal/">Student Portal</a>
+      <a href="/blog/">Blog</a>
+      <a href="/Contact/">Contact</a>
+      <a href="/Privacy/">Privacy Policy</a>
+      <a href="/Terms/">Terms &amp; Conditions</a>
+    </div>
+    <div class="social-links">
+      <a href="https://x.com/d3vshivamyadav" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://instagram.com/astratechnology.me" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/d3vshivamyadav" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:d3vshivamyadav@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="copyright">© <span id="year"></span> Astra Technology. All Rights Reserved.</p>
+    <p class="developer">Designed &amp; Developed with ❤️ by <span class="gradient-text">Shivam Yadav</span></p>
+  </div>
+</footer>
+
+<script>
+  // ===== CITATION GENERATOR =====
+  document.getElementById('generateCitation').addEventListener('click', function() {
+    const style = document.getElementById('citationStyle').value;
+    const sourceType = document.getElementById('sourceType').value;
+    const author = document.getElementById('authorName').value.trim();
+    const title = document.getElementById('title').value.trim();
+    const publisher = document.getElementById('publisher').value.trim();
+    const year = document.getElementById('year').value.trim();
+    const url = document.getElementById('url').value.trim();
+    const doi = document.getElementById('doi').value.trim();
+
+    if (!title) {
+      alert('Please enter at least a title for your source.');
+      return;
+    }
+
+    let citation = '';
+    const resultDiv = document.getElementById('citationResult');
+    const citationText = document.getElementById('citationText');
+
+    // Basic citation generation (simplified for demo)
+    switch(style) {
+      case 'apa':
+        citation = generateAPA(author, title, publisher, year, url, doi, sourceType);
+        break;
+      case 'mla':
+        citation = generateMLA(author, title, publisher, year, url, doi, sourceType);
+        break;
+      case 'chicago':
+        citation = generateChicago(author, title, publisher, year, url, doi, sourceType);
+        break;
+      case 'harvard':
+        citation = generateHarvard(author, title, publisher, year, url, doi, sourceType);
+        break;
+      default:
+        citation = `${author ? author + '. ' : ''}${title}. ${publisher ? publisher + ', ' : ''}${year ? year : ''}.`;
+    }
+
+    citationText.textContent = citation;
+    resultDiv.classList.add('active');
+  });
+
+  function generateAPA(author, title, publisher, year, url, doi, sourceType) {
+    let parts = [];
+    if (author) parts.push(author + '.');
+    else parts.push('Author. (n.d.).');
+    parts.push(`${title}.`);
+    if (sourceType === 'book' && publisher) parts.push(publisher + '.');
+    if (sourceType === 'article' && publisher) parts.push(`${publisher}.`);
+    if (year) parts.push(`(${year}).`);
+    if (doi) parts.push(`https://doi.org/${doi}`);
+    else if (url) parts.push(`Retrieved from ${url}`);
+    return parts.join(' ');
+  }
+
+  function generateMLA(author, title, publisher, year, url, doi, sourceType) {
+    let parts = [];
+    if (author) parts.push(author + '.');
+    parts.push(`"${title}."`);
+    if (sourceType === 'book' && publisher) parts.push(publisher + ',');
+    if (sourceType === 'article' && publisher) parts.push(`${publisher},`);
+    if (year) parts.push(year + '.');
+    if (url) parts.push(url);
+    return parts.join(' ');
+  }
+
+  function generateChicago(author, title, publisher, year, url, doi, sourceType) {
+    let parts = [];
+    if (author) parts.push(author + '.');
+    parts.push(`"${title}."`);
+    if (sourceType === 'book' && publisher) parts.push(publisher + ',');
+    if (sourceType === 'article' && publisher) parts.push(`${publisher},`);
+    if (year) parts.push(year + '.');
+    if (doi) parts.push(`https://doi.org/${doi}`);
+    else if (url) parts.push(url);
+    return parts.join(' ');
+  }
+
+  function generateHarvard(author, title, publisher, year, url, doi, sourceType) {
+    let parts = [];
+    if (author) parts.push(author + '.');
+    else parts.push('(Author, n.d.)');
+    parts.push(`${title}.`);
+    if (sourceType === 'book' && publisher) parts.push(publisher + '.');
+    if (sourceType === 'article' && publisher) parts.push(`${publisher}.`);
+    if (year) parts.push(`(${year}).`);
+    if (doi) parts.push(`doi:${doi}`);
+    else if (url) parts.push(`Available at: ${url}`);
+    return parts.join(' ');
+  }
+
+  // ===== COPY CITATION =====
+  document.getElementById('copyCitation').addEventListener('click', function() {
+    const text = document.getElementById('citationText').textContent;
+    if (text && text !== 'Your formatted citation will appear here.') {
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = this;
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        const btn = this;
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  });
+
+  // ===== SCROLL ANIMATIONS =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ===== FAQ =====
+  function toggleFAQ(el) {
+    const item = el.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  }
+
+  // ===== YEAR =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
